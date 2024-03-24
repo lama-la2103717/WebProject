@@ -1,0 +1,130 @@
+{
+  "sellers": [
+    {
+      "company_name": "ABC Electronics",
+      "username": "abcelectronics",
+      "password": "abc123",
+      "bank_account": "123456789"
+    },
+    {
+      "company_name": "XYZ Fashion",
+      "username": "xyzfashion",
+      "password": "xyz456",
+      "bank_account": "987654321"
+    },
+    {
+      "company_name": "GHI Home Goods",
+      "username": "ghihomegoods",
+      "password": "ghi789",
+      "bank_account": "567891234"
+    },
+    {
+      "company_name": "123 Furniture",
+      "username": "123furniture",
+      "password": "furniture123",
+      "bank_account": "345678912"
+    },
+    {
+      "company_name": "UVW Sports",
+      "username": "uvwsports",
+      "password": "uvw456",
+      "bank_account": "789123456"
+    },
+    {
+      "company_name": "MNO Appliances",
+      "username": "mnoappliances",
+      "password": "mno789",
+      "bank_account": "234567891"
+    },
+    {
+      "company_name": "PQR Books",
+      "username": "pqrbooks",
+      "password": "pqr123",
+      "bank_account": "456789123"
+    },
+    {
+      "company_name": "LMN Beauty",
+      "username": "lmnbeauty",
+      "password": "lmn456",
+      "bank_account": "891234567"
+    },
+    {
+      "company_name": "RST Food",
+      "username": "rstfood",
+      "password": "rst789",
+      "bank_account": "678912345"
+    },
+    {
+      "company_name": "EFG Tools",
+      "username": "efgtools",
+      "password": "efg123",
+      "bank_account": "912345678"
+    },
+    {
+      "company_name": "IJK Clothing",
+      "username": "ijkclothing",
+      "password": "ijk456",
+      "bank_account": "345678912"
+    },
+    {
+      "company_name": "DEF Automotive",
+      "username": "defauto",
+      "password": "def789",
+      "bank_account": "789123456"
+    },
+    {
+      "company_name": "VWX Pets",
+      "username": "vwxpets",
+      "password": "vwx123",
+      "bank_account": "234567891"
+    },
+    {
+      "company_name": "QRS Music",
+      "username": "qrsmusic",
+      "password": "qrs456",
+      "bank_account": "456789123"
+    },
+    {
+      "company_name": "NOP Art",
+      "username": "nopart",
+      "password": "nop789",
+      "bank_account": "891234567"
+    },
+    {
+      "company_name": "TUV Home Decor",
+      "username": "tuvhomedecor",
+      "password": "tuv123",
+      "bank_account": "678912345"
+    },
+    {
+      "company_name": "JKL Jewelry",
+      "username": "jkljewelry",
+      "password": "jkl456",
+      "bank_account": "912345678"
+    },
+    {
+      "company_name": "PQR Office Supplies",
+      "username": "pqrofficesupplies",
+      "password": "pqr789",
+      "bank_account": "345678912"
+    },
+    {
+      "company_name": "MNO Gardening",
+      "username": "mnogardening",
+      "password": "mno123",
+      "bank_account": "789123456"
+    },
+    {
+      "company_name": "UVW Health",
+      "username": "uvwhealth",
+      "password": "uvw456",
+      "bank_account": "234567891"
+    },
+    {
+      "company_name": "ABC Toys",
+      "username": "abctoys",
+      "password": "abc789",
+      "bank_account": "456789123"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "admins": [
+    {
+      "username": "admin1",
+      "password": "admin@123"
+    },
+    {
+      "username": "admin2",
+      "password": "secureAdmin456"
+    },
+    {
+      "username": "admin3",
+      "password": "adminPass789"
+    },
+    {
+      "username": "admin4",
+      "password": "admin1234"
+    },
+    {
+      "username": "admin5",
+      "password": "p@ssw0rd"
+    },
+    {
+      "username": "admin6",
+      "password": "adminPassword"
+    },
+    {
+      "username": "admin7",
+      "password": "qwerty123"
+    },
+    {
+      "username": "admin8",
+      "password": "admin2023"
+    },
+    {
+      "username": "admin9",
+      "password": "admin!@#"
+    },
+    {
+      "username": "admin10",
+      "password": "passwordAdmin"
+    },
+    {
+      "username": "admin11",
+      "password": "adminPass"
+    },
+    {
+      "username": "admin12",
+      "password": "admin2024"
+    },
+    {
+      "username": "admin13",
+      "password": "secureAdmin"
+    },
+    {
+      "username": "admin14",
+      "password": "admin456"
+    },
+    {
+      "username": "admin15",
+      "password": "adminPass789!"
+    },
+    {
+      "username": "admin16",
+      "password": "Admin@123"
+    },
+    {
+      "username": "admin17",
+      "password": "admin2025"
+    },
+    {
+      "username": "admin18",
+      "password": "adminPass123"
+    },
+    {
+      "username": "admin19",
+      "password": "secureAdmin!"
+    },
+    {
+      "username": "admin20",
+      "password": "password123"
+    }
+  ]
+}
