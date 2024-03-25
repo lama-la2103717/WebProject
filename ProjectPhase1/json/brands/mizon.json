@@ -6,7 +6,8 @@
     "price": "55.00 QAR",
     "rating": "4.4/5",
     "description": "Achieve flawless coverage with our Correct Concealer in Natural Beige. Blends seamlessly to conceal imperfections and brighten the under-eye area.",
-    "brand": "Mizon"
+    "brand": "Mizon",
+    "stock": 56
   },
   {
     "id": "MZN002",
@@ -15,7 +16,8 @@
     "price": "78.90 QAR",
     "rating": "4.7/5",
     "description": "Revitalize your skin with our Snail Repair BB Cream in Light Beige. Formulated with snail mucin to hydrate, smooth, and protect your complexion.",
-    "brand": "Mizon"
+    "brand": "Mizon",
+    "stock": 84
   },
   {
     "id": "MZN003",
@@ -24,16 +26,18 @@
     "price": "69.99 QAR",
     "rating": "4.5/5",
     "description": "Set your makeup flawlessly with our Corrective Powder Cushion in Ivory. Provides a matte finish while blurring imperfections for a smooth complexion.",
-    "brand": "Mizon"
+    "brand": "Mizon",
+    "stock": 99
   },
   {
     "id": "MZN004",
-     "title": "Mizon Panthenol Eye Gel Patch",
+    "title": "Mizon Panthenol Eye Gel Patch",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/miz/miz75427/v/11.jpg",
     "price": "42.50 QAR",
     "rating": "4.3/5",
     "description": "Revitalize tired eyes with our Panthenol Eye Gel Patch. Formulated with panthenol to moisturize and soothe the delicate eye area.",
-    "brand": "Mizon"
+    "brand": "Mizon",
+    "stock": 71
   },
   {
     "id": "MZN005",
@@ -42,7 +46,8 @@
     "price": "49.75 QAR",
     "rating": "4.8/5",
     "description": "Illuminate your features with our Wonder Highlighter in Champagne Glow. Infused with pearl pigments for a radiant, luminous finish.",
-    "brand": "Mizon"
+    "brand": "Mizon",
+    "stock": 23
   },
   {
     "id": "MZN006",
@@ -51,7 +56,8 @@
     "price": "36.80 QAR",
     "rating": "4.5/5",
     "description": "Achieve voluminous, curled lashes with our Ultra Curl Mascara in Black. Features a curved brush to lift and define each lash.",
-    "brand": "Mizon"
+    "brand": "Mizon",
+    "stock": 40
   },
   {
     "id": "MZN007",
@@ -60,7 +66,8 @@
     "price": "28.00 QAR",
     "rating": "4.3/5",
     "description": "Define and fill in your brows effortlessly with our Perfect Eyebrow Pencil in Dark Brown. Waterproof formula for long-lasting wear.",
-    "brand": "Mizon"
+    "brand": "Mizon",
+    "stock": 90
   },
   {
     "id": "MZN008",
@@ -69,7 +76,8 @@
     "price": "32.99 QAR",
     "rating": "4.6/5",
     "description": "Add a pop of color to your lips with our Lip Tint in Berry Crush. Lightweight formula for a natural, long-lasting tint.",
-    "brand": "Mizon"
+    "brand": "Mizon",
+    "stock": 100
   },
   {
     "id": "MZN009",
@@ -78,8 +86,10 @@
     "price": "45.50 QAR",
     "rating": "4.7/5",
     "description": "Get velvety matte lips with our All Day Matte Lipstick in Nude Rose. Creamy formula with intense pigment for all-day wear.",
-    "brand": "Mizon"
+    "brand": "Mizon",
+    "stock": 62
   },
+
   {
     "id": "MZN010",
      "title": "Mizon Collagen Power Lifting Cream",
@@ -87,5 +97,6 @@
     "price": "112.50 QAR",
     "rating": "4.8/5",
     "description": "Restore elasticity and firmness to your skin with our Collagen Power Lifting Cream. Formulated with marine collagen to plump and lift.",
-    "brand": "Mizon"  }
+    "brand": "Mizon",
+    "stock": 62  }
 ]

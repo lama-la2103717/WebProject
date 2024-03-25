@@ -1,12 +1,13 @@
 [
   {
     "id": "ISN001",
-   "title": "ISNtree Green Tea Fresh Lotion",
+    "title": "ISNtree Green Tea Fresh Lotion",
     "image": "https://s3.ap-south-1.amazonaws.com/vely-prod-media-bucket/products/GREEN_TEA_FRESH_EMULSION_120ml_thumbnail_1.jpg",
     "price": "70.80 QAR",
     "rating": "4.3/5",
     "description": "Hydrate and balance your skin with our Green Tea Fresh Lotion. Non-greasy formula provides long-lasting moisture without clogging pores.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 80
   },
   {
     "id": "ISN002",
@@ -15,7 +16,8 @@
     "price": "68.90 QAR",
     "rating": "4.6/5",
     "description": "Refresh and balance your skin with our Green Tea Fresh Toner. Contains 80% green tea extract to soothe and control excess oil production.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 92
   },
   {
     "id": "ISN003",
@@ -24,7 +26,8 @@
     "price": "82.50 QAR",
     "rating": "4.7/5",
     "description": "Purify and calm your skin with our Real Mugwort Clay Mask. Formulated with 20% mugwort extract to detoxify and soothe irritation.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 75
   },
   {
     "id": "ISN004",
@@ -33,7 +36,8 @@
     "price": "95.00 QAR",
     "rating": "4.6/5",
     "description": "Target blemishes and inflammation with our Spot Saver Mugwort Ampoule. Contains 85% mugwort extract to calm and heal troubled skin.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 88
   },
   {
     "id": "ISN005",
@@ -42,7 +46,8 @@
     "price": "72.80 QAR",
     "rating": "4.4/5",
     "description": "Hydrate and mattify your skin with our Green Tea Fresh Emulsion. Lightweight formula absorbs quickly without leaving a greasy residue.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 90
   },
   {
     "id": "ISN006",
@@ -51,7 +56,8 @@
     "price": "55.00 QAR",
     "rating": "4.5/5",
     "description": "Soothe and moisturize your skin with our Aloe Soothing Gel. Formulated with 80% aloe vera extract to calm irritation and redness.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 85
   },
   {
     "id": "ISN007",
@@ -60,7 +66,8 @@
     "price": "88.50 QAR",
     "rating": "4.7/5",
     "description": "Achieve smoother and clearer skin with our Clear Skin 8% AHA Essence. Contains 8% glycolic acid to exfoliate and refine skin texture.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 79
   },
   {
     "id": "ISN008",
@@ -69,7 +76,8 @@
     "price": "78.00 QAR",
     "rating": "4.6/5",
     "description": "Calm and nourish your skin with our Real Rose Calming Mask. Infused with rose extract to hydrate and soothe sensitive skin.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 83
   },
   {
     "id": "ISN009",
@@ -78,9 +86,10 @@
     "price": "90.20 QAR",
     "rating": "4.8/5",
     "description": "Quench thirsty skin with our Hyaluronic Acid Water Essence. Lightweight formula absorbs quickly to provide deep hydration.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 95
   },
-  {
+{
     "id": "ISN010",
     "title": "ISNtree Sensitive Balancing Cleansing Foam",
     "image": "https://koreacosmeticsbn.com/cdn/shop/products/file_a62d0598-f9af-4f0c-840f-5376589fe477_600x.jpg?v=1670652740",
@@ -88,6 +97,7 @@
     "rating": "4.4/5",
     "description": "Gently cleanse and balance your skin with our Sensitive Balancing Cleansing Foam. Mild formula soothes and purifies without stripping skin.",
     "brand": "ISNtree"
+    ,"stock": 22
   },
   {
     "id": "ISN011",
@@ -97,6 +107,7 @@
     "rating": "4.7/5",
     "description": "Soothe and hydrate sensitive skin with our Real Mugwort Essence. Contains 100% mugwort extract to calm inflammation and irritation.",
     "brand": "ISNtree"
+    ,"stock": 88
   },
   {
     "id": "ISN012",
@@ -105,5 +116,6 @@
     "price": "79.90 QAR",
     "rating": "4.6/5",
     "description": "Revitalize and moisturize your skin with our Green Tea Fresh Essence. Lightweight formula absorbs quickly to provide instant hydration.",
-    "brand": "ISNtree"
+    "brand": "ISNtree",
+    "stock": 95
   }]
