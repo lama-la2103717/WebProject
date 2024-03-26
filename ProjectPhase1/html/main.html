@@ -4,34 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Glammed</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
-    <header>
-        <img src="/images/logo.png" alt="logo">
-        <nav>
-            <ul><li><a href="#home">Home</a></li>
-                <li><a href="#brands">Brands</a></li>
-                <li><a href="#best-rated">Best Rated</a></li>
-          </nav>
-          <input type="text" id="search" placeholder="Search for a product">
+<div class="container"></div>
+    <header class="menu">
+        <div class="menu-content">
+            <!-- <img src="/images/login.png" class="logo-img" alt="Logo" width=""> -->
+            <input type="checkbox" class="checkbox">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#brands">Brands</a></li>
+                    <li><a href="#topRating">Top ratings</a></li>
+                </ul>
+            </nav>
+            <label for="checkbox">
+                <i class="fa fa-bars menu-icon"></i>
+            </label>
+        </div>
     </header>
-    
     <main>
+
         <section id="home">
-
+            <!-- add slidshow img -->
         </section>
-        <section id="brands">
-            
 
+        <h2>Brands</h2>
+        <section id="brands" class="brands">
+            <div class="card">
+                <img src="/images/BeautyOfJoseon.webp" alt="BeautyOfJoseon" >
+                <p>Beauty Of Joseon</p>
+                <input type="button" value="shop" id="button"></div>
+            </div>
+            <div class="card">
+                <img src="/images/Cosrx.webp" alt="">
+                <p>Cosrx</p>
+                <input type="button" value="shop" id="button"></div>
+            </div>
+            <div class="card">
+                <img src="" alt="">
+                <!-- <p>brand name </p> -->
+                <input type="button" value="shop" id="button"></div>
+            </div>
+            <div class="card">
+                <img src="" alt="">
+                <!-- <p>brand name </p> -->
+                <input type="button" value="shop" id="button"></div>
+            </div>
+            <div class="card">
+                <img src="" alt="">
+                <!-- <p>brand name </p> -->
+                <input type="button" value="shop" id="button"></div>
+            </div>
+            <div class="card">
+                <img src="" alt="">
+                <!-- <p>brand name </p> -->
+                <input type="button" value="shop" id="button"></div>
+            </div>
         </section>
-        <section id="best-rated">
+        <section id="topRating">
 
         </section>
     </main>
+    <footer>&copy; Get Glammed</footer>
+</div>
 </body>
-<footer>
-
-</footer>
-
 </html>
