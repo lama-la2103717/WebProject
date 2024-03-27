@@ -1,61 +1,59 @@
 
-
 //queries
 const topRating = document.querySelector("#topRating");
-
 const url = '/json/products.json';
-document.addEventListener('DOMContentLoaded', function () {
-  const topRating = document.querySelector("#topRating");
-  let products = [];
-  loadProducts();
 
-  
+document.addEventListener('DOMContentLoaded', function () {
+  let products = [];
+  loadProducts().then((loadedProducts) => {
+    products = loadedProducts;
+    topRatings(products);
+  });
 
   async function loadProducts() {
-
-  try {
-    if (!localStorage.products) {
-      const response = await fetch(url);
-      products = await response.json();
-      localStorage.setItem("products", JSON.stringify(products));
-      console.log("Data fetched and stored in local storage:", products);
-    } else {
-      products = JSON.parse(localStorage.getItem("products"));
+    try {
+      if (!localStorage.products) {
+        const response = await fetch(url);
+        const data = await response.json();
+        localStorage.setItem("products", JSON.stringify(data));
+        console.log("Data fetched and stored in local storage:", data);
+        return data;
+      } else {
+        return JSON.parse(localStorage.getItem("products"));
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-  displayProducts(products);
-  } catch (error) {
-    console.error("Error fetching data:", error);
   }
-  function displayProducts(products) {
+
+  function topRatings(products) {
+    products.forEach(product => {
+      const ratingParts = product.rating.split('/');
+      product.rating = parseFloat(ratingParts[0]);
+    });
+    products.sort((a, b) => b.rating - a.rating)
+    displayTopProducts(products.slice(0, 8));
+  }
+
+  function displayTopProducts(products) {
     const productsHTML = products.map(product => productToHTML(product)).join('');
     topRating.innerHTML = productsHTML;
   }
-  
-}});
 
-
-
-function productToHTML(product) {
-  return `
-    <div class="product" id="">
-      <div class="product-info">
-        <img src="${product.image}" alt="" />
-        <h2 class="product-title">${product.title}</h2>
-        <p class="product-price">${product.price}</p>
-        <p class="product-description">${product.description}</p>
-        <p class="rating">${product.rating}</p>
-        <button type="button" class="purchase">Purchase</button>
-      </div>
-    </div>`;
-}
-
-// Call loadProducts to start fetching and displaying products
-
-
-
-
-  
-
+  function productToHTML(product) {
+    return `
+      <div class="product" id="">
+        <div class="product-info">
+          <img src="${product.image}" alt="" />
+          <h2 class="product-title">${product.title}</h2>
+          <p class="product-price">${product.price}</p>
+          <p class="product-description">${product.description}</p>
+          <p class="rating">${product.rating}</p>
+          <button type="button" class="purchase">Purchase</button>
+        </div>
+      </div>`;
+  }
+});
 
 
 let slideIndex = 1;
