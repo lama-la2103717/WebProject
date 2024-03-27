@@ -39,20 +39,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const productsHTML = products.map(product => productToHTML(product)).join('');
     topRating.innerHTML = productsHTML;
   }
-
   function productToHTML(product) {
+    // Convert rating to filled stars
+    const ratingValue = parseFloat(product.rating);
+    const fullStars = '\u2605'.repeat(Math.floor(ratingValue));
+    let halfStar = '';
+    if (ratingValue % 1 !== 0) {
+      halfStar = '\u00BD'; // Unicode for half star
+    }
+  
+    // Make price bold
+    const boldPrice = `<h3>${product.price}</h3>`;
+  
     return `
       <div class="product  card" id="">
         <div class="product-info">
           <img src="${product.image}" alt="" />
-          <h2 class="product-title">${product.title}</h2>
-          <p class="product-price">${product.price}</p>
-          <p class="product-description">${product.description}</p>
-          <p class="rating">${product.rating}</p>
+          <h3 class="product-title">${product.title}</h3>
+         
+          <br><p class="product-description">${product.description}</p>
+          <p class="rating">${fullStars}<span class="half-star">${halfStar}</span></p>
+          <p class="product-price">${boldPrice}</p>
           <button type="button" class="purchase">Purchase</button>
         </div>
       </div>`;
   }
+  
+  
 });
 
 

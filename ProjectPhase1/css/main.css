@@ -200,3 +200,30 @@ footer {
     }
 
 }
+.rating {
+    color: yellow; /* Set the color of the stars to yellow */
+  }
+  
+  .half-star {
+    color: yellow; /* Set the color of the half-star to yellow */
+    position: relative;
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+  }
+  
+  .half-star::before {
+    content: "\u2605"; /* Unicode for filled star */
+    position: absolute;
+    left: 0;
+  }
+  
+  .half-star::after {
+    content: "\u2605"; /* Unicode for filled star */
+    position: absolute;
+    left: 0;
+    width: 50%; /* Adjust this value to control the width of the half-filled star */
+    overflow: hidden;
+    color: transparent; /* Set the color of the half-filled portion */
+  }
+  
