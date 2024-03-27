@@ -9,16 +9,25 @@
 </head>
 <body>
 <div class="container">
-    <header class="menu">
-        <div class="menu-content">
+    <header class="header">
+        
+
             <div>
-            <img src="/images/logo.png" class="logo-img" alt="Logo" >
+            <img src="/images/logo.png" class="logoImg" alt="Logo" >
             </div>
+
             <div class="search">
                 <input type="search" placeholder="Search here ..." class="searchInput">
             </div>
+<<<<<<< Updated upstream
             <input type="checkbox" id="checkbox">
             <nav class="mainNav">
+=======
+
+            <input type="checkbox" id="checkbox">
+
+            <div id="mainNav"><nav class="mainNav">
+>>>>>>> Stashed changes
                 <ul>
                     <li><a href="login.html">Login</a></li>
                     <li><a href="#home">Home</a></li>
@@ -30,13 +39,15 @@
             <label for="checkbox">
                 <i class="fa fa-bars menu-icon"></i>
             </label>
-        </div>
     </header>
-    <main>
 
-    <section id="home">
+
+
+ 
+
+    <main class="main">
            
-    <div class="slideshow-container">
+        <section class="slideshowContainer">
 
         <div class="mySlides fade">
             <img src="/images/banner_BOJ.jpg" >
@@ -62,48 +73,51 @@
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
     
-    </div>
-    <br>
+
         </section>
 
+    <section id="brands" class="brands">
+
         <h2>Brands</h2>
-        <section id="brands" class="brands">
             <div class="card">
                 <img src="/images/BeautyOfJoseon.webp" alt="BeautyOfJoseon" >
                 <p>Beauty Of Joseon</p>
-                <input type="button" value="SHOP NOW" id="button"></div>
+                <input type="button" value="SHOP NOW" id="button">
             </div>
             <div class="card">
                 <img src="/images/Cosrx.webp" alt="">
                 <p>Cosrx</p>
-                <input type="button" value="SHOP NOW" id="button"></div>
+                <input type="button" value="SHOP NOW" id="button">
             </div>
             <div class="card">
                 <img src="/images/idewcare.avif" alt="">
                 <p>Idew Care </p>
-                <input type="button" value="SHOP NOW" id="button"></div>
+                <input type="button" value="SHOP NOW" id="button">
             </div>
+            
             <div class="card">
                 <img src="/images/isnlogo.png" alt="">
                 <p>ISN Tree</p>
-                <input type="button" value="SHOP NOW" id="button"></div>
+                <input type="button" value="SHOP NOW" id="button">
             </div>
+            
             <div class="card">
                 <img src="/images/mizon.png" alt="">
                 <p>Mizon</p>
-                <input type="button" value="SHOP NOW" id="button"></div>
+                <input type="button" value="SHOP NOW" id="button">
             </div>
             <div class="card">
                 <img src="/images/someByMe.png" alt="">
                 <p>Some By Me</p>
-                <input type="button" value="SHOP NOW" id="button"></div>
+                <input type="button" value="SHOP NOW" id="button">
             </div>
-        </section>
+        
         <section id="topRating">
             <!-- using Js -->
         </section>
+    </section>
     </main>
-    <footer>&copy;Copyright 2024 Get Glammed, LLC. All rights reserved. GetGlammed® is a registered trademark of GetGlammed, Trusted Brands. Healthy Rewards. Logo are trademarks of GetGlammed </footer>
+    <footer class="footer">&copy;Copyright 2024 Get Glammed, LLC. All rights reserved. GetGlammed® is a registered trademark of GetGlammed, Trusted Brands. Healthy Rewards. Logo are trademarks of GetGlammed </footer>
 
 </div>
 

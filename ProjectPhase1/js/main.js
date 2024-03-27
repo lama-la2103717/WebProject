@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const boldPrice = `<h3>${product.price}</h3>`;
   
     return `
-      <div class="product  card" id="">
-        <div class="product-info">
+      <div class="product  card" >
+        <div class="productInfo">
           <img src="${product.image}" alt="" />
           <h3 class="product-title">${product.title}</h3>
          
