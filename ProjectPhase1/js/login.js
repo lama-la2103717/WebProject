@@ -24,6 +24,7 @@ function goToMain(e){
     const username = document.querySelector('#username').value;
     const password = document.querySelector('#password').value;
     const user = users.find(user => user.username == username && user.password == password);
+    console.log(`username ${username}, pass: ${password}, user ${user}`);
     if(user){
         if(user.type=="customer"){
             window.location.href = "main.html";

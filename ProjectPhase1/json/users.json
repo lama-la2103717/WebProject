@@ -179,145 +179,46 @@
     "balance": 1600,
     "type": "customer"
   },
-   
   {
-    "company_name": "XYZ Gadgets",
-    "username": "xyzgadgets",
+    "company_name": "Beauty of Json",
+    "username": "beautyOfJson",
     "password": "xyz456",
     "bank_account": "987654321",
     "type": "seller"
     },
     {
-    "company_name": "Tech Innovations",
-    "username": "techinnovations",
+    "company_name": "cosRx",
+    "username": "cosrx",
     "password": "innotech789",
     "bank_account": "456789123",
     "type": "seller"
     },
     {
-    "company_name": "Smart Devices Co.",
-    "username": "smartdevices",
+    "company_name": "IDewCare",
+    "username": "idewcare",
     "password": "smart1234",
     "bank_account": "789123456",
     "type": "seller"
     },
     {
-    "company_name": "Gadget Zone",
-    "username": "gadgetzone",
-    "password": "gadget789",
+    "company_name": "ISNtree",
+    "username": "ISNtree",
+    "password": "uuyytt7788",
     "bank_account": "234567890",
     "type": "seller"
     },
     {
-    "company_name": "Innovative Electronics Ltd.",
-    "username": "innovativeelectronics",
+    "company_name": "Mizon",
+    "username": "mizon",
     "password": "innovative456",
     "bank_account": "901234567",
     "type": "seller"
     },
     {
-    "company_name": "Digital Solutions Inc.",
-    "username": "digitalsolutions",
+    "company_name": "SOMEBYMI.",
+    "username": "somibymi",
     "password": "digital789",
     "bank_account": "345678901",
-    "type": "seller"
-    },
-    {
-    "company_name": "Tech Innovate Corporation",
-    "username": "techinnovatecorp",
-    "password": "tech123",
-    "bank_account": "678901234",
-    "type": "seller"
-    },
-    {
-    "company_name": "Innovative Gadgets",
-    "username": "innovativegadgets",
-    "password": "gadget456",
-    "bank_account": "123789456",
-    "type": "seller"
-    },
-    {
-    "company_name": "Smart Solutions Ltd.",
-    "username": "smartsolutions",
-    "password": "smart456",
-    "bank_account": "456123789",
-    "type": "seller"
-    },
-    {
-    "company_name": "Tech Trends",
-    "username": "techtrends",
-    "password": "trend789",
-    "bank_account": "789456123",
-    "type": "seller"
-    },
-    {
-    "company_name": "Digital Dynamics",
-    "username": "digitaldynamics",
-    "password": "dynamic456",
-    "bank_account": "123789456",
-    "type": "seller"
-    },
-    {
-    "company_name": "Gizmo Enterprises",
-    "username": "gizmoenterprises",
-    "password": "gizmo123",
-    "bank_account": "456123789",
-    "type": "seller"
-    },
-    {
-    "company_name": "InnoTech Solutions",
-    "username": "innotechsolutions",
-    "password": "inno789",
-    "bank_account": "789456123",
-    "type": "seller"
-    },
-    {
-    "company_name": "TechGenius Inc.",
-    "username": "techgenius",
-    "password": "genius456",
-    "bank_account": "123456789",
-    "type": "seller"
-    },
-    {
-    "company_name": "Gadget Innovations",
-    "username": "gadgetinnovations",
-    "password": "gadget789",
-    "bank_account": "456789123",
-    "type": "seller"
-    },
-    {
-    "company_name": "Digital Dynamics",
-    "username": "digitaldynamics",
-    "password": "dynamic456",
-    "bank_account": "789123456",
-    "type": "seller"
-    },
-    {
-    "company_name": "Smart Solutions Ltd.",
-    "username": "smartsolutions",
-    "password": "smart456",
-    "bank_account": "123456789",
-    "type": "seller"
-    },
-    {
-    "company_name": "Tech Trends",
-    "username": "techtrends",
-    "password": "trend789",
-    "bank_account": "456789123",
-    "type": "seller"
-    },
-    {
-    "company_name": "Gizmo Enterprises",
-    "username": "gizmoenterprises",
-    "password": "gizmo123",
-    "bank_account": "789123456",
-    "type": "seller"
-    },
-    {
-    "company_name": "InnoTech Solutions",
-    "username": "innotechsolutions",
-    "password": "inno789",
-    "bank_account": "123456789",
     "type": "seller"
     }
   ]
