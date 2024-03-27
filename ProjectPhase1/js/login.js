@@ -28,9 +28,6 @@ function goToMain(e){
         if(user.type=="customer"){
             window.location.href = "main.html";
         }
-        else if (users.type=="admin"){
-            // window.location.href = "main3.html";
-        }
         else if (users.type=="seller"){
             // window.location.href = "main2.html";
         }
