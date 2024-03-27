@@ -3,7 +3,7 @@ let users = [];
 
 const loginB=document.querySelector('#login');
 
-loginB.addEventListener('click',goToMain);
+loginB.addEventListener('submit',goToMain);
 
 document.addEventListener('DOMContentLoaded', async () => {
     if (localStorage.getItem('users')) {
