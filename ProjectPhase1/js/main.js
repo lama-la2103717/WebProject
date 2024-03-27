@@ -3,7 +3,7 @@
 //queries
 const topRating = document.querySelector("#topRating");
 
-const url = 'json/products.json';
+const url = '/json/products.json';
 document.addEventListener('DOMContentLoaded', function () {
   const topRating = document.querySelector("#topRating");
   let products = [];
@@ -20,18 +20,18 @@ document.addEventListener('DOMContentLoaded', function () {
       localStorage.setItem("products", JSON.stringify(products));
       console.log("Data fetched and stored in local storage:", products);
     } else {
-      products = JSON.parse(localStorage.products);
+      products = JSON.parse(localStorage.getItem("products"));
     }
-    // displayProducts(products);
+  displayProducts(products);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
-  // function displayProducts(products) {
-  //   const productsHTML = products.map(product => productToHTML(product)).join('');
-  //   topRating.innerHTML = productsHTML;
+  function displayProducts(products) {
+    const productsHTML = products.map(product => productToHTML(product)).join('');
+    topRating.innerHTML = productsHTML;
   }
   
-});
+}});
 
 
 
