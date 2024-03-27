@@ -74,7 +74,8 @@ nav ul li {
     padding: 0 15px;
 }
 nav ul li a {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     padding: 12px;
     /* Add your custom styles below to change appearance of links */
     color: white;
