@@ -1,7 +1,7 @@
 const userFile="/json/users.json";
 let users = [];
 
-const loginB=document.querySelector('#login');
+const loginB=document.querySelector('#form');
 
 loginB.addEventListener('submit',goToMain);
 
