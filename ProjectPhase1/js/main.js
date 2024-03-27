@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function productToHTML(product) {
     return `
-      <div class="product" id="">
+      <div class="product  card" id="">
         <div class="product-info">
           <img src="${product.image}" alt="" />
           <h2 class="product-title">${product.title}</h2>
