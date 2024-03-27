@@ -1,0 +1,639 @@
+[
+  {
+    "id": "BOJ001",
+    "title": "Beauty of Joseon Radiance Cleansing Balm",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj85166/v/23.jpg",
+    "price": "55.75 QAR",
+    "rating": "4.5/5",
+    "description": "Gently remove makeup and impurities with Beauty of Joseon Radiance Cleansing Balm. Enriched with natural oils for hydrated, glowing skin.",
+    "brand": "Beauty of Joseon",
+    "stock": 87
+  },
+  {
+    "id": "BOJ002",
+    "title": "Beauty of Joseon Revitalizing Sleeping Mask",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj24601/v/3.jpg",
+    "price": "92.99 QAR",
+    "rating": "4.7/5",
+    "description": "Wake up to refreshed, revitalized skin with Beauty of Joseon Revitalizing Sleeping Mask. Nourishing formula for overnight hydration and repair.",
+    "brand": "Beauty of Joseon",
+    "stock": 63
+  },
+  {
+    "id": "BOJ003",
+    "title": "Beauty of Joseon Glow Serum",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj11496/v/19.jpg",
+    "price": "78.50 QAR",
+    "rating": "4.8/5",
+    "description": "Achieve a radiant complexion with Beauty of Joseon Glow Serum. Lightweight formula packed with brightening ingredients for luminous skin.",
+    "brand": "Beauty of Joseon",
+    "stock": 45
+  },
+  {
+    "id": "BOJ004",
+    "title": "Beauty of Joseon Repair Cream",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj24956/v/13.jpg",
+    "price": "105.00 QAR",
+    "rating": "4.6/5",
+    "description": "Soothe and repair damaged skin with Beauty of Joseon Repair Cream. Rich, nourishing formula for intense hydration and healing.",
+    "brand": "Beauty of Joseon",
+    "stock": 32
+  },
+  {
+    "id": "BOJ005",
+    "title": "Beauty of Joseon Essence Toner",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj31096/v/19.jpg",
+    "price": "64.99 QAR",
+    "rating": "4.4/5",
+    "description": "Hydrate and balance your skin with Beauty of Joseon Essence Toner. Refreshing formula enriched with traditional Korean herbal extracts.",
+    "brand": "Beauty of Joseon",
+    "stock": 78
+  },
+  {
+    "id": "BOJ006",
+    "title": "Beauty of Joseon Revitalizing Eye Cream",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj31614/v/12.jpg",
+    "price": "72.25 QAR",
+    "rating": "4.7/5",
+    "description": "Brighten and rejuvenate the delicate eye area with Beauty of Joseon Revitalizing Eye Cream. Anti-aging formula for youthful-looking eyes.",
+    "brand": "Beauty of Joseon",
+    "stock": 54
+  },
+  {
+    "id": "BOJ007",
+    "title": "Beauty of Joseon Calming Serum",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj31589/v/9.jpg",
+    "price": "88.99 QAR",
+    "rating": "4.5/5",
+    "description": "Soothe sensitive skin with Beauty of Joseon Calming Serum. Gentle formula enriched with botanical extracts for a calm, balanced complexion.",
+    "brand": "Beauty of Joseon",
+    "stock": 91
+  },
+  {
+    "id": "BOJ008",
+    "title": "Beauty of Joseon Relief Sun",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj55550/v/5.jpg",
+    "price": "42.80 QAR",
+    "rating": "4.6/5",
+    "description": "Achieve a radiant glow with Beauty of Joseon sun screen . Infused with nourishing ingredients for hydrated, luminous skin.",
+    "brand": "Beauty of Joseon",
+    "stock": 77
+  },
+ 
+  {
+    "id": "BOJ009",
+    "title": "Beauty of Joseon Green Plum Cleanser",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj31467/v/5.jpg",
+    "price": "75.20 QAR",
+    "rating": "4.4/5",
+    "description": "Hydrate and soften your skin with Beauty of Joseon Green Plum Cleanser. Lightweight formula for everyday moisture and comfort.",
+    "brand": "Beauty of Joseon",
+    "stock": 77
+  },
+  {
+    "id": "BOJ010",
+    "title": "Beauty of Joseon Sunscreen SPF 50+",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj76688/v/16.jpg",
+    "price": "58.99 QAR",
+    "rating": "4.8/5",
+    "description": "Protect your skin from harmful UV rays with Beauty of Joseon Sunscreen SPF 50+. Non-greasy formula for broad-spectrum sun protection.",
+    "brand": "Beauty of Joseon",
+    "stock": 91
+  },{
+    "id": "CRX001",
+    "title": "CosRx Low pH Good Morning Gel Cleanser",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47051/v/15.jpg",
+    "price": "65.00 QAR",
+    "rating": "4.7/5",
+    "description": "Start your day right with CosRx Low pH Good Morning Gel Cleanser. Gently removes impurities while maintaining skin's natural pH balance.",
+    "brand": "CosRx",
+    "stock": 92
+  },
+  {
+    "id": "CRX002",
+    "title": "CosRx Advanced Snail 96 Mucin Power Essence",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47000/v/19.jpg",
+    "price": "120.50 QAR",
+    "rating": "4.8/5",
+    "description": "Achieve smooth and hydrated skin with CosRx Advanced Snail 96 Mucin Power Essence. Formulated with snail secretion filtrate to nourish and repair.",
+    "brand": "CosRx",
+    "stock": 77
+  },
+  {
+    "id": "CRX003",
+    "title": "CosRx AHA/BHA Clarifying Treatment Toner",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47003/v/27.jpg",
+    "price": "85.99 QAR",
+    "rating": "4.6/5",
+    "description": "Refine your skin texture with CosRx AHA/BHA Clarifying Treatment Toner. Removes dead skin cells and excess sebum for a clearer complexion.",
+    "brand": "CosRx",
+    "stock": 88
+  },
+  {
+    "id": "CRX004",
+    "title": "CosRx Acne Pimple Master Patch",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47024/v/9.jpg",
+    "price": "25.75 QAR",
+    "rating": "4.5/5",
+    "description": "Say goodbye to pesky pimples with CosRx Acne Pimple Master Patch. Absorbs impurities and promotes faster healing of blemishes.",
+    "brand": "CosRx",
+    "stock": 95
+  },
+  {
+    "id": "CRX005",
+    "title": "CosRx Oil-Free Ultra Moisturizing Lotion",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47055/v/18.jpg",
+    "price": "98.00 QAR",
+    "rating": "4.7/5",
+    "description": "Hydrate your skin without clogging pores with CosRx Oil-Free Ultra Moisturizing Lotion. Lightweight formula perfect for oily and combination skin.",
+    "brand": "CosRx",
+    "stock": 62
+  },
+  {
+    "id": "CRX006",
+    "title": "CosRx Centella Blemish Cream",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47036/v/21.jpg",
+    "price": "105.25 QAR",
+    "rating": "4.8/5",
+    "description": "Treat troubled areas with CosRx Centella Blemish Cream. Calms inflammation and speeds up the healing process of acne scars.",
+    "brand": "CosRx",
+    "stock": 80
+  },
+  {
+    "id": "CRX007",
+    "title": "CosRx Advanced Snail Peptide Eye Cream",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx45107/v/12.jpg",
+    "price": "145.99 QAR",
+    "rating": "4.6/5",
+    "description": "Revitalize tired eyes with CosRx Advanced Snail Peptide Eye Cream. Hydrates, firms, and reduces the appearance of fine lines and wrinkles.",
+    "brand": "CosRx",
+    "stock": 83
+  },
+  {
+    "id": "CRX008",
+    "title": "CosRx Ultimate Nourishing Rice Overnight Spa Mask",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47072/v/22.jpg",
+    "price": "110.00 QAR",
+    "rating": "4.7/5",
+    "description": "Wake up to glowing skin with CosRx Ultimate Nourishing Rice Overnight Spa Mask. Enriched with rice extract to brighten and nourish your complexion.",
+    "brand": "CosRx",
+    "stock": 70
+  },
+  {
+    "id": "CRX009",
+    "title": "CosRx Centella Water Alcohol-Free Toner",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47008/v/26.jpg",
+    "price": "75.50 QAR",
+    "rating": "4.5/5",
+    "description": "Soothe and hydrate your skin with CosRx Centella Water Alcohol-Free Toner. Gentle formula suitable for sensitive and irritated skin.",
+    "brand": "CosRx",
+    "stock": 49
+  },
+
+  {
+    "id": "CRX010",
+    "title": "CosRx One Step Original Clear Pad",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47030/v/34.jpg",
+    "price": "68.99 QAR",
+    "rating": "4.6/5",
+    "description": "Achieve clearer skin with CosRx One Step Original Clear Pad. Exfoliates, tones, and controls excess sebum production for a smoother complexion.",
+    "brand": "CosRx",
+    "stock": 33
+  },
+
+    {
+      "id": "IDC001",
+      "title": "I Dew Care Buttery Vitamin C Lip Beauty Mask",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc71810/v/44.jpg",
+      "price": "66.84 QAR",
+      "rating": "4.0/5",
+      "description": "Indulge your lips with this luxurious vitamin C lip mask. Formulated with rich buttery ingredients, it nourishes and hydrates while leaving your lips soft and supple.",
+      "brand": "I Dew Care",
+      "stock": 72
+    },
+    {
+      "id": "IDC002",
+      "title": "I Dew Care Silicone Mask Brush",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc71290/v/11.jpg",
+      "price": "42.48 QAR",
+      "rating": "3.8/5",
+      "description": "Make mask application a breeze with this silicone mask brush. Its flexible design ensures even and smooth application for a spa-like experience at home.",
+      "brand": "I Dew Care",
+      "stock": 58
+    },
+    {
+      "id": "IDC003",
+      "title": "I Dew Care Cushy Crush Sugar Vitamin C Lip Scrub",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc72860/v/13.jpg",
+      "price": "51.24 QAR",
+      "rating": "4.5/5",
+      "description": "Buff away dry, flaky lips with this sugar lip scrub. Enriched with vitamin C, it gently exfoliates while leaving your lips smooth and refreshed.",
+      "brand": "I Dew Care",
+      "stock": 36
+    },
+    {
+      "id": "IDC004",
+      "title": "I Dew Care Peel Lit Exfoliating Vitamin C Treatment Pads",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc71961/v/30.jpg",
+      "price": "74.94 QAR",
+      "rating": "4.2/5",
+      "description": "Revitalize your skin with these exfoliating treatment pads. Infused with vitamin C, they help to remove dead skin cells and promote a brighter complexion.",
+      "brand": "I Dew Care",
+      "stock": 91
+    },
+    {
+      "id": "IDC005",
+      "title": "I Dew Care Glow Easy Vitamin C Lip Oil - Pomegranate",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc72857/v/20.jpg",
+      "price": "47.34 QAR",
+      "rating": "4.1/5",
+      "description": "Nourish and hydrate your lips with this vitamin C lip oil. Formulated with pomegranate extract, it provides antioxidant protection while adding a natural shine.",
+      "brand": "I Dew Care",
+      "stock": 22
+    },
+    {
+      "id": "IDC006",
+      "title": "I Dew Care Glow Easy Vitamin C Lip Oil - Raspberry",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc72858/v/20.jpg",
+      "price": "47.34 QAR",
+      "rating": "4.3/5",
+      "description": "Treat your lips to this nourishing vitamin C lip oil. Infused with raspberry extract, it helps to soften and moisturize while enhancing your natural lip color.",
+      "brand": "I Dew Care",
+      "stock": 77
+    },
+    {
+      "id": "IDC007",
+      "title": "I Dew Care Power Plug Firming Bakuchiol Night Cream",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc72187/v/14.jpg",
+      "price": "51.48 QAR",
+      "rating": "4.4/5",
+      "description": "Rejuvenate your skin while you sleep with this firming night cream. Formulated with bakuchiol, it helps to reduce the appearance of fine lines and wrinkles.",
+      "brand": "I Dew Care",
+      "stock": 63
+    },
+    {
+      "id": "IDC008",
+      "title": "I Dew Care Roll-On Face Oil with Tea Tree Leaf Oil",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc72579/v/9.jpg",
+      "price": "41.27 QAR",
+      "rating": "3.9/5",
+      "description": "Pamper your skin with this roll-on face oil infused with tea tree leaf oil. Its convenient rollerball design makes it easy to apply and perfect for on-the-go use.",
+      "brand": "I Dew Care",
+      "stock": 44
+    },
+    {
+      "id": "IDC009",
+      "title": "I Dew Care Berry Groovy Brightening Beauty Mask with Glycolic Acid",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc71711/v/34.jpg",
+      "price": "90.19 QAR",
+      "rating": "4.6/5",
+      "description": "Achieve a radiant complexion with this brightening beauty mask. Enriched with glycolic acid, it helps to exfoliate and reveal smoother, more luminous skin.",
+      "brand": "I Dew Care",
+      "stock": 80
+    },
+    {
+      "id": "IDC010",
+      "title": "I Dew Care Here's The Tea Tree Soothing Beauty Sheet Mask",
+      "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc72481/v/9.jpg",
+      "price": "83.76 QAR",
+      "rating": "4.0/5",
+      "description": "Soothe and calm your skin with this tea tree-infused sheet mask. Its gentle formula helps to reduce redness and irritation for a clearer, more balanced complexion.",
+      "brand": "I Dew Care",
+      "stock": 95
+    },
+
+  {
+    "id": "ISN001",
+    "title": "ISNtree Green Tea Fresh Lotion",
+    "image": "https://s3.ap-south-1.amazonaws.com/vely-prod-media-bucket/products/GREEN_TEA_FRESH_EMULSION_120ml_thumbnail_1.jpg",
+    "price": "70.80 QAR",
+    "rating": "4.3/5",
+    "description": "Hydrate and balance your skin with our Green Tea Fresh Lotion. Non-greasy formula provides long-lasting moisture without clogging pores.",
+    "brand": "ISNtree",
+    "stock": 80
+  },
+  {
+    "id": "ISN002",
+    "title": "ISNtree Green Tea Fresh Toner",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYkUxe4nM1EGdob0giUym71qhXaaAtFngepbb0lmK0og&s",
+    "price": "68.90 QAR",
+    "rating": "4.6/5",
+    "description": "Refresh and balance your skin with our Green Tea Fresh Toner. Contains 80% green tea extract to soothe and control excess oil production.",
+    "brand": "ISNtree",
+    "stock": 92
+  },
+  {
+    "id": "ISN003",
+    "title": "ISNtree Real Mugwort Clay Mask",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzM8pP7WWwUbqWZjsyq29JbnhW-u_uGRt8ufs_5RteZw&s",
+    "price": "82.50 QAR",
+    "rating": "4.7/5",
+    "description": "Purify and calm your skin with our Real Mugwort Clay Mask. Formulated with 20% mugwort extract to detoxify and soothe irritation.",
+    "brand": "ISNtree",
+    "stock": 75
+  },
+  {
+    "id": "ISN004",
+    "title": "ISNtree Spot Saver Mugwort Ampoule",
+    "image": "https://s3.ap-south-1.amazonaws.com/vely-prod-media-bucket/products/150_ISNTREE_spot-saver-mugwort-ampoule.jpg",
+    "price": "95.00 QAR",
+    "rating": "4.6/5",
+    "description": "Target blemishes and inflammation with our Spot Saver Mugwort Ampoule. Contains 85% mugwort extract to calm and heal troubled skin.",
+    "brand": "ISNtree",
+    "stock": 88
+  },
+  {
+    "id": "ISN005",
+    "title": "ISNtree Green Tea Fresh Emulsion",
+    "image": "https://theskincarelibrary.com/cdn/shop/products/IsntreeGreenTeaFreshEmulsion1_800x.jpg?v=1702896102",
+    "price": "72.80 QAR",
+    "rating": "4.4/5",
+    "description": "Hydrate and mattify your skin with our Green Tea Fresh Emulsion. Lightweight formula absorbs quickly without leaving a greasy residue.",
+    "brand": "ISNtree",
+    "stock": 90
+  },
+  {
+    "id": "ISN006",
+    "title": "ISNtree Aloe Soothing Gel",
+    "image": "https://theskincarelibrary.com/cdn/shop/files/IsntreeAloeSoothingGelFreshType300ml-1.jpg?v=1689066494",
+    "price": "55.00 QAR",
+    "rating": "4.5/5",
+    "description": "Soothe and moisturize your skin with our Aloe Soothing Gel. Formulated with 80% aloe vera extract to calm irritation and redness.",
+    "brand": "ISNtree",
+    "stock": 85
+  },
+  {
+    "id": "ISN007",
+    "title": "ISNtree Clear Skin 8% AHA Essence",
+    "image": "https://m.media-amazon.com/images/I/41HgTE6yK0L.jpg",
+    "price": "88.50 QAR",
+    "rating": "4.7/5",
+    "description": "Achieve smoother and clearer skin with our Clear Skin 8% AHA Essence. Contains 8% glycolic acid to exfoliate and refine skin texture.",
+    "brand": "ISNtree",
+    "stock": 79
+  },
+  {
+    "id": "ISN008",
+    "title": "ISNtree Real Rose Calming Mask",
+    "image": "https://en.isntree.com/storage/isskin83EN/www/prefix/product/2022/41/O/product.67.166571366094808.jpg",
+    "price": "78.00 QAR",
+    "rating": "4.6/5",
+    "description": "Calm and nourish your skin with our Real Rose Calming Mask. Infused with rose extract to hydrate and soothe sensitive skin.",
+    "brand": "ISNtree",
+    "stock": 83
+  },
+  {
+    "id": "ISN009",
+    "title": "ISNtree Hyaluronic Acid Water Essence",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/isn/isn56643/v/40.jpg",
+    "price": "90.20 QAR",
+    "rating": "4.8/5",
+    "description": "Quench thirsty skin with our Hyaluronic Acid Water Essence. Lightweight formula absorbs quickly to provide deep hydration.",
+    "brand": "ISNtree",
+    "stock": 95
+  },
+{
+    "id": "ISN010",
+    "title": "ISNtree Sensitive Balancing Cleansing Foam",
+    "image": "https://koreacosmeticsbn.com/cdn/shop/products/file_a62d0598-f9af-4f0c-840f-5376589fe477_600x.jpg?v=1670652740",
+    "price": "45.50 QAR",
+    "rating": "4.4/5",
+    "description": "Gently cleanse and balance your skin with our Sensitive Balancing Cleansing Foam. Mild formula soothes and purifies without stripping skin.",
+    "brand": "ISNtree"
+    ,"stock": 22
+  },
+  {
+    "id": "ISN011",
+    "title": "ISNtree Real Mugwort Essence",
+    "image": "https://koreacosmeticsbn.com/cdn/shop/products/21_800x.webp?v=1677294273",
+    "price": "82.00 QAR",
+    "rating": "4.7/5",
+    "description": "Soothe and hydrate sensitive skin with our Real Mugwort Essence. Contains 100% mugwort extract to calm inflammation and irritation.",
+    "brand": "ISNtree"
+    ,"stock": 88
+  },
+  {
+    "id": "ISN012",
+    "title": "ISNtree Green Tea Fresh Essence",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/isn/isn32215/v/11.jpg",
+    "price": "79.90 QAR",
+    "rating": "4.6/5",
+    "description": "Revitalize and moisturize your skin with our Green Tea Fresh Essence. Lightweight formula absorbs quickly to provide instant hydration.",
+    "brand": "ISNtree",
+    "stock": 95
+  },
+
+  {
+    "id": "MZN001",
+    "title": "Mizon Correct Concealer - Natural Beige",
+    "image": "https://main-cdn.sbermegamarket.ru/big2/hlr-system/1538765/100023773620b1.jpg",
+    "price": "55.00 QAR",
+    "rating": "4.4/5",
+    "description": "Achieve flawless coverage with our Correct Concealer in Natural Beige. Blends seamlessly to conceal imperfections and brighten the under-eye area.",
+    "brand": "Mizon",
+    "stock": 56
+  },
+  {
+    "id": "MZN002",
+    "title": "Mizon Snail Repair BB Cream - Light Beige",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/miz/miz75179/v/7.jpg",
+    "price": "78.90 QAR",
+    "rating": "4.7/5",
+    "description": "Revitalize your skin with our Snail Repair BB Cream in Light Beige. Formulated with snail mucin to hydrate, smooth, and protect your complexion.",
+    "brand": "Mizon",
+    "stock": 84
+  },
+  {
+    "id": "MZN003",
+    "title": "Mizon Corrective Powder Cushion - Ivory",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScJDPbr4kM_e0mBRi5rHI8bTBcbyJicJfW9KZntHoDpw&s",
+    "price": "69.99 QAR",
+    "rating": "4.5/5",
+    "description": "Set your makeup flawlessly with our Corrective Powder Cushion in Ivory. Provides a matte finish while blurring imperfections for a smooth complexion.",
+    "brand": "Mizon",
+    "stock": 99
+  },
+  {
+    "id": "MZN004",
+    "title": "Mizon Panthenol Eye Gel Patch",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/miz/miz75427/v/11.jpg",
+    "price": "42.50 QAR",
+    "rating": "4.3/5",
+    "description": "Revitalize tired eyes with our Panthenol Eye Gel Patch. Formulated with panthenol to moisturize and soothe the delicate eye area.",
+    "brand": "Mizon",
+    "stock": 71
+  },
+  {
+    "id": "MZN005",
+    "title": "Mizon Wonder Highlighter - Champagne Glow",
+    "image": "https://www.mactabeauty.com/media/catalog/product/cache/20dd576cc3363eadc0d82211f4e88b8e/p/a/paese_wonder_highlighter_champagne_7_5_g_pud190.png",
+    "price": "49.75 QAR",
+    "rating": "4.8/5",
+    "description": "Illuminate your features with our Wonder Highlighter in Champagne Glow. Infused with pearl pigments for a radiant, luminous finish.",
+    "brand": "Mizon",
+    "stock": 23
+  },
+  {
+    "id": "MZN006",
+    "title": "Mizon Ultra Curl Mascara - Black",
+    "image": "https://i.makeup.uk/a/au/au53rz5vkwax.jpg",
+    "price": "36.80 QAR",
+    "rating": "4.5/5",
+    "description": "Achieve voluminous, curled lashes with our Ultra Curl Mascara in Black. Features a curved brush to lift and define each lash.",
+    "brand": "Mizon",
+    "stock": 40
+  },
+  {
+    "id": "MZN007",
+    "title": "Mizon Perfect Eyebrow Pencil - Dark Brown",
+    "image": "https://moonglow.md/wp-content/uploads/2023/08/Mizon_Brow-Styling-Pencil-Brown.webp",
+    "price": "28.00 QAR",
+    "rating": "4.3/5",
+    "description": "Define and fill in your brows effortlessly with our Perfect Eyebrow Pencil in Dark Brown. Waterproof formula for long-lasting wear.",
+    "brand": "Mizon",
+    "stock": 90
+  },
+  {
+    "id": "MZN008",
+    "title": "Mizon Lip Tint - Berry Crush",
+    "image": "https://m.media-amazon.com/images/I/611lhX+TNaL.jpg",
+    "price": "32.99 QAR",
+    "rating": "4.6/5",
+    "description": "Add a pop of color to your lips with our Lip Tint in Berry Crush. Lightweight formula for a natural, long-lasting tint.",
+    "brand": "Mizon",
+    "stock": 100
+  },
+  {
+    "id": "MZN009",
+    "title": "Mizon All Day Matte Lipstick - Nude Rose",
+    "image": "https://m.media-amazon.com/images/I/51PDFXL-YTL._AC_UF1000,1000_QL80_.jpg",
+    "price": "45.50 QAR",
+    "rating": "4.7/5",
+    "description": "Get velvety matte lips with our All Day Matte Lipstick in Nude Rose. Creamy formula with intense pigment for all-day wear.",
+    "brand": "Mizon",
+    "stock": 62
+  },
+
+  {
+    "id": "MZN010",
+     "title": "Mizon Collagen Power Lifting Cream",
+    "image": "https://images-cdn.ubuy.qa/64da746dd5a1f4433c726b69-mizon-collagen-power-lifting-cream.jpg",
+    "price": "112.50 QAR",
+    "rating": "4.8/5",
+    "description": "Restore elasticity and firmness to your skin with our Collagen Power Lifting Cream. Formulated with marine collagen to plump and lift.",
+    "brand": "Mizon",
+    "stock": 62  },
+
+  {
+    "id": "SBM001",
+    "title": "SOME BY MI AHA.BHA.PHA 30 Days Miracle Starter Kit",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39000/v/29.jpg",
+    "price": "66.10 QAR",
+    "rating": "4.2/5",
+    "description": "Experience the power of AHA, BHA, and PHA with this 30-day miracle starter kit. Contains four essential products to deeply cleanse, exfoliate, and nourish the skin for a clearer complexion.",
+    "brand": "SOME BY MI",
+    "stock": 52
+  },
+  {
+    "id": "SBM002",
+    "title": "SOME BY MI AHA.BHA.PHA 30 Days Miracle Cream",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi33422/v/40.jpg",
+    "price": "64.20 QAR",
+    "rating": "3.9/5",
+    "description": "Formulated with AHA, BHA, and PHA, this miracle cream helps to hydrate, soothe, and rejuvenate the skin. Suitable for all skin types, especially acne-prone and sensitive skin.",
+    "brand": "SOME BY MI",
+    "stock": 85
+  },
+  {
+    "id": "SBM003",
+    "title": "SOME BY MI AHA/BHA/PHA Real Cica 92% Cool Calming Soothing Gel",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39109/v/29.jpg",
+    "price": "49.45 QAR",
+    "rating": "4.5/5",
+    "description": "Cool and calm irritated skin with this soothing gel enriched with 92% real Cica extract. Provides instant relief from inflammation and redness while deeply hydrating the skin.",
+    "brand": "SOME BY MI",
+    "stock": 27
+  },
+  {
+    "id": "SBM004",
+    "title": "SOME BY MI Yuja Niacin Dark Spot Correcting Stick",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39230/v/9.jpg",
+    "price": "73.22 QAR",
+    "rating": "4.1/5",
+    "description": "Target dark spots and hyperpigmentation with this convenient correcting stick infused with Yuja extract and niacinamide. Brightens the skin and evens out skin tone for a radiant complexion.",
+    "brand": "SOME BY MI",
+    "stock": 63
+  },
+  {
+    "id": "SBM005",
+    "title": "SOME BY MI AHA, BHA, PHA 14 Days Super Miracle Spot All Kill Cream",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39028/v/20.jpg",
+    "price": "49.32 QAR",
+    "rating": "4.3/5",
+    "description": "Combat stubborn acne and blemishes with this powerful spot treatment cream. Formulated with AHA, BHA, PHA, and niacinamide, it effectively reduces inflammation and promotes skin healing.",
+    "brand": "SOME BY MI",
+    "stock": 39
+  },
+  {
+    "id": "SBM006",
+    "title": "SOME BY MI Miracle AC Clear Spot Treatment",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39251/v/27.jpg",
+    "price": "57.06 QAR",
+    "rating": "4.0/5",
+    "description": "Treat acne and breakouts with this effective spot treatment. Infused with tea tree leaf oil and Centella Asiatica extract, it reduces redness and inflammation while promoting quick healing.",
+    "brand": "SOME BY MI",
+    "stock": 78
+  },
+  {
+    "id": "SBM007",
+    "title": "SOME BY MI Snail Truecica Miracle Repair Cream",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39050/v/44.jpg",
+    "price": "63.59 QAR",
+    "rating": "4.4/5",
+    "description": "Repair and rejuvenate your skin with this nourishing cream infused with snail mucin and Truecica. Helps to fade acne scars, soothe irritated skin, and restore skin elasticity.",
+    "brand": "SOME BY MI",
+    "stock": 18
+  },
+  {
+    "id": "SBM008",
+    "title": "SOME BY MI Real Snail Skin Barrier Care Beauty Mask",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39154/v/6.jpg",
+    "price": "7.35 QAR",
+    "rating": "3.8/5",
+    "description": "Pamper your skin with this moisturizing mask enriched with snail secretion filtrate. Provides intense hydration, improves skin texture, and restores the skin's natural barrier.",
+    "brand": "SOME BY MI",
+    "stock": 92
+  },
+  {
+    "id": "SBM009",
+    "title": "SOME BY MI Snail Truecica Miracle Repair Starter Kit",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39053/v/59.jpg",
+    "price": "64.64 QAR",
+    "rating": "4.7/5",
+    "description": "Kickstart your skincare routine with this starter kit featuring snail mucin and Truecica. Includes essential products to repair, hydrate, and rejuvenate the skin for a healthier complexion.",
+    "brand": "SOME BY MI",
+    "stock": 42
+  },
+  {
+    "id": "SBM010",
+    "title": "SOME BY MI Snail Truecica Miracle Repair Serum",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39027/v/32.jpg",
+    "price": "63.36 QAR",
+    "rating": "4.2/5",
+    "description": "Revitalize your skin with this potent serum formulated with snail mucin and Truecica. Helps to fade acne scars, reduce hyperpigmentation, and improve skin texture.",
+    "brand": "SOME BY MI",
+    "stock": 74
+  },
+  {
+    "id": "SBM011",
+    "title": "SOME BY MI Beta Panthenol Repair Toner",
+    "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39275/v/16.jpg",
+    "price": "73.98 QAR",
+    "rating": "4.6/5",
+    "description": "Soothe and hydrate your skin with this calming toner infused with beta panthenol and allantoin. Restores the skin's moisture balance and strengthens the skin barrier.",
+    "brand": "SOME BY MI",
+    "stock": 56
+  }
+
+
+]
