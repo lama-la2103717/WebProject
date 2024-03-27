@@ -19,7 +19,6 @@ body {
 }
 header {
     /* display: flex; */
-
     height: 70px;
     background-color: rgb(247, 125, 145);
     padding: 10px 0;
@@ -168,6 +167,14 @@ nav a:hover{
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
+}
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgb(247, 125, 145);
+    color: white;
+   
 }
 
 @media (min-width: 768px) { 
