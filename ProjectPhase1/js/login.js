@@ -31,13 +31,9 @@ function goToMain(e){
         if(user.type=="customer"){
             window.location.href = "main.html";
         }
-        else if (users.type=="seller"){
-            username.forEach(button => {
-                button.addEventListener('click', function() {
-                    const brandName = this.parentNode.querySelector('p').textContent;
-                    window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}`;
-                });
-            });
+        else if (user.type=="seller") {
+            
+            window.location.href = `brand.html?brand=${encodeURIComponent(username)}`;
         }
     }
     else{

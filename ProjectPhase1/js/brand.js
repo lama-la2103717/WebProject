@@ -1,41 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
   const brandName = urlParams.get('brand');
-  
+
   const headerBrandName = document.createElement('h2');
   headerBrandName.textContent = brandName;
   document.querySelector('header').appendChild(headerBrandName);
 
-  const img = document.querySelector(".logo-img")
-
-  img.addEventListener("click",goToMain)
-
-
-
   async function loadProducts() {
       try {
-        if (!localStorage.products) {
           const response = await fetch('/json/products.json');
-          const data = await response.json();
-          localStorage.setItem("products", JSON.stringify(data));
-          console.log("Data fetched and stored in local storage:", data);
-          return data;
-        } else {
-          return JSON.parse(localStorage.getItem("products"));
-        }
+          const products = await response.json();
+          const filteredProducts = products.filter(product => product.brand === brandName);
+          displayProducts(filteredProducts);
       } catch (error) {
-        console.error("Error fetching data:", error);
+          console.error("Error fetching data:", error);
       }
   }
 
-  loadProducts().then(products => {
-      const filteredProducts = products.filter(product => product.brand === brandName);
-      displayProducts(filteredProducts);
-  });
-  
+  loadProducts();
+
   function displayProducts(products) {
       const productsList = document.querySelector('#productsList');
-      productsList.innerHTML = ''; 
+      productsList.innerHTML = '';
       products.forEach(product => {
           const productContainer = document.createElement('div');
           productContainer.classList.add('product');
@@ -54,14 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
       // Add event listener to Purchase buttons
       const purchaseButtons = document.querySelectorAll('.purchaseButton');
       purchaseButtons.forEach(button => {
-          button.addEventListener('click', function() {
+          button.addEventListener('click', function () {
               const productTitle = this.getAttribute('data-title');
               window.location.href = `purchase.html?productTitle=${encodeURIComponent(productTitle)}`;
           });
       });
-  }
-
-  function goToMain(){
-    window.location.href ="/html/main.html"
   }
 });
