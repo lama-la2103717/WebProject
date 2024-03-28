@@ -50,9 +50,9 @@ body {
             
             .searchInput{
                     border: none;
-                    outline: none;
+                    /* outline: none; */
                     /* width: 100%; */
-                    height: 30px;
+                    height: 37px;
                     border-radius: 45px;
                     padding: 0 20px; 
                     margin-top: 7px;
@@ -76,32 +76,36 @@ body {
                 left:0;
                 width: 100%;
                 z-index: 1;
+
+                ul {
+                    list-style-type: none;
+                    max-height: 0px;
+                    overflow: hidden;
+                    transition: all 0.5s;
+                    li {
+                        padding: 0 15px;
+                    }
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        padding: 12px;
+                        /* Add your custom styles below to change appearance of links */
+                        color: white;
+                        text-decoration: none;
+                        letter-spacing: 0.05em;
+                    }
+                }
+                
+                a:hover{
+                    display: block;
+                    background: white;
+                    color:black;
+                    display: flex;
+                    justify-content: center;
+                }
             }
-            .mainNav ul {
-                list-style-type: none;
-                max-height: 0px;
-                overflow: hidden;
-                transition: all 0.5s;
-            }
-            .mainNav ul li {
-                padding: 0 15px;
-            }
-            .mainNav ul li a {
-                display: flex;
-                justify-content: center;
-                padding: 12px;
-                /* Add your custom styles below to change appearance of links */
-                color: white;
-                text-decoration: none;
-                letter-spacing: 0.05em;
-            }
-            .mainNav a:hover{
-                display: block;
-                background: white;
-                color:black;
-                display: flex;
-                justify-content: center;
-            }
+
+
 
             .menu-icon {
                 font-size: 2.4em;
@@ -244,6 +248,11 @@ body {
     body{
         .container{   
         .header{
+            .searchInput{
+                margin-right: 40rem;
+                margin-left: 3rem;
+            }
+
 
 
             .menu-icon {
@@ -253,6 +262,7 @@ body {
  
             .mainNav {
                 position: static;
+                height: 100%;
                 ul{
                     max-height: 70px;
                     text-align: right;
