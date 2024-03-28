@@ -1,0 +1,55 @@
+
+header {
+    background-color: rgb(247, 125, 145);
+    padding: 10px;
+    text-align: center;
+}
+
+.logo-img {
+    width: 100px;
+    height: auto; 
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+main {
+    padding: 20px 0; 
+}
+
+footer {
+    background-color: rgb(247, 125, 145);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.8rem;
+}
+
+/* CSS for purchase history */
+.purchaseEntry {
+    margin-bottom: 20px;
+}
+
+.purchaseEntry .productInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.purchaseEntry .product-img {
+    width: 100px; 
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.purchaseEntry .productInfo h2 {
+    margin-bottom: 5px;
+}
+
+.purchaseEntry .productInfo p {
+    margin-bottom: 3px;
+}
