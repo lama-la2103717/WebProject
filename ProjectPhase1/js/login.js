@@ -33,7 +33,7 @@ function goToMain(e){
         }
         else if (user.type=="seller") {
             
-            window.location.href = `brand.html?type=${encodeURIComponent(user.type)}?brand=${encodeURIComponent(user.company_name)}`;
+            window.location.href = `main.html?type=${encodeURIComponent(user.type)}?brand=${encodeURIComponent(user.company_name)}`;
         }
     }
     else{

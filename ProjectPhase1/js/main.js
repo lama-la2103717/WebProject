@@ -5,6 +5,10 @@ const topRating = document.querySelector(".topRated");
 const main=document.querySelector(".main")
 const searchInput = document.querySelector(".searchInput")
 const hidden = document.querySelector(".menu-icon")
+const loginA= document.querySelector(".login");
+const ulNav = document.querySelector(".mainNavUl");
+
+
 main.classList.remove("newDiv")
 
 
@@ -16,11 +20,25 @@ main.classList.remove("newDiv")
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  searchInput.addEventListener('change', searchForProduct);
+
+
+
+  searchInput.addEventListener('change', searchForProduct)
   const shopB = document.querySelectorAll('.card #button');
-  const defaultHTML = main.innerHTML;
+  const defaultHTML = main.innerHTML
+  const urlParams = new URLSearchParams(window.location.search);
+  const userType = urlParams.get('type');
+  const brand =urlParams.get('brand');
+  const pageUrl = (window. location. href).split("?");
+
+
+
 
   let products = [];
+  changeNav();
+
+
+
   loadProducts().then((loadedProducts) => {
       products = loadedProducts;
       topRatings(products);
@@ -50,15 +68,41 @@ document.addEventListener('DOMContentLoaded', function () {
           console.error("Error fetching data:", error);
       }
   }
+  function changeNav(){
+    if(userType){
+      const newLi= ulNav.appendChild(document.createElement("li").appendChild(document.createElement("a")));
+      newLi.innerHTML="Log Out"
+      newLi.classList.add("logOut")
+      newLi.addEventListener("click",logOut)
+  
+  
+  
+      if(userType=="customer"){
+        loginA.innerHTML="View History"
+      }
+      else if(userType){
+        loginA.innerHTML = "View Sales"
+      }
+      
 
-  // On click on SHOP Now button
-  shopB.forEach(button => {
-      button.addEventListener('click', function () {
-          const brandName = this.parentNode.querySelector('p').textContent;
-          window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}`;
-      });
-  });
+    }
+  
 
+
+  }
+  //On click on SHOP Now button
+    shopB.forEach(button => {
+        button.addEventListener('click', function() {
+            const brandName = this.parentNode.querySelector('p').textContent;
+            window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}`;
+        });
+    });
+
+  function logOut(){
+    const logout = document.querySelector(".logOut");
+    logout.remove();
+    window.location.href=pageUrl[0]
+  }
   function topRatings(products) {
       products.forEach(product => {
           const ratingParts = product.rating.split('/');
