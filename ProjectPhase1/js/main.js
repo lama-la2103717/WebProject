@@ -2,8 +2,23 @@ const url = '/json/products.json';
 
 //queries
 const topRating = document.querySelector(".topRated");
+const main=document.querySelector(".main")
+const searchInput = document.querySelector(".searchInput")
+const hidden = document.querySelector(".menu-icon")
+
+
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
+  searchInput.addEventListener('change', searchForProduct)
+  const shopB = document.querySelectorAll('.card #button');
+  const defaultHTML = main.innerHTML
+
+
+
   let products = [];
   loadProducts().then((loadedProducts) => {
     products = loadedProducts;
@@ -25,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
   //On click on SHOP Now button
-  const shopB = document.querySelectorAll('.card #button');
     shopB.forEach(button => {
         button.addEventListener('click', function() {
             const brandName = this.parentNode.querySelector('p').textContent;
@@ -46,7 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const productsHTML = products.map(product => productToHTML(product)).join('');
     topRating.innerHTML = productsHTML;
   }
-  function productToHTML(product) {
+
+
+function productToHTML(product) {
     // Convert rating to filled stars
     const ratingValue = parseFloat(product.rating);
     const fullStars = '\u2605'.repeat(Math.floor(ratingValue));
@@ -70,6 +86,37 @@ document.addEventListener('DOMContentLoaded', function () {
           <button type="button" class="purchase">Purchase</button>
         </div>
       </div>`;
+  }
+  function searchForProduct(){
+    const val = searchInput.value
+
+    if(val && val!==" "){
+    
+    
+     filtered = products.filter(p=>
+        p.title.toLowerCase().match(val.toLowerCase()) ||
+            p.brand.toString().toLowerCase().match(val.toLowerCase())
+            )
+      if(filtered.length==0){
+        console.log("no");
+        main.innerHTML=`<h1> No Product Found</h1>`;
+      }
+      else{
+        const productsHTML = filtered.map(product => productToHTML(product)).join('');
+        hidden.classList.add("hidden");
+        main.innerHTML=productsHTML}
+      }
+            
+
+    else if(!val || val == " "){
+      hidden.classList.remove("hidden");
+
+      console.log(defaultHTML);
+      main.innerHTML=defaultHTML
+
+    }
+
+
   }
   
   
@@ -106,3 +153,6 @@ function showSlides(n) {
 function goToPage(){
   window.location.href = "brand.html";
 }
+
+
+
