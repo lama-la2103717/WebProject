@@ -1,7 +1,7 @@
 const url = '/json/products.json';
 
 //queries
-const topRating = document.querySelector("#topRating");
+const topRating = document.querySelector(".topRated");
 
 document.addEventListener('DOMContentLoaded', function () {
   let products = [];

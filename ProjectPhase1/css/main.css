@@ -108,19 +108,14 @@ body {
                 color: white;
                 line-height: 50px;
             }
-
-            
-            
-
-
         }
 
         .main{
             .slideshowContainer{
-                width: 100%;  
                 position: relative;
                 margin: auto;
                 .mySlides {display: none;
+                    width: 100%;
                     img {
                         height:28rem;
                         vertical-align: middle;
@@ -140,6 +135,9 @@ body {
                     transition: 0.6s ease;
                     border-radius: 0 3px 3px 0;
                     user-select: none;
+                  }
+                  .prev{
+                    left: 0;
                   }
                   .next {
                     right: 0;
@@ -166,10 +164,11 @@ body {
                 .brand{
                     padding-top:5rem;
                     display: grid;
-                    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+                    grid-template-columns: repeat(auto-fit,minmax(450px,1fr));
                     
                     .card{
-                        margin:0.5rem;
+
+                        margin:1.6rem;
                         box-shadow: 10px 10px 10px -1px rgba(10, 99, 169,0.16),
                         -10px -10px 10px -1px rgba(246, 144, 161, 0.3);
                         padding: 1rem;
@@ -177,6 +176,17 @@ body {
                         flex-direction: column;
                         justify-content: space-around;
                         align-items: center;
+                        #button {
+                            background-color: rgb(247, 125, 145);
+                            color: white;
+                            margin-top: 20px;
+                            text-transform: uppercase;
+                            letter-spacing: 1.5px;
+                            font-size: 1rem;
+                            border: none; 
+                            border-radius: 20px; 
+                            padding: 10px 20px; 
+                        }
                         
                     }
 
@@ -226,33 +236,26 @@ body {
     }
 
 }
-@media (min-width: 768px) { 
+@media (min-width: 60rem) { 
     body{
         .container{   
         .header{
 
 
-            /* Cannot See it */
-            /* .menu-icon {
+            .menu-icon {
                 display: none;
                 outline: auto;
             }
-
+ 
             .mainNav {
-                outline: auto;
-                position: relative;
-
-                background-color: transparent;
+                position: static;
+                ul{
+                    max-height: 70px;
+                    text-align: right;
+                    display: flex;
+                }
             }
-            .mainNav ul {
-                max-height: 70px;
-                padding: 15px 0;
-                text-align: right;
-            }
-            .mainNav ul li {
-                display: inline-flex;
-                padding-left: 20px;
-            } */
+            
         }
 
     }}
