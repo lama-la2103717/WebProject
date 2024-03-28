@@ -51,11 +51,11 @@ h2 {
 .productsList {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted box size */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
     gap: 1rem;
     .product {
         background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px; /* Adjusted padding */
+        padding: 20px;
         text-align: center;
         margin: 10px;
         box-shadow: 10px 10px 10px -1px rgba(10, 99, 169,0.16),
@@ -65,6 +65,17 @@ h2 {
         height: 100%;
         display: flex;
         flex-direction: column;
+        .purchaseButton {
+            background-color: rgb(247, 125, 145);
+            color: white;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 1rem;
+            border: none; 
+            border-radius: 20px; 
+            padding: 10px 20px; 
+        }
     }
     .product img {
         width: 100%;
@@ -90,7 +101,7 @@ footer {
 
 @media (min-width: 768px) {
     header {
-        padding: 10px 20px; /* Adjusted padding */
+        padding: 10px 20px;
     }
 
     .productsList {
