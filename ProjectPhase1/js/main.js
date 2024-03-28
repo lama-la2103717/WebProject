@@ -79,8 +79,7 @@ function productToHTML(product) {
         <div class="productInfo">
           <img src="${product.image}" alt="" />
           <h3 class="product-title">${product.title}</h3>
-         
-          <br><p class="product-description">${product.description}</p>
+  
           <p class="rating">${fullStars}<span class="half-star">${halfStar}</span></p>
           <p class="product-price">${boldPrice}</p>
           <button type="button" class="purchase">Purchase</button>

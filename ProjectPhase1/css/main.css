@@ -164,7 +164,6 @@ body {
                     to {opacity: 1}
                   }
 
-
             }
             .brands{
                 font-size: 30pt;
@@ -200,37 +199,80 @@ body {
 
                 }
             }
-            .topRating{
+
+           
+    
+            }
+
+            .topRating {
                 font-size: 30pt;
                 padding-top: 5rem;
-                .product{
-                    padding-top:5rem;
+            .topRated{
+                font-size: 30pt;
+                padding-top: 5rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+                .product {
+                    font-size: 10pt;
+                    margin:1.6rem;
+                    box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(246, 144, 161, 0.3);
+                    padding: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+          
+                    background-color: rgba(255, 255, 255, 0.8); /* Pink background */
+                }
+                
+                .product img {
+                    width: 100%; 
+                }
+                
+                .product .product-description, .product .purchase {
+                    text-align: center;
+                    border: none;
+                    border-radius: 20px;
+                    padding: 10px 20px;
+                    margin: 0.5rem;
+                    cursor: pointer;
+                    transition: background-color 0.1s, color 0.1s; 
+                }
+                
+                .product .purchase {
+                    background-color: rgb(247, 125, 145); 
+                    color: white; 
+                }
+                
+                .product:hover .purchase {
+                    background-color: white; 
+                    color: rgb(247, 125, 145); 
+                }
                     .rating {
-                        color: yellow; /* Set the color of the stars to yellow */
+                        color: yellow; 
                       }
                       .half-star {
-                        color: yellow; /* Set the color of the half-star to yellow */
+                        color: yellow; 
                         position: relative;
                         display: inline-block;
                         width: 0;
                         overflow: hidden;
                       }
                       .half-star::before {
-                        content: "\u2605"; /* Unicode for filled star */
+                        content: "\u2605"; 
                         position: absolute;
                         left: 0;
                       }
                       .half-star::after {
-                        content: "\u2605"; /* Unicode for filled star */
+                        content: "\u2605"; 
                         position: absolute;
                         left: 0;
-                        width: 50%; /* Adjust this value to control the width of the half-filled star */
+                        width: 50%; 
                         overflow: hidden;
-                        color: transparent; /* Set the color of the half-filled portion */
+                        color: transparent; 
                       }
                 }
-    
-            }
+
+            
 
             
         }
