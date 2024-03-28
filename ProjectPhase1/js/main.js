@@ -20,11 +20,7 @@ main.classList.remove("newDiv")
 
 
 document.addEventListener('DOMContentLoaded', function () {
-<<<<<<< Updated upstream
-  searchInput.addEventListener('change', searchForProduct);
-  const shopB = document.querySelectorAll('.card #button');
-  const defaultHTML = main.innerHTML;
-=======
+
 
 
   searchInput.addEventListener('change', searchForProduct)
@@ -37,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
->>>>>>> Stashed changes
 
   let products = [];
   changeNav();
@@ -73,16 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
           console.error("Error fetching data:", error);
       }
   }
-<<<<<<< Updated upstream
-
-  // On click on SHOP Now button
-  shopB.forEach(button => {
-      button.addEventListener('click', function () {
-          const brandName = this.parentNode.querySelector('p').textContent;
-          window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}`;
-      });
-  });
-=======
   function changeNav(){
     if(userType){
       const newLi= ulNav.appendChild(document.createElement("li").appendChild(document.createElement("a")));
@@ -112,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}`;
         });
     });
->>>>>>> Stashed changes
 
   function logOut(){
     const logout = document.querySelector(".logOut");
