@@ -304,9 +304,10 @@ body {
             .mainNav {
                 position: static;
                 height: 100%;
+
                 ul{
                     max-height: 70px;
-                    text-align: right;
+                    text-align: center;
                     display: flex;
                 }
             }
