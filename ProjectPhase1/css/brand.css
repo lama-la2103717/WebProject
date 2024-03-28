@@ -13,11 +13,17 @@ html {
 body {
     width: 100%;
     margin: auto;
-}
-
-.logo-img {
-    width: 100px;
-    height: 55px;
+    .button {
+        background-color: rgb(247, 125, 145);
+        color: white;
+        margin-top: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 1rem;
+        border: none; 
+        border-radius: 20px; 
+        padding: 10px 20px; 
+    }
 }
 
 header {
@@ -27,6 +33,10 @@ header {
     height: 70px;
     background-color: rgb(247, 125, 145);
     padding: 10px 0;
+    .logo-img {
+        width: 100px;
+        height: 55px;
+    }
 }
 .container{
     height: 100%;
@@ -55,17 +65,6 @@ h2 {
         height: 100%;
         display: flex;
         flex-direction: column;
-        .purchaseButton {
-            background-color: rgb(247, 125, 145);
-            color: white;
-            margin-top: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 1rem;
-            border: none; 
-            border-radius: 20px; 
-            padding: 10px 20px; 
-        }
     }
     .product img {
         width: 100%;
