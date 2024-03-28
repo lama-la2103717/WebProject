@@ -1,7 +1,7 @@
+const url = '/json/products.json';
 
 //queries
 const topRating = document.querySelector("#topRating");
-const url = '/json/products.json';
 
 document.addEventListener('DOMContentLoaded', function () {
   let products = [];
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     products = loadedProducts;
     topRatings(products);
   });
-
   async function loadProducts() {
     try {
       if (!localStorage.products) {
@@ -25,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error("Error fetching data:", error);
     }
   }
+  //On click on SHOP Now button
+  const shopB = document.querySelectorAll('.card #button');
+    shopB.forEach(button => {
+        button.addEventListener('click', function() {
+            const brandName = this.parentNode.querySelector('p').textContent;
+            window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}`;
+        });
+    });
 
   function topRatings(products) {
     products.forEach(product => {
@@ -96,3 +103,6 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+function goToPage(){
+  window.location.href = "brand.html";
+}
