@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+
+
 function goToMain(e){
     e.preventDefault(); 
     const username = document.querySelector('#username').value;
@@ -30,7 +32,12 @@ function goToMain(e){
             window.location.href = "main.html";
         }
         else if (users.type=="seller"){
-            // window.location.href = "main2.html";
+            username.forEach(button => {
+                button.addEventListener('click', function() {
+                    const brandName = this.parentNode.querySelector('p').textContent;
+                    window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}`;
+                });
+            });
         }
     }
     else{
