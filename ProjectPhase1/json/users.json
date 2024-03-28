@@ -180,21 +180,21 @@
     "type": "customer"
   },
   {
-    "company_name": "Beauty of Json",
+    "company_name": "Beauty of Joseon",
     "username": "beautyOfJson",
     "password": "xyz456",
     "bank_account": "987654321",
     "type": "seller"
     },
     {
-    "company_name": "cosRx",
+    "company_name": "CosRx",
     "username": "cosrx",
     "password": "innotech789",
     "bank_account": "456789123",
     "type": "seller"
     },
     {
-    "company_name": "IDewCare",
+    "company_name": "I Dew Care",
     "username": "idewcare",
     "password": "smart1234",
     "bank_account": "789123456",
@@ -215,7 +215,7 @@
     "type": "seller"
     },
     {
-    "company_name": "SOMEBYMI.",
+    "company_name": "SOME BY MI",
     "username": "somibymi",
     "password": "digital789",
     "bank_account": "345678901",
