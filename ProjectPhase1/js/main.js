@@ -5,6 +5,9 @@ const topRating = document.querySelector(".topRated");
 const main=document.querySelector(".main")
 const searchInput = document.querySelector(".searchInput")
 const hidden = document.querySelector(".menu-icon")
+main.classList.remove("newDiv")
+
+
 
 
 
@@ -16,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   searchInput.addEventListener('change', searchForProduct)
   const shopB = document.querySelectorAll('.card #button');
   const defaultHTML = main.innerHTML
+
 
 
 
@@ -88,9 +92,14 @@ function productToHTML(product) {
   }
   function searchForProduct(){
     const val = searchInput.value
+    main.classList.add("newDiv")
+
 
     if(val && val!==" "){
-    
+      // const newDiv =document.createElement("div");
+      console.log("new dix");
+
+
     
      filtered = products.filter(p=>
         p.title.toLowerCase().match(val.toLowerCase()) ||
@@ -109,8 +118,11 @@ function productToHTML(product) {
 
     else if(!val || val == " "){
       hidden.classList.remove("hidden");
+      main.classList.remove("newDiv")
+
 
       console.log(defaultHTML);
+
       main.innerHTML=defaultHTML
 
     }
