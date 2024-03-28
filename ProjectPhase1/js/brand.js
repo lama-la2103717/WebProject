@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
   headerBrandName.textContent = brandName;
   document.querySelector('header').appendChild(headerBrandName);
 
+  const img = document.querySelector(".logo-img")
+
+  img.addEventListener("click",goToMain)
+
+
+
   async function loadProducts() {
       try {
         if (!localStorage.products) {
@@ -53,5 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
               window.location.href = `purchase.html?productTitle=${encodeURIComponent(productTitle)}`;
           });
       });
+  }
+
+  function goToMain(){
+    window.location.href ="/html/main.html"
   }
 });
