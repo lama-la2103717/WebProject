@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error("Product not loaded yet.");
                 return;
             }
-
+ 
             if (!product.buyerList) {
                 product.buyerList = [];
             }
@@ -84,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 address: address,
                 brand: product.brand,
                 item: productTitle,
-                price: product.price
                 buyerList: product.buyerList,
                 stock: product.stock,
                 sold: product.sold,
