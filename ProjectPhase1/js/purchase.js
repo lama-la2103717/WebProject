@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const img =document.querySelector(".logo-img")
     img.addEventListener('click',goToMain)
     function goToMain(){
-      window.location.href=`/html/brand.html?brand=${brand}&type=${type}&username=${username}`
+      window.location.href=`/html/brand.html?brand=${brand}&type=${type}&username=${username}&balance=${balance}`
     }
     // Find the product by title from the products array
     product = products.find(product => product.title === productTitle);
