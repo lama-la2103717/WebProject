@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     let product;
     let products = JSON.parse(localStorage.getItem('products')) || [];
@@ -56,6 +55,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             product.stock -= quantity;
 
+            // Attach purchase date and time to the product
+            const purchaseDateTime = new Date().toLocaleString();
+            if (!product.purchaseList) {
+                product.purchaseList = [];
+            }
+            product.purchaseList.push({ username: username, purchaseDateTime: purchaseDateTime });
+
             // Save the updated product to local storage
             localStorage.setItem('products', JSON.stringify(products));
 
@@ -73,11 +79,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 buyerList: product.buyerList, 
                 stock: product.stock,
                 sold: product.sold,
-                purchaseDate: new Date().toLocaleString()
+                purchaseDateTime: purchaseDateTime,
+                purchaseList: product.purchaseList.map(entry => `${entry.username} - ${entry.purchaseDateTime}`)
             };
 
             purchaseHistory.push(purchaseRecord);
-            localStorage.setItem(username, JSON.stringify(purchaseHistory)); // Update the purchase history in local storage
+            localStorage.setItem(username, JSON.stringify(purchaseHistory)); 
 
             window.location.href = `purchaseHistory.html?username=${encodeURIComponent(username)}`;
         });

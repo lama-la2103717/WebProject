@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p> buyerslist: ${purchase.buyerList}</p>
                     <p> stock: ${purchase.stock}</p>
                     <p> sold: ${purchase.sold}</p>
-                    <p> purchaseDate: ${purchase.purchaseDate}</p>
+                    <p> purchaseDateTime: ${purchase.purchaseDateTime}</p>
+                    <p> purchaseList: ${purchase.purchaseList}</p>
                     <hr>
                 `;
                 purchaseHistoryElement.appendChild(purchaseEntry);
