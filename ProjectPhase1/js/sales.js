@@ -19,6 +19,7 @@ const brandName = urlParams.get('brand');
 //h2 for the brand name on the right
 const headerBrandName = document.createElement('h2');
 
+
 //changeing th etxt of brand
 headerBrandName.textContent = brandName;
 
@@ -32,8 +33,16 @@ mHeader.appendChild(headerBrandName);
 //queries
 const img =document.querySelector(".logoImg")
 const productContainer = document.querySelector('.product')
-const detailcontainer = document.querySelector('.detailContainer')
+const ref = document.querySelector('.aref')
 
+const detailcontainer = document.querySelector('.detailContainer')
+detailcontainer.classList.remove('detailContainer')
+
+img.addEventListener("click", goToMain)
+
+function goToMain(){
+    window.location.href=`/html/main.html?type=seller?brand=${brandName}`
+}
 
 
 //events

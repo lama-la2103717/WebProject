@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   headerBrandName.textContent = brandName;
   document.querySelector('header').appendChild(headerBrandName);
   const img =document.querySelector(".logo-img")
+  
 
   async function loadProducts() {
       try {
