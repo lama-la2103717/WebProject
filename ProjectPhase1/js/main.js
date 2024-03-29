@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             if (userType === 'customer') {
                 const brandName = this.parentNode.querySelector('p').textContent;
-                window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&username=${encodeURIComponent(username)}`;
+                window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&type=customer&username=${encodeURIComponent(username)}`;
             } else {
                 alert('You should be logged in as a customer to make a purchase.');
             }

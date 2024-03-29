@@ -2,11 +2,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
   const brandName = urlParams.get('brand');
   const username = urlParams.get('username');
+  const type = urlParams.get('type');
+
 
   const headerBrandName = document.createElement('h2');
   headerBrandName.textContent = brandName;
   document.querySelector('header').appendChild(headerBrandName);
+
   const img =document.querySelector(".logo-img")
+  img.addEventListener('click',goToMain)
+  function goToMain(){
+    window.location.href=`/html/main.html?type=${type}&username=${username}`
+  }
+ 
+
   
 
   async function loadProducts() {
