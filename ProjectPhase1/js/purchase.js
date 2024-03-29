@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    loadProducts().then(() => {
+    loadProducts().then(products => {
         product = products.find(product => product.title === productTitle); // Assign product value
         if (product) {
             displayProduct(product);
@@ -82,9 +82,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 img: product.image,
                 quantity: quantity,
                 address: address,
+                brand: product.brand,
+                item: productTitle,
+                price: product.price
                 buyerList: product.buyerList,
                 stock: product.stock,
-                sold: product.sold
+                sold: product.sold,
+                purchaseDate: new Date().toLocaleDateString()
+
             };
 
             purchaseHistory.push(purchaseRecord);

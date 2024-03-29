@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
   headerBrandName.textContent = brandName;
   document.querySelector('header').appendChild(headerBrandName);
   const img =document.querySelector(".logo-img")
-  img.addEventListener("click", goToMain)
 
   async function loadProducts() {
       try {
@@ -49,7 +48,3 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 });
-
-function goToMain(){
-    window.location.href="/html/main.html"
-}
