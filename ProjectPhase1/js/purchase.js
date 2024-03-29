@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let product; // Declare product variable outside the loadProducts().then() block
+    let product; 
 
     const urlParams = new URLSearchParams(window.location.search);
     const productTitle = urlParams.get('productTitle');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     loadProducts().then(products => {
-        product = products.find(product => product.title === productTitle); // Assign product value
+        product = products.find(product => product.title === productTitle);
         if (product) {
             displayProduct(product);
         } else {
@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
             item: productTitle,
             quantity: quantity,
             shippingAddress: address,
-            purchaseDate: new Date().toLocaleString() // Current date and time
+            purchaseDate: new Date().toLocaleString() 
         };
 
         let purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
         purchaseHistory.push(purchase);
         localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory));
 
-        // Redirect to purchase history page
+       
         window.location.href = 'purchaseHistory.html';
     });
 });
