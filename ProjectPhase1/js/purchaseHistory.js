@@ -1,7 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const username = new URLSearchParams(window.location.search).get('username');
+    const urlParams = new URLSearchParams(window.location.search);
+    const username =urlParams.get('username');
+    const productTitle=urlParams.get('productTitle')
+    const type=urlParams.get('type')
+    const brand=urlParams.get('brand')
     renderPurchaseHistory();
-
+    const img =document.querySelector(".logo-img")
+    img.addEventListener('click',goToMain)
+    function goToMain(){
+      window.location.href=`/html/purchase.html?&brand=${brand}&productTitle=${productTitle}&type=${type}&username=${username}`
+    }
     function renderPurchaseHistory() {
         const purchaseHistoryData = JSON.parse(localStorage.getItem(username)) || [];
         const purchaseHistoryElement = document.querySelector('.purchaseHistory');

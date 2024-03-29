@@ -71,7 +71,10 @@ document.addEventListener('DOMContentLoaded', function () {
       purchaseButtons.forEach(button => {
           button.addEventListener('click', function () {
               const productTitle = this.getAttribute('data-title');
-              const purchaseUrl = `purchase.html?productTitle=${encodeURIComponent(productTitle)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
+
+
+              const purchaseUrl = `purchase.html?brand=${brandName}&productTitle=${encodeURIComponent(productTitle)}&type=${type}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
+
               window.location.href = purchaseUrl;
           });
       });
