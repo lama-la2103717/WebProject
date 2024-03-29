@@ -29,10 +29,9 @@ function goToMain(e){
     console.log(`username ${username}, pass: ${password}, user ${user}`);
     if(user){
         if(user.type=="customer"){
-            window.location.href = `main.html?type=${encodeURIComponent(user.type)}`;
+            window.location.href = `main.html?type=${encodeURIComponent(user.type)}&username=${encodeURIComponent(username)}`;
         }
         else if (user.type=="seller") {
-            
             window.location.href = `main.html?type=${encodeURIComponent(user.type)}?brand=${encodeURIComponent(user.company_name)}`;
         }
     }

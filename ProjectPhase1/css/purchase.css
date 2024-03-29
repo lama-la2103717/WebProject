@@ -71,6 +71,7 @@ form {
     display: flex;
     flex-direction: column;
 }
+
 form input[type="number"],
 form input[type="text"],
 form textarea {
@@ -80,6 +81,7 @@ form textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 form button {
     background-color: rgb(247, 125, 145);
     color: white;
@@ -98,6 +100,8 @@ form button:hover {
 }
 
 
+
+
 @media (max-width: 767px) {
     .product {
         display: none;
@@ -109,7 +113,6 @@ form button:hover {
     form {
         width: 100%;
     }
-
     .productInfo {
         grid-column: 3 / 8; 
     }
