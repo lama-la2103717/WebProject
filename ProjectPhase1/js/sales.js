@@ -50,8 +50,8 @@ function goToMain(){
 
 
 //events
-
-addB.addEventListener('click', handelShowForm);
+addB.addEventListener('click', switchForm)
+productForm.addEventListener('submit', addProductForm)
 
 
 //Lists
@@ -69,8 +69,13 @@ async function showProducts() {
     else
         products=JSON.parse(localStorage.products)
 
+        let filteredProducts=""
+        if(!filteredProducts){
+             filteredProducts = products.filter(product => product.brand.match(brandName));
+        }
 
-    const filteredProducts = products.filter(product => product.brand.match(brandName));
+    
+
     // console.log(filteredProducts[0].id);
 
     //search for a specific product by title 
@@ -112,8 +117,7 @@ function displayProducts(products) {
 
                 <div class="productButton">
                 <a href="#" ><input type="button" class ="detailButton" onClick= "showDetails('${product.id}')" value="Show Details">  </a>
-                <button class="updateButton" onclick="handelUpdateForm('${product.id}')">Update</button>
-                <button class="deleteButton"  onclick="deleteProduct('${product.id}')">Remove</button>
+                <button class="updateButton" onclick="updateProduct('${product.id}')">Update</button>
                 </div>
             </div>
         `).join(" ");
@@ -124,84 +128,68 @@ function displayProducts(products) {
     
 }
 
-function handelShowForm() {
-    addB.classList.add('hidden');
-    productForm.classList.remove('hidden');
-    const cancelB = document.querySelector('#cancel');
-    cancelB.addEventListener('click', handelHideForm);
-    productForm.addEventListener('submit', addProduct);
-}
+function formToObject(form){
+    const formData = new FormData(form)
 
-function handelHideForm(e) {
-    e.preventDefault();
-    productForm.reset();
-    productForm.classList.add('hidden');
-    addB.classList.remove('hidden');
-}
+    const data= {}
 
-//delete a product 
-function deleteProduct(prodId) {
-    const index = products.findIndex(p => p.id== prodId);
-    if (index !== -1) {
-        products.splice(index, 1);
-        localStorage.setItem('products', JSON.stringify(products));
-        displayProducts(products)
+    for(const [key,value] of formData){
+        data[key] = value
+
     }
+    return data
 }
-//add new product
-function addProduct(e) {
-    e.preventDefault();
-    const productId = Date.now() + Math.floor(Math.random() * 1000);
-    // console.log("callllled");
-    const newProduct = {
-        id: productId,
-        title: productForm.querySelector('#title').value,
-       image:productForm.querySelector('#thumbnailUrl').value,
-       price:productForm.querySelector('#price').value,
-       rating:productForm.querySelector('#rating').value,
-       description:productForm.querySelector('#description').value,
-       brand:brandName,
-       stock:productForm.querySelector('#stock').value,
-       sold:productForm.querySelector('#stock').value
-    };
-    let products = JSON.parse(localStorage.getItem('products'));
-    products.unshift(newProduct); // to add it to the Beginning
-    localStorage.setItem('products', JSON.stringify(products));
-    handelHideForm(e);
-    displayProducts(products)
+function switchForm(){
+    productForm.classList.toggle("hidden");
+
+
+    if(addB.style.display !== "none"){
+    addB.style.display = "none";}
+    else{
+       
+        addB.style.display = "block";
+    }
+    
+
 }
+function addProductForm(e){
+    e.preventDefault()//prevent the default local storage behaviour.
+    const product = formToObject(e.target)
+    const index = products.findIndex(p=>p.id==product.id)
+    if(index==-1){
+        product.id=Date.now()
+        products.unshift(product)
+
+    }
+    else{
+       product.id=product[index].id
+        products[index]=product
+    }
+    localStorage.products = JSON.stringify(products)   
+    switchForm()
+    showProducts()
+    productForm.reset()
+
+}
+
+
 //update product
-function handelUpdateForm(prodId) {
-    index = products.findIndex(p => p.id == prodId);
-    product = products[index];
-    document.querySelector('#id').value = product.id;
-    document.querySelector('#title').value = product.title;
-    document.querySelector('#thumbnailUrl').value = product.image;
-    document.querySelector('#price').value = product.price;
-    document.querySelector('#rating').value = product.rating;
-    document.querySelector('#description').value = product.description;
-    document.querySelector('#stock').value = product.stock;
-    handelShowForm(); 
-    productForm.removeEventListener('submit', addProduct);
-    productForm.addEventListener('submit', function(e) {
-        updateProduct(e, index); 
-    });
+function updateProduct(id){
+    console.log(id);
+    const index = products.findIndex(p => p.id ==id)
+    switchForm()
+    fillFrom(products[index])
+    localStorage.products = JSON.stringify(products)
+    showProducts()
 }
-function updateProduct(e, index) {
-    e.preventDefault();
-    const updatedProduct = {
-        title: productForm.querySelector('#title').value,
-        image: productForm.querySelector('#thumbnailUrl').value,
-        price: productForm.querySelector('#price').value,
-        rating: productForm.querySelector('#rating').value,
-        description: productForm.querySelector('#description').value,
-        brand: brandName,
-        stock: productForm.querySelector('#stock').value,
-    };
-    products[index] = updatedProduct;
-    localStorage.setItem('products', JSON.stringify(products));
-    handelHideForm(e);
-    displayProducts(products);
+
+function fillFrom(product){
+    document.getElementById('title').value=product.title;
+    document.getElementById('thumbnailUrl').value=product.image;
+    document.getElementById('price').value=product.price;
+    document.getElementById('rating').value=product.rating;
+    document.getElementById('description').value=product.description;
+    document.getElementById('stock').value=product.stock;
 }
 
 function showDetails(id){
