@@ -6,9 +6,12 @@ const main = document.querySelector(".main");
 const searchInput = document.querySelector(".searchInput");
 const search = document.querySelector(".search");
 const hidden = document.querySelector(".menu-icon");
+const hdr = document.querySelector(".header");
 const loginA = document.querySelector(".login");
 const ulNav = document.querySelector(".mainNavUl");
 main.classList.remove("newDiv");
+hdr.classList.remove("hiddenHdr");
+
 
 document.addEventListener('DOMContentLoaded', function () {
     searchInput.addEventListener('change', searchForProduct);
@@ -167,11 +170,13 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 const productsHTML = filtered.map(product => productToHTML(product)).join('');
                 hidden.classList.add("hidden");
+                hdr.classList.add("hiddenHdr");
+
                 main.innerHTML = productsHTML;
             }
         } else if (!val || val == " ") {
             hidden.classList.remove("hidden");
-        
+            hdr.classList.remove("hiddenHdr");
             main.classList.remove("newDiv");
             ulNav.innerHTML=defaultUl
             main.innerHTML = defaultHTML;

@@ -38,10 +38,6 @@ const addB=document.querySelector('.addButton')
 const productForm=document.querySelector('.ProductForm')
 
 
-// const detailBtn =document.querySelector(".detailButton")
-
-const ref = document.querySelector('.aref')
-
 
 const detailcontainer = document.querySelector('.detailContainer')
 detailcontainer.classList.remove('detailContainer')
@@ -55,7 +51,6 @@ function goToMain(){
 
 //events
 
-// detailBtn.addEventListener('click',showDetails)
 addB.addEventListener('click', handelShowForm);
 
 
@@ -102,8 +97,18 @@ function displayProducts(products) {
                 <img src="${product.image}" alt="${product.title}" >
                 <h4 class="productTitle">${product.title}</h4>
                 <p class="productPrice"><b>Price:</b> ${product.price}</p>
-                <p class="productStock"><b>Stock:</b> ${product.stock}</p>
-                <p class="productSold"><b>Sold:</b> ${product.stock}</p>
+
+                ${product.stock!==0?
+                    `<p class="productStock"><b>Stock:</b> ${product.stock}</p>` :
+                    `<label class='red'><b>Stock:</b> Out of Stock</label>`
+                }
+                
+                ${product.sold?
+                    `<p class="productSold"><b>Sold:</b> ${product.sold}</p>` :
+                    `<label class='red'><b>Sold:</b> None</label>`
+                }
+
+                
 
                 <div class="productButton">
                 <a href="#" ><input type="button" class ="detailButton" onClick= "showDetails('${product.id}')" value="Show Details">  </a>
@@ -202,6 +207,7 @@ function updateProduct(e, index) {
 function showDetails(id){
     console.log(id);
     const prod = products.find(p=>p.id == id)
+    console.log(prod);
 
     detailcontainer.classList.add('detailContainer')
 
@@ -209,16 +215,34 @@ function showDetails(id){
     
 }
 function displayDetail(product){
+    console.log(product);
 
     return `
     <div class="productDetail">
-                <div><h2>Sale History</h2></div>
+                <div><h2>Product Details</h2></div>
                 <div><h4>${product.title}</h4></div>
-                <div><p><b>Selling Price:</b> ${product.price}</p></div>
-                <div><p><b>Total Amount Available:</b> ${product.stock}</p></div>
-                <div><p><b>Total Amount Sold:</b> ${product.stock}</p></div>
-                <div><p class ='productRevnue'><b>Revnue:</b> ${product.stock}</p></div>
-                <div><p class ='productBuyer'><b>Buyers:</b> ${product.stock}</p> </div>
+                <div><p><b>Selling Price:</b> ${product.price} QAR</p></div>
+
+                ${product.stock!==0?
+                    `<div><p><b>Total Amount Available:</b> ${product.stock}</p></div>` :
+                    `<label class='red'><b>Total Amount Available:</b> Product is Sold Out</label>`
+                }
+                
+                ${product.sold?
+                    `<div><p><b>Total Amount Sold:</b> ${product.sold}</p></div>` :
+                    `<label class='red'><b>Total Amount Sold:</b> None</label>`
+                }
+
+                ${product.sold?
+                    `<div><p><b>Total Revenue:</b> ${parseInt(product.sold)*parseInt(product.price)} QAR</p></div>` :
+                    `<label class='red'><b>Total Revenue: </b> None</label>`
+                }                
+                ${product.buyerList?
+                    `<div><p class ='productBuyer'><b>Buyers:</b> ${product.buyerList.join(", ")}</p> </div>` :
+                    `<label class='red'><b>Buyers: </b> No Buyers Yet</label>`
+                }                
+                
+                
                 <div> <input type="button" class ="closeButton" onClick= "switchView()" value="Close">   </div> 
                
     </div>

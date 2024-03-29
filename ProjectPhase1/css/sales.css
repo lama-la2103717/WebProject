@@ -25,7 +25,7 @@ body{
                 color: white;
             }
         }
-        button{
+        button , .detailButton{
             background-color: rgb(247, 125, 145);
             color: white;
             margin-top: 20px;
