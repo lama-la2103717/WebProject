@@ -73,15 +73,20 @@ body {
                 position: absolute;
                 background-color: rgb(247, 125, 145);
                 top:70px;
+                /* outline: auto; */
                 left:0;
                 width: 100%;
                 z-index: 1;
 
+
                 ul {
+                    /* outline: auto; */
+
                     list-style-type: none;
                     max-height: 0px;
                     overflow: hidden;
                     transition: all 0.5s;
+
                     li {
                         padding: 0 15px;
                     }

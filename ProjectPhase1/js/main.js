@@ -75,6 +75,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             } else if (userType) {
                 loginA.innerHTML = "View Sales";
+
+                loginA.addEventListener('click', (e)=>{
+                    e.preventDefault();
+                    const bName = userType.split("=")[1];
+                    window. location. href= `sales.html?brand=${bName}`
+        
+        
+                })
             }
         }
     }
