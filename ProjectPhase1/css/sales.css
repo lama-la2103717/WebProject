@@ -180,6 +180,18 @@ body{
                 }
             }
            }
+        
+        .saleHistory{
+            font-size: 20pt;
+            padding-top: 5rem;
+            text-align: center;
+            .record{
+                grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+                
+
+            }
+
+        }
 
     }
 }

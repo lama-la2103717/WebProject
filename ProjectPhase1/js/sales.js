@@ -71,7 +71,7 @@ async function showProducts() {
 
 
     const filteredProducts = products.filter(product => product.brand.match(brandName));
-    console.log(filteredProducts[0].id);
+    // console.log(filteredProducts[0].id);
 
     //search for a specific product by title 
     const searchB = document.querySelector('#search');

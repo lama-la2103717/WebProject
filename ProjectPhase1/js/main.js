@@ -23,8 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const balance = urlParams.get('balance');
    
     const brand = urlParams.get('brand');
+    
     const pageUrl = window.location.href.split("?");
-   
+    const brandUrl = window.location.href.split("brand=")[1];
     let products = [];
     changeNav();
 
@@ -68,24 +69,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function changeNav() {
         if (userType) {
+            console.log('enter');
             const newLi = ulNav.appendChild(document.createElement("li").appendChild(document.createElement("a")));
             newLi.innerHTML = "Log Out";
             newLi.classList.add("logOut");
             newLi.addEventListener("click", logOut);
 
-            if (userType === "customer") {
+
+            if (userType == "customer") {
+                console.log("Customer");
                 loginA.innerHTML = "View History";
                 loginA.addEventListener('click', function (event) {
                     event.preventDefault();
                     window.location.href = `purchaseHistory.html?username=${encodeURIComponent(username)}`;
                 });
-            } else if (userType) {
+            } else{
                 loginA.innerHTML = "View Sales";
+                console.log(brandUrl);
 
                 loginA.addEventListener('click', (e)=>{
                     e.preventDefault();
-                    const bName = userType.split("=")[1];
-                    window. location. href= `sales.html?brand=${bName}`
+                    console.log(brandUrl);
+                    window.location.href= `sales.html?brand=${brandUrl}`
         
         
                 })
@@ -163,6 +168,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 p.title.toLowerCase().match(val.toLowerCase()) ||
                 p.brand.toString().toLowerCase().match(val.toLowerCase())
             );
+            hdr.classList.add("hiddenHdr");
+
             ulNav.innerHTML=''
             if (filtered.length == 0) {
                 console.log("no");
@@ -170,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 const productsHTML = filtered.map(product => productToHTML(product)).join('');
                 hidden.classList.add("hidden");
-                hdr.classList.add("hiddenHdr");
 
                 main.innerHTML = productsHTML;
             }

@@ -160,6 +160,8 @@ body {
             .brands{
                 font-size: 30pt;
                 padding-top: 5rem;
+                margin-top:5rem ;
+
                 .brand{
                     padding-top:5rem;
                     display: grid;
@@ -195,12 +197,14 @@ body {
 
             .topRating {
                 font-size: 30pt;
-                padding-top: 5rem;
+                padding-top: 8rem;
+                margin-top:5rem ;
             .topRated{
+                width: 100%;
                 font-size: 30pt;
                 padding-top: 5rem;
                 display: grid;
-                grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+                grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
                 
                 .product {
                     font-size: 10pt;
@@ -282,8 +286,8 @@ body {
         .container{   
         .header{
             .searchInput{
-                margin-right: 40rem;
-                margin-left: 3rem;
+                margin-right: 60rem;
+                margin-left: 1rem;
             }
 
 

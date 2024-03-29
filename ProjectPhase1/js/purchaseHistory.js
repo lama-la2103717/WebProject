@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const img =document.querySelector(".logo-img")
     img.addEventListener('click',goToMain)
     function goToMain(){
-      window.location.href=`/html/purchase.html?&brand=${brand}&productTitle=${productTitle}&type=${type}&username=${username}`
+      window.location.href=`/html/main.html?productTitle=${productTitle}&type=customer&username=${username}`
     }
     function renderPurchaseHistory() {
         const purchaseHistoryData = JSON.parse(localStorage.getItem(username)) || [];
