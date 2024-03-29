@@ -19,26 +19,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-
-function goToMain(e){
+function goToMain(e) {
     e.preventDefault(); 
     const username = document.querySelector('#username').value;
     const password = document.querySelector('#password').value;
     const user = users.find(user => user.username == username && user.password == password);
-    console.log(`username ${username}, pass: ${password}, user ${user}`);
-    if(user){
-        const balance = user.balance
-        if(user.type=="customer"){
-            window.location.href = `main.html?type=${encodeURIComponent(user.type)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
+
+    if (user) {
+        let balance;
+        let storedBalance = parseFloat(localStorage.getItem(`${username}_balance`));
+        if (!isNaN(storedBalance)) {
+            balance = storedBalance;
+        } else {
+            balance = user.balance;
+            localStorage.setItem(`${username}_balance`, balance.toFixed(2)); // Store balance in local storage
         }
-        else if (user.type=="seller") {
-            window.location.href = `main.html?type=${encodeURIComponent(user.type)}?brand=${encodeURIComponent(user.company_name)}`;
+
+        if (user.type == "customer") {
+            window.location.href = `main.html?type=${encodeURIComponent(user.type)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance.toFixed(2))}`;
+        } else if (user.type == "seller") {
+            window.location.href = `main.html?type=${encodeURIComponent(user.type)}&brand=${encodeURIComponent(user.company_name)}`;
         }
-
-
-    }
-
-    else{
-       alert("no such user")
+    } else {
+        alert("No such user");
     }
 }
+
+

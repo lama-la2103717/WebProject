@@ -5,15 +5,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const productTitle = urlParams.get('productTitle');
     const username = urlParams.get('username');
-    let balance = parseFloat(urlParams.get('balance')) || 0; // Parse balance from URL parameter
-
-
+    const balance = parseFloat(urlParams.get('balance')) || 0; // Parse balance from URL parameter
 
     const type=urlParams.get('type');
     const brand=urlParams.get('brand');
     const img =document.querySelector(".logo-img")
     img.addEventListener('click',goToMain)
     function goToMain(){
+        
       window.location.href=`/html/brand.html?brand=${brand}&type=${type}&username=${username}&balance=${balance}`
     }
     // Find the product by title from the products array
@@ -40,9 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
         document.querySelector('main').appendChild(productDetails);
 
+        let userBalance = parseFloat(localStorage.getItem(`${username}_balance`)) || 0;
         // Display user balance
         const userBalanceElement = document.createElement('p');
-        userBalanceElement.textContent = `Your balance: $${balance.toFixed(2)}`; // Use balance from URL parameter
+        userBalanceElement.textContent = `Your balance: $${userBalance.toFixed(2)}`; // Use balance from URL parameter
         document.querySelector('main').appendChild(userBalanceElement);
 
         const purchaseForm = document.querySelector('#purchaseForm');
@@ -51,9 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const quantity = parseInt(document.querySelector('#quantity').value);
             const address = document.querySelector('#address').value;
 
-            // Use balance from URL parameter
 
-            let userBalance = parseFloat(localStorage.getItem(`${username}_balance`)) || 0;
+           
 
             if (!product) {
                 console.error("Product not loaded yet.");
