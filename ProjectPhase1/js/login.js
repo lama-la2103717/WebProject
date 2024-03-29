@@ -26,16 +26,17 @@ function goToMain(e) {
     const user = users.find(user => user.username == username && user.password == password);
 
     if (user) {
-        let balance;
-        let storedBalance = parseFloat(localStorage.getItem(`${username}_balance`));
-        if (!isNaN(storedBalance)) {
-            balance = storedBalance;
-        } else {
-            balance = user.balance;
-            localStorage.setItem(`${username}_balance`, balance.toFixed(2)); // Store balance in local storage
-        }
+    
 
         if (user.type == "customer") {
+            let balance;
+            let storedBalance = parseFloat(localStorage.getItem(`${username}_balance`));
+            if (!isNaN(storedBalance)) {
+                balance = storedBalance;
+            } else {
+                balance = user.balance;
+                localStorage.setItem(`${username}_balance`, balance.toFixed(2)); // Store balance in local storage
+            }
             window.location.href = `main.html?type=${encodeURIComponent(user.type)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance.toFixed(2))}`;
         } else if (user.type == "seller") {
             window.location.href = `main.html?type=${encodeURIComponent(user.type)}&brand=${encodeURIComponent(user.company_name)}`;
