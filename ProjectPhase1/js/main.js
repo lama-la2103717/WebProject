@@ -198,8 +198,3 @@ function showSlides() {
 function goToPage() {
     window.location.href = "brand.html";
 }
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
