@@ -25,7 +25,12 @@ body {
         padding: 10px 20px; 
     }
 }
+.red{
+                        
+    color: red;
+    font-weight: bold;
 
+  }
 header {
     display: flex;
     justify-content: space-between; 

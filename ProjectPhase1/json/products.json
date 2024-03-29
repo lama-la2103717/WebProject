@@ -27,7 +27,7 @@
     "rating": "4.8/5",
     "description": "Achieve a radiant complexion with Beauty of Joseon Glow Serum. Lightweight formula packed with brightening ingredients for luminous skin.",
     "brand": "Beauty of Joseon",
-    "stock": 45
+    "stock": 0
   },
   {
     "id": "BOJ004",
@@ -107,7 +107,7 @@
     "rating": "4.7/5",
     "description": "Start your day right with CosRx Low pH Good Morning Gel Cleanser. Gently removes impurities while maintaining skin's natural pH balance.",
     "brand": "CosRx",
-    "stock": 92
+    "stock": 0
   },
   {
     "id": "CRX002",
@@ -167,7 +167,7 @@
     "rating": "4.6/5",
     "description": "Revitalize tired eyes with CosRx Advanced Snail Peptide Eye Cream. Hydrates, firms, and reduces the appearance of fine lines and wrinkles.",
     "brand": "CosRx",
-    "stock": 83
+    "stock": 0
   },
   {
     "id": "CRX008",
@@ -269,7 +269,7 @@
       "rating": "4.4/5",
       "description": "Rejuvenate your skin while you sleep with this firming night cream. Formulated with bakuchiol, it helps to reduce the appearance of fine lines and wrinkles.",
       "brand": "I Dew Care",
-      "stock": 63
+      "stock": 0
     },
     {
       "id": "IDC008",
