@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
   const brandName = urlParams.get('brand');
+  const username = urlParams.get('username');
 
   const headerBrandName = document.createElement('h2');
   headerBrandName.textContent = brandName;
@@ -60,7 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
       purchaseButtons.forEach(button => {
           button.addEventListener('click', function () {
               const productTitle = this.getAttribute('data-title');
-              window.location.href = `purchase.html?productTitle=${encodeURIComponent(productTitle)}`;
+              const purchaseUrl = `purchase.html?productTitle=${encodeURIComponent(productTitle)}&username=${encodeURIComponent(username)}`;
+              window.location.href = purchaseUrl;
           });
       });
     }

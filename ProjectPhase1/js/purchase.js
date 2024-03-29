@@ -1,34 +1,21 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     let product;
-    let products; // Declare products variable in the outer scope
+    let products = JSON.parse(localStorage.getItem('products')) || [];
 
     const urlParams = new URLSearchParams(window.location.search);
     const productTitle = urlParams.get('productTitle');
     const username = urlParams.get('username');
 
-    async function loadProducts() {
-        try {
-            const response = await fetch('/json/products.json');
-            products = await response.json(); // Assign products to the outer variable
-            return products;
-        } catch (error) {
-            console.error("Error fetching data:", error);
-            throw error; // Propagate the error further for better debugging
-        }
-    }
+    // Find the product by title from the products array
+    product = products.find(product => product.title === productTitle);
 
-    loadProducts().then(products => {
-        product = products.find(product => product.title === productTitle); // Assign product value
-        if (product) {
-            displayProduct(product);
-        } else {
-            console.error("Product not found:", productTitle);
-            // Handle product not found error (e.g., display an error message)
-        }
-    }).catch(error => {
-        console.error("Error loading products:", error);
-        // Handle product loading error (e.g., display an error message)
-    });
+    if (product) {
+        displayProduct(product);
+    } else {
+        console.error("Product not found:", productTitle);
+        // Handle product not found error (e.g., display an error message)
+    }
 
     function displayProduct(product) {
         const productDetails = document.createElement('div');
@@ -41,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p><b>Price:</b> ${product.price}</p>
             </div>
         `;
-        document.querySelector('main').appendChild(productDetails); // Append productDetails to the main element
+        document.querySelector('main').appendChild(productDetails);
 
         const purchaseForm = document.querySelector('#purchaseForm');
         purchaseForm.addEventListener('submit', function (event) {
@@ -52,10 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error("Product not loaded yet.");
                 return;
             }
- 
-            if (!product.buyerList) {
-                product.buyerList = [];
-            }
+
+            // Ensure buyerList is initialized as an array
+            product.buyerList = product.buyerList || [];
+
+            // Add current username to the buyerList
             product.buyerList.push(username);
 
             if (!product.sold) {
@@ -68,11 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             product.stock -= quantity;
 
-            const productIndex = products.findIndex(p => p.title === product.title);
-            if (productIndex !== -1) {
-                products[productIndex] = product; // Update the product in the products array
-                localStorage.setItem('products', JSON.stringify(products)); // Save changes to local storage
-            }
+            // Save the updated product to local storage
+            localStorage.setItem('products', JSON.stringify(products));
 
             let purchaseHistory = JSON.parse(localStorage.getItem(username)) || [];
 
@@ -85,11 +70,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 brand: product.brand,
                 item: productTitle,
                 price: product.price,
-                buyerList: product.buyerList,
+                buyerList: product.buyerList, 
                 stock: product.stock,
                 sold: product.sold,
-                purchaseDate: new Date().toLocaleDateString()
-
+                purchaseDate: new Date().toLocaleString()
             };
 
             purchaseHistory.push(purchaseRecord);

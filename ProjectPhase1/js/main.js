@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             if (userType === 'customer') {
                 const brandName = this.parentNode.querySelector('p').textContent;
-                window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}`;
+                window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&username=${encodeURIComponent(username)}`;
             } else {
                 alert('You should be logged in as a customer to make a purchase.');
             }
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function productToHTML(product) {
-        // Convert rating to filled stars
+     
         const ratingValue = parseFloat(product.rating);
         const fullStars = '\u2605'.repeat(Math.floor(ratingValue));
         let halfStar = '';
@@ -142,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h3 class="product-title">${product.title}</h3>
                     <p class="rating">${fullStars}<span class="half-star">${halfStar}</span></p>
                     <p class="product-price">${boldPrice}</p>
-
                     ${product.stock!==0?
                         `<button type="button" class="purchase" data-title="${product.title}" >Purchase</button> ` :
                         `<label class='red'>Out of Stock</label>`

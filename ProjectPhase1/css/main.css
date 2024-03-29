@@ -180,9 +180,7 @@ body {
                 }
             }
 
-           
-    
-            
+        
 
             .topRating {
                 font-size: 30pt;
@@ -253,9 +251,9 @@ body {
                       }
 
                 }
-
-            
-
+                .product:hover {
+                    box-shadow: 0 28px 36px 0 rgba(88, 11, 11, 0.2);
+                }
             
         }}
         .footer {
