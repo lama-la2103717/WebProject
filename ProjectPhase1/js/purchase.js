@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 address: address,
                 brand: product.brand,
                 item: productTitle,
+                price: product.price,
                 buyerList: product.buyerList,
                 stock: product.stock,
                 sold: product.sold,

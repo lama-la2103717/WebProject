@@ -4,6 +4,7 @@ const url = '/json/products.json';
 const topRating = document.querySelector(".topRated");
 const main = document.querySelector(".main");
 const searchInput = document.querySelector(".searchInput");
+const search = document.querySelector(".search");
 const hidden = document.querySelector(".menu-icon");
 const loginA = document.querySelector(".login");
 const ulNav = document.querySelector(".mainNavUl");
@@ -13,6 +14,7 @@ main.classList.remove("newDiv");
 document.addEventListener('DOMContentLoaded', function () {
     searchInput.addEventListener('change', searchForProduct);
     const defaultHTML = main.innerHTML;
+    const defaultUl= ulNav.innerHTML;
     const urlParams = new URLSearchParams(window.location.search);
     const userType = urlParams.get('type');
     const username = urlParams.get('username');
@@ -140,7 +142,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h3 class="product-title">${product.title}</h3>
                     <p class="rating">${fullStars}<span class="half-star">${halfStar}</span></p>
                     <p class="product-price">${boldPrice}</p>
-                    <button type="button" class="purchase" data-title="${product.title}">Purchase</button>
+
+                    ${product.stock!==0?
+                        `<button type="button" class="purchase" data-title="${product.title}" >Purchase</button> ` :
+                        `<label class='red'>Out of Stock</label>`
+                    }
                 </div>
             </div>`;
     }
@@ -154,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 p.title.toLowerCase().match(val.toLowerCase()) ||
                 p.brand.toString().toLowerCase().match(val.toLowerCase())
             );
+            ulNav.innerHTML=''
             if (filtered.length == 0) {
                 console.log("no");
                 main.innerHTML = `<h1> No Product Found</h1>`;
@@ -164,7 +171,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         } else if (!val || val == " ") {
             hidden.classList.remove("hidden");
+        
             main.classList.remove("newDiv");
+            ulNav.innerHTML=defaultUl
             main.innerHTML = defaultHTML;
         }
     }
