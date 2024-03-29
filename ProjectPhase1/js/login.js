@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 
-
 function goToMain(e){
     e.preventDefault(); 
     const username = document.querySelector('#username').value;
@@ -28,13 +27,17 @@ function goToMain(e){
     const user = users.find(user => user.username == username && user.password == password);
     console.log(`username ${username}, pass: ${password}, user ${user}`);
     if(user){
+        const balance = user.balance
         if(user.type=="customer"){
-            window.location.href = `main.html?type=${encodeURIComponent(user.type)}&username=${encodeURIComponent(username)}`;
+            window.location.href = `main.html?type=${encodeURIComponent(user.type)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
         }
         else if (user.type=="seller") {
             window.location.href = `main.html?type=${encodeURIComponent(user.type)}?brand=${encodeURIComponent(user.company_name)}`;
         }
+
+
     }
+
     else{
        alert("no such user")
     }

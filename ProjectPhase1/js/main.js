@@ -8,7 +8,6 @@ const search = document.querySelector(".search");
 const hidden = document.querySelector(".menu-icon");
 const loginA = document.querySelector(".login");
 const ulNav = document.querySelector(".mainNavUl");
-
 main.classList.remove("newDiv");
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -18,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const userType = urlParams.get('type');
     const username = urlParams.get('username');
+    const balance = urlParams.get('balance');
+   
     const brand = urlParams.get('brand');
     const pageUrl = window.location.href.split("?");
    
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Purchase button clicked');
                 if (userType === 'customer') {
                     const productTitle = this.parentNode.querySelector('.product-title').textContent;
-                    const purchaseUrl = `purchase.html?productTitle=${encodeURIComponent(productTitle)}&username=${encodeURIComponent(username)}`;
+                    const purchaseUrl = `purchase.html?productTitle=${encodeURIComponent(productTitle)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
                     console.log('Username:', username);
 
                    window.location.href = purchaseUrl;
@@ -96,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             if (userType === 'customer') {
                 const brandName = this.parentNode.querySelector('p').textContent;
-                window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&type=customer&username=${encodeURIComponent(username)}`;
+                window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&type=customer&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
             } else {
                 alert('You should be logged in as a customer to make a purchase.');
             }

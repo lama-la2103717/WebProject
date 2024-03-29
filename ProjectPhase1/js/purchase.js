@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const productTitle = urlParams.get('productTitle');
     const username = urlParams.get('username');
+    let balance = parseFloat(urlParams.get('balance')) || 0; // Parse balance from URL parameter
+
+
 
     // Find the product by title from the products array
     product = products.find(product => product.title === productTitle);
@@ -25,24 +28,54 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h2>${product.title}</h2>
                 <p><b>Description:</b> ${product.description}</p>
                 <p><b>Price:</b> ${product.price}</p>
+                <p><b>Stock:</b> ${product.stock}</p>
             </div>
         `;
         document.querySelector('main').appendChild(productDetails);
+
+        // Display user balance
+        const userBalanceElement = document.createElement('p');
+        userBalanceElement.textContent = `Your balance: $${balance.toFixed(2)}`; // Use balance from URL parameter
+        document.querySelector('main').appendChild(userBalanceElement);
 
         const purchaseForm = document.querySelector('#purchaseForm');
         purchaseForm.addEventListener('submit', function (event) {
             event.preventDefault();
             const quantity = parseInt(document.querySelector('#quantity').value);
             const address = document.querySelector('#address').value;
+
+            // Use balance from URL parameter
+
+            let userBalance = parseFloat(localStorage.getItem(`${username}_balance`)) || 0;
+
             if (!product) {
                 console.error("Product not loaded yet.");
                 return;
             }
+            // Inside the purchaseForm event listener
+            const productPrice = parseFloat(product.price.replace(/[^\d.]/g, '')); 
+            const totalCost = quantity * productPrice; 
+           
 
-            // Ensure buyerList is initialized as an array
+            if (userBalance < totalCost) {
+                // Show alert if user doesn't have enough balance
+                alert(`You don't have enough balance. Your available balance is $${userBalance.toFixed(2)}.`);
+                return;
+            }
+
+            // Check if there's enough stock
+            if (quantity > product.stock) {
+                alert(`Sorry, there's not enough stock available. Available stock: ${product.stock}`);
+                return;
+            }
+
+           userBalance -= totalCost;
+    
+            localStorage.setItem(`${username}_balance`, userBalance.toFixed(2));
+
             product.buyerList = product.buyerList || [];
 
-            // Add current username to the buyerList
+
             product.buyerList.push(username);
 
             if (!product.sold) {
@@ -60,13 +93,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!product.purchaseList) {
                 product.purchaseList = [];
             }
-            product.purchaseList.push({ username: username, purchaseDateTime: purchaseDateTime });
+            product.purchaseList.push(
+                { username: username, 
+                purchaseDateTime: purchaseDateTime ,
+                totalCost: totalCost });
+
+
 
             // Save the updated product to local storage
             localStorage.setItem('products', JSON.stringify(products));
 
             let purchaseHistory = JSON.parse(localStorage.getItem(username)) || [];
-
             const purchaseRecord = {
                 productTitle: product.title,
                 item: product.title,
@@ -74,19 +111,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 quantity: quantity,
                 address: address,
                 brand: product.brand,
-                item: productTitle,
                 price: product.price,
                 buyerList: product.buyerList, 
                 stock: product.stock,
                 sold: product.sold,
+                totalCost: totalCost,
                 purchaseDateTime: purchaseDateTime,
-                purchaseList: product.purchaseList.map(entry => `${entry.username} - ${entry.purchaseDateTime}`)
+                purchaseList: product.purchaseList.map(entry => `${entry.username} - ${entry.purchaseDateTime} - ${entry.totalCost}`) // Concatenate strings properly
             };
-
+            
             purchaseHistory.push(purchaseRecord);
             localStorage.setItem(username, JSON.stringify(purchaseHistory)); 
 
             window.location.href = `purchaseHistory.html?username=${encodeURIComponent(username)}`;
         });
     }
-});
+
+        });
+        
+

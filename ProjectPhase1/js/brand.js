@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
   const brandName = urlParams.get('brand');
   const username = urlParams.get('username');
+  const balance = urlParams.get('balance');
   const type = urlParams.get('type');
 
 
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
       purchaseButtons.forEach(button => {
           button.addEventListener('click', function () {
               const productTitle = this.getAttribute('data-title');
-              const purchaseUrl = `purchase.html?productTitle=${encodeURIComponent(productTitle)}&username=${encodeURIComponent(username)}`;
+              const purchaseUrl = `purchase.html?productTitle=${encodeURIComponent(productTitle)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
               window.location.href = purchaseUrl;
           });
       });
