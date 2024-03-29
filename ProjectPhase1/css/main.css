@@ -98,7 +98,8 @@ body {
                     a {
                         display: flex;
                         justify-content: center;
-                        padding: 12px;
+                        padding: 10px;
+                       
                         /* Add your custom styles below to change appearance of links */
                         color: white;
                         text-decoration: none;
