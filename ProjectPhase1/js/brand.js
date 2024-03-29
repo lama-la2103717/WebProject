@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
               <div class="productInfo">
                   <img src="${product.image}" alt="${product.title}" />
                   <h4 class="productTitle">${product.title}</h4>
-                  <p class="productDescription"><b>Description:</b> ${product.description}</p>
-                  <p class="productPrice"><b>Price:</b> ${product.price}</p>
+                  <p class="rating">${fullStars}<span class="half-star">${halfStar}</span></p>
+                  <p class="product-price">${boldPrice}</p>
                   ${product.stock!==0?
                     `<button type="button" class="purchaseButton" data-title="${product.title}" >Purchase</button> ` :
                     `<label class='red'>Out of Stock</label>`
