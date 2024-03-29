@@ -5,7 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const productTitle = urlParams.get('productTitle');
     const username = urlParams.get('username');
-
+    const type=urlParams.get('type');
+    const brand=urlParams.get('brand');
+    const img =document.querySelector(".logo-img")
+    img.addEventListener('click',goToMain)
+    function goToMain(){
+      window.location.href=`/html/brand.html?brand=${brand}&type=${type}&username=${username}`
+    }
     // Find the product by title from the products array
     product = products.find(product => product.title === productTitle);
 
@@ -86,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
             purchaseHistory.push(purchaseRecord);
             localStorage.setItem(username, JSON.stringify(purchaseHistory)); 
 
-            window.location.href = `purchaseHistory.html?username=${encodeURIComponent(username)}`;
+            window.location.href = `purchaseHistory.html?brand=${brand}&productTitle=${productTitle}&type=${type}&username=${encodeURIComponent(username)}`;
         });
     }
 });
