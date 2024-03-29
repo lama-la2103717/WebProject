@@ -191,29 +191,3 @@ function goToPage() {
 }
 
 
-
-function listProducts(product) {
-
-    
-    // Convert rating to filled stars
-    const ratingValue = parseFloat(product.rating);
-    const fullStars = '\u2605'.repeat(Math.floor(ratingValue));
-    let halfStar = '';
-    if (ratingValue % 1 !== 0) {
-        halfStar = '\u00BD'; // Unicode for half star
-    }
-
-    // Make price bold
-    const boldPrice = `<h3>${product.price}</h3>`;
-
-    return `
-        <div class="product  card">
-            <div class="productInfo">
-                <img src="${product.image}" alt="" />
-                <h3 class="product-title">${product.title}</h3>
-                <p class="rating">${fullStars}<span class="half-star">${halfStar}</span></p>
-                <p class="product-price">${boldPrice}</p>
-                <button type="button" class="purchase" data-title="${product.title}" >Purchase</button>
-            </div>
-        </div>`;
-}

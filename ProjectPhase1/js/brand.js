@@ -21,18 +21,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
   loadProducts();
 
+
+
+
   function displayProducts(products) {
-      const productsList = document.querySelector('#productsList');
-      productsList.innerHTML = '';
+    const productsList = document.querySelector('#productsList');
+    productsList.innerHTML = '';
       products.forEach(product => {
+          
+          const ratingValue = parseFloat(product.rating);
+          const fullStars = '\u2605'.repeat(Math.floor(ratingValue));
+          let halfStar = '';
+          if (ratingValue % 1 !== 0) {
+              halfStar = '\u00BD'; // Unicode for half star
+          }
           const productContainer = document.createElement('div');
           productContainer.classList.add('product');
+      
+          // Make price bold
+          const boldPrice = `<h3>${product.price}</h3>`;
           productContainer.innerHTML = `
               <div class="productInfo">
                   <img src="${product.image}" alt="${product.title}" />
                   <h4 class="productTitle">${product.title}</h4>
-                  <p class="productDescription"><b>Description:</b> ${product.description}</p>
-                  <p class="productPrice"><b>Price:</b> ${product.price}</p>
+                  <p class="productPrice"><b></b> ${product.price}</p>
+                  <p class="rating">${fullStars}<span class="half-star">${halfStar}</span></p>
+                  <p class="product-price">${boldPrice}</p>
                   <button class="purchaseButton" data-title="${product.title}">Purchase</button>
               </div>
           `;
@@ -47,5 +61,5 @@ document.addEventListener('DOMContentLoaded', function () {
               window.location.href = `purchase.html?productTitle=${encodeURIComponent(productTitle)}`;
           });
       });
-  }
-});
+    }
+    });
