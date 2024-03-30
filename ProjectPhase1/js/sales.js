@@ -201,7 +201,7 @@ function updateProduct(id){
 }
 
 function fillFrom(product){
-    // document.getElementById('id').value=product.id;
+    document.getElementById('id').value=product.id;
     document.getElementById('title').value=product.title;
     document.getElementById('image').value=product.image;
     document.getElementById('price').value=product.price;
