@@ -173,7 +173,7 @@ body{
 
                     img{
                         width: 100%;
-                        height: 100%;
+                        height: 250px;
                     }
                     
                 }
@@ -189,27 +189,29 @@ body{
                     margin: 1rem;
                     color: #660000;
                 }
-
-
                 .table ,th, td{
-                    
+                  
+                    background:rgb(255, 240, 242) ;
 
                     margin: 2rem auto;
                     
                     width: 80vw;
-                    border: 4px solid #660000;
-                    background-color: 	#DDA0DD;
+                    border: 4px solid rgb(255, 255, 255);
+                
                     border-collapse: collapse;
 
+                    box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(246, 144, 161, 0.3);
+                   
 
                 }
 
                 td{                    
-                    color:white ;
+                    color:rgb(125, 95, 95) ;
 
 
                 }
                 th,td{
+                    color:rgb(125, 95, 95) ;
                     height: 8rem;
 
                 }
