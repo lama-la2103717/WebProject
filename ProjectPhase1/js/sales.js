@@ -133,7 +133,7 @@ function displayProducts(products) {
 
                 <div class="productButton">
                 <a href="#" ><input type="button" class ="detailButton" onClick= "showDetails('${product.id}')" value="Show Details">  </a>
-                <button class="updateButton" onclick="updateProduct('${product.id}')">Update</button>
+                <a href="#" ><button class="updateButton" onclick="updateProduct('${product.id}')">Update</button></a>
                 </div>
             </div>
         `).join(" ");

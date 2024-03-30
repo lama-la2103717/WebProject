@@ -9,8 +9,12 @@ const hidden = document.querySelector(".menu-icon");
 const hdr = document.querySelector(".header");
 const loginA = document.querySelector(".login");
 const ulNav = document.querySelector(".mainNavUl");
+const imgC = document.querySelector('.logoImg');
+
 main.classList.remove("newDiv");
 hdr.classList.remove("hiddenHdr");
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -208,6 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
             filtered = products.filter(p =>
                 p.title.toLowerCase().match(val.toLowerCase()) ||
                 p.brand.toString().toLowerCase().match(val.toLowerCase())
+                
             );
             hdr.classList.add("hiddenHdr");
 
@@ -215,19 +220,63 @@ document.addEventListener('DOMContentLoaded', function () {
             if (filtered.length == 0) {
                 main.innerHTML = `<h1> No Product Found</h1>`;
             } else {
+                
                 const productsHTML = filtered.map(product => productToHTML(product)).join('');
                 hidden.classList.add("hidden");
-
+                
                 main.innerHTML = productsHTML;
+                searchBTN()
+                
             }
-        } else if (!val || val == " ") {
+        } else if (!val || val == " "){
             hidden.classList.remove("hidden");
             hdr.classList.remove("hiddenHdr");
             main.classList.remove("newDiv");
             ulNav.innerHTML=defaultUl
             main.innerHTML = defaultHTML;
+            location.reload();
         }
+        imgC.addEventListener("click",() =>{
+            hidden.classList.remove("hidden");
+            hdr.classList.remove("hiddenHdr");
+            main.classList.remove("newDiv");
+            ulNav.innerHTML=defaultUl
+            main.innerHTML = defaultHTML;
+           
+        })
+       
     }
+
+    function searchBTN(){
+        console.log("nn"+userType);
+        const purchaseButtons = document.querySelectorAll('.purchase');
+        purchaseButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                if (userType) {
+                    
+                    const uType=userType.split('?')[0]
+    
+                    if (uType=='customer') {
+                        const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
+                        const balanceUrl = decodeURIComponent(pageUrl[3].split("=")[1]);
+                        const addressUrl = decodeURIComponent(pageUrl[4].split("=")[1]);//
+                        const productTitle = this.parentNode.querySelector('.product-title').textContent;
+                        const purchaseUrl = `purchase.html?brand=${brandUrl}?productTitle=${productTitle}?type=customer?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`;
+    
+                   window.location.href = purchaseUrl;}
+                   else {
+                    alert('You should be logged in as a customer to make a purchase.');
+                }
+                } else {
+                    alert('You should be logged in as a customer to make a purchase.');
+                }
+            });
+        });
+    }
+    
+
+
+
 });
 let slideIndex = 0;
 showSlides();
@@ -249,3 +298,5 @@ function showSlides() {
 function goToPage() {
     window.location.href = "brand.html";
 }
+
+

@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
+   
     let product;
     let products = JSON.parse(localStorage.getItem('products')) || [];
+
+    let users =  JSON.parse(localStorage.getItem('users')) || [];
 
 
    //attrib from url
 
 
   const pageUrl = window.location.href.split("?");
-  console.log(pageUrl);
 
   const userUrl = decodeURIComponent(pageUrl[4].split("username=")[1]);//3
   const titleUrl = decodeURIComponent(pageUrl[2].split("productTitle=")[1]);//3
@@ -16,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log(addressUrl);
 
 
+  const user = users.findIndex(u=> 
+    u.shipping_address==addressUrl.split("+").join(" ") &&
+    u.username==userUrl)
 
 
 
@@ -23,10 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
     img.addEventListener('click',goToMain)
     function goToMain(){
         
-      window.location.href=`/html/main.html?type=customer?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`
+      window.location.href=`/html/main.html?type=customer?username=${userUrl}?balance=${users[user].balance}?shippingAddress=${addressUrl}`
     }
     // Find the product by title from the products array
     product = products.find(product => product.title === titleUrl);
+
+
+    // console.log(user);
 
     if (product) {
         displayProduct(product);
@@ -50,7 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.product-info-container').appendChild(productDetails);
     }
     
-        let userBalance = parseFloat(localStorage.getItem(`${userUrl}_balance`)) || 0;
+        let userBalance = parseFloat(balanceUrl) || 0;
+        // let userBalance = parseFloat(localStorage.getItem(`${userUrl}_balance`)) || 0;
         // Display user balance
         const userBalanceElement = document.createElement('p');
         userBalanceElement.textContent = `Your balance: ${userBalance.toFixed(2)}QAR`; // Use balance from URL parameter
@@ -62,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         const purchaseHistoryNav = document.querySelector('.Purchase-History')
         purchaseHistoryNav.addEventListener('click', function () {
-            window.location.href = `purchaseHistory.html?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`;
+            window.location.href = `purchaseHistory.html?username=${userUrl}?balance=${userBalance}?shippingAddress=${addressUrl}`;
         })
 
         const purchaseForm = document.querySelector('#purchaseForm');
@@ -93,8 +102,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
            userBalance -= totalCost;
+           users[user].balance=userBalance;
+
     
-            localStorage.setItem(`${userUrl}_balance`, userBalance.toFixed(2));
+            // localStorage.setItem(`${userUrl}_balance`, userBalance.toFixed(2));
 
             product.buyerList = product.buyerList || [];
 
@@ -126,7 +137,9 @@ document.addEventListener('DOMContentLoaded', function () {
             // Save the updated product to local storage
             localStorage.setItem('products', JSON.stringify(products));
 
-            let purchaseHistory = JSON.parse(localStorage.getItem(userUrl)) || [];
+            let purchased = users[user].purchaseHistory || [];
+
+            // let purchaseHistory = JSON.parse(localStorage.getItem(userUrl)) || [];
             const purchaseRecord = {
                 productTitle: product.title,
                 item: product.title,
@@ -143,8 +156,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 purchaseList: product.purchaseList.map(entry => `${entry.username} - ${entry.purchaseDateTime} - ${entry.totalCost}`) // Concatenate strings properly
             };
             
-            purchaseHistory.unshift(purchaseRecord);
-            localStorage.setItem(userUrl, JSON.stringify(purchaseHistory)); 
+            purchased.unshift(purchaseRecord);
+
+            // localStorage.setItem(userUrl, JSON.stringify(purchased)); 
+            users[user].purchaseHistory=purchased
+            localStorage.users=JSON.stringify(users);
+            userBalanceElement.textContent = `Your balance: ${userBalance.toFixed(2)}QAR`; // Use balance from URL parameter
 
             alert(`Purchase have been recorded successfully. Your balance is ${userBalance.toFixed(2)} QAR.`);
            

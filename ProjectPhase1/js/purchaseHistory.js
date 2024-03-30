@@ -5,8 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const shipping_address = decodeURIComponent(pageUrl[3].split("=")[1]);//
 
 
+    let users =  JSON.parse(localStorage.getItem('users')) || [];
 
-
+    const user = users.findIndex(u=> 
+        u.shipping_address==shipping_address.split("+").join(" ") &&
+        u.username==username)
+        console.log(balance);
     renderPurchaseHistory();
     const img =document.querySelector(".logo-img")
     img.addEventListener('click',goToMain)
@@ -15,7 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function renderPurchaseHistory() {
 
-        const purchaseHistoryData = JSON.parse(localStorage.getItem(username)) || [];
+        const purchaseHistoryData = users[user].purchaseHistory
+         || [];
         const purchaseHistoryElement = document.querySelector('.purchaseHistory');
         if (purchaseHistoryData.length === 0) {
             purchaseHistoryElement.innerHTML = '<p>No purchase history found.</p>';
