@@ -104,7 +104,7 @@ async function showProducts() {
 }
     else{
         saleSummary.innerHTML=`<p class='noSold'>No Products Sold Yet...</p>`
-        saleSummary.innerHTML=`<p class='noSold'>No History Recorded...</p>`
+        saleHistory.innerHTML=`<p class='noSold'>No History Recorded...</p>`
     }
     const productList= displayProducts(filteredProducts)
     productContainer.innerHTML =productList

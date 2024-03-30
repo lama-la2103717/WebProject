@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         const purchaseHistoryNav = document.querySelector('.Purchase-History')
         purchaseHistoryNav.addEventListener('click', function () {
-            window.location.href = `purchaseHistory.html?productTitle=${titleUrl}?type=customer?username=${userUrl}?shippingAddress${addressUrl}`;
+            window.location.href = `purchaseHistory.html?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`;
         })
 
         const purchaseForm = document.querySelector('#purchaseForm');
