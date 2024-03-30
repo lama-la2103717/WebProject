@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const titleUrl = decodeURIComponent(pageUrl[2].split("productTitle=")[1]);//3
   const balanceUrl = decodeURIComponent(pageUrl[5].split("balance=")[1]);
   const addressUrl = decodeURIComponent(pageUrl[6].split("shippingAddress=")[1]);//
-  console.log(addressUrl);
-
 
   const user = users.findIndex(u=> 
     u.shipping_address==addressUrl.split("+").join(" ") &&
