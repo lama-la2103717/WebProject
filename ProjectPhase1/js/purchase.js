@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
             purchaseHistory.unshift(purchaseRecord);
             localStorage.setItem(userUrl, JSON.stringify(purchaseHistory)); 
 
-            alert(`Purchase have been recorded successfully. Your balance is $${userBalance.toFixed(2)}.`);
+            alert(`Purchase have been recorded successfully. Your balance is ${userBalance.toFixed(2)} QAR.`);
            
            
         });
