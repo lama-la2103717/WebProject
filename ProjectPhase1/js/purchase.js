@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.users=JSON.stringify(users);
             userBalanceElement.textContent = `Your balance: ${userBalance.toFixed(2)}QAR`; // Use balance from URL parameter
 
-            alert(`Purchase have been recorded successfully. Your balance is $${userBalance.toFixed(2)}.`);
+            alert(`Purchase have been recorded successfully. Your balance is ${userBalance.toFixed(2)} QAR.`);
            
            
         });
