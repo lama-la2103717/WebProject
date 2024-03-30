@@ -25,7 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const brand = urlParams.get('brand');
     
     const pageUrl = window.location.href.split("?");
+    console.log(pageUrl);
+
     const brandUrl = window.location.href.split("brand=")[1];
+
     let products = [];
     changeNav();
 
@@ -37,12 +40,22 @@ document.addEventListener('DOMContentLoaded', function () {
         purchaseButtons.forEach(button => {
             button.addEventListener('click', function () {
                 console.log('Purchase button clicked');
-                if (userType === 'customer') {
-                    const productTitle = this.parentNode.querySelector('.product-title').textContent;
-                    const purchaseUrl = `purchase.html?productTitle=${encodeURIComponent(productTitle)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}&shippingAddress=${encodeURIComponent(shipping_address)}`;
-                    console.log('Username:', username);
+                if (userType) {
+                    const uType=userType.split('?')[0]
+                    console.log(pageUrl[5]);
 
-                   window.location.href = purchaseUrl;
+                    if (uType=='customer') {
+                        const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
+                        const balanceUrl = decodeURIComponent(pageUrl[3].split("=")[1]);
+                        const addressUrl = decodeURIComponent(pageUrl[4].split("=")[1]);//
+                        const productTitle = this.parentNode.querySelector('.product-title').textContent;
+                        const purchaseUrl = `purchase.html?brand=${brandUrl}?productTitle=${productTitle}?type=customer?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`;
+                        console.log('Username:', username);
+
+                   window.location.href = purchaseUrl;}
+                   else {
+                    alert('You should be logged in as a customer to make a purchase.');
+                }
                 } else {
                     alert('You should be logged in as a customer to make a purchase.');
                 }
@@ -69,23 +82,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function changeNav() {
         if (userType) {
-            console.log('enter');
+            const uType=userType.split('?')[0]
+
             const newLi = ulNav.appendChild(document.createElement("li").appendChild(document.createElement("a")));
             newLi.innerHTML = "Log Out";
             newLi.classList.add("logOut");
             newLi.addEventListener("click", logOut);
 
 
-            if (userType == "customer") {
+            if (uType == "customer") {
                 console.log("Customer");
                 loginA.innerHTML = "View History";
                 loginA.addEventListener('click', function (event) {
+                    const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
+                        const balanceUrl = decodeURIComponent(pageUrl[3].split("=")[1]);
+                        const addressUrl = decodeURIComponent(pageUrl[4].split("=")[1]);//
                     event.preventDefault();
-                    window.location.href = `purchaseHistory.html?username=${encodeURIComponent(username)}`;
+                    window.location.href = `purchaseHistory.html?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`;
                 });
-            } else{
+            } 
+            else if (uType=='null') {
+                const logout = document.querySelector(".logOut");
+                logout.remove();
+                window.location.href = pageUrl[0];
+            }
+            else{
                 loginA.innerHTML = "View Sales";
-                console.log(brandUrl);
+                // console.log(brandUrl);
 
                 loginA.addEventListener('click', (e)=>{
                     e.preventDefault();
@@ -104,12 +127,34 @@ document.addEventListener('DOMContentLoaded', function () {
     shopB.forEach(button => {
         button.addEventListener('click', function () {
                 const brandName = this.parentNode.querySelector('p').textContent;
-                if (userType === 'customer') {
-                window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&type=customer&username=${encodeURIComponent(username)}&shippingAddress=${encodeURIComponent(shipping_address)}`;
+                if(pageUrl.length>3){
+                        console.log(pageUrl);
+                        const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
+                        const balanceUrl = decodeURIComponent(pageUrl[3].split("=")[1]);
+                        const addressUrl = decodeURIComponent(pageUrl[4].split("=")[1]);//
+                        if(userType){
+                            const uType=userType.split('?')[0]
+                            if (uType === 'customer')
+                               window.location.href = `brand.html?brand=${brandName}?type=customer?username=${userUrl}?shippingAddress=${addressUrl}?balance=${balanceUrl}`;
+                           
+        
+                        }
+                        else{
+                            window.location.href = `brand.html?brand=${brandName}?type=${userType}?username=${userUrl}?shippingAddress=${addressUrl}?balance=${balanceUrl}`
+                        }
                 }
                 else{
-                    window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&type=${userType}&username=${encodeURIComponent(username)}`
+                if(userType){
+                    const uType=userType.split('?')[0]
+                    if (uType === 'customer')
+                    window.location.href = `brand.html?brand=${brandName}?type=customer?username=${username}?shippingAddress=${shipping_address}?balance=${balance}`;
+                    else
+                    alert('Logged as seller, Cannot Shop');
+
                 }
+                else{
+                    window.location.href = `brand.html?brand=${brandName}?type=${userType}?username=${username}?shippingAddress=${shipping_address}?balance=${balance}`
+                }}
         });
     });
 

@@ -10,19 +10,40 @@ document.addEventListener('DOMContentLoaded', function () {
     const shipping_address=urlParams.get('shippingAddress');
     const type=urlParams.get('type');
     const brand=urlParams.get('brand');
+
+
+    //username=dlee&balance=90.96
+    //&shippingAddress=567%20Pine%20St,%20Al%20Rayyan,%20Qatar
+
+    //attrib from url
+
+
+  const pageUrl = window.location.href.split("?");
+  console.log(pageUrl);
+
+  const userUrl = decodeURIComponent(pageUrl[4].split("username=")[1]);//3
+  const titleUrl = decodeURIComponent(pageUrl[2].split("productTitle=")[1]);//3
+  const balanceUrl = decodeURIComponent(pageUrl[5].split("balance=")[1]);
+  const addressUrl = decodeURIComponent(pageUrl[6].split("shippingAddress=")[1]);//
+  console.log(addressUrl);
+
+
+
+
+
     const img =document.querySelector(".logo-img")
     img.addEventListener('click',goToMain)
     function goToMain(){
         
-      window.location.href=`/html/main.html?type=customer&username=${username}&balance=${balance}`
+      window.location.href=`/html/main.html?type=customer?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`
     }
     // Find the product by title from the products array
-    product = products.find(product => product.title === productTitle);
+    product = products.find(product => product.title === titleUrl);
 
     if (product) {
         displayProduct(product);
     } else {
-        console.error("Product not found:", productTitle);
+        console.error("Product not found:", titleUrl);
         // Handle product not found error (e.g., display an error message)
     }
 
@@ -41,19 +62,19 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.product-info-container').appendChild(productDetails);
     }
     
-        let userBalance = parseFloat(localStorage.getItem(`${username}_balance`)) || 0;
+        let userBalance = parseFloat(localStorage.getItem(`${userUrl}_balance`)) || 0;
         // Display user balance
         const userBalanceElement = document.createElement('p');
         userBalanceElement.textContent = `Your balance: ${userBalance.toFixed(2)}QAR`; // Use balance from URL parameter
         document.querySelector('.Purchase-Details').appendChild(userBalanceElement);
 
         const addressInput = document.querySelector('#address');
-        if (shipping_address) {
-            addressInput.value = shipping_address;
+        if (addressUrl) {
+            addressInput.value = addressUrl;
         }
         const purchaseHistoryNav = document.querySelector('.Purchase-History')
         purchaseHistoryNav.addEventListener('click', function () {
-            window.location.href = `purchaseHistory.html?brand=${brand}&productTitle=${productTitle}&type=${type}&username=${encodeURIComponent(username)}`;
+            window.location.href = `purchaseHistory.html?productTitle=${titleUrl}?type=customer?username=${userUrl}?shippingAddress${addressUrl}`;
         })
 
         const purchaseForm = document.querySelector('#purchaseForm');
@@ -85,12 +106,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
            userBalance -= totalCost;
     
-            localStorage.setItem(`${username}_balance`, userBalance.toFixed(2));
+            localStorage.setItem(`${userUrl}_balance`, userBalance.toFixed(2));
 
             product.buyerList = product.buyerList || [];
 
 
-            product.buyerList.push(username);
+            product.buyerList.push(userUrl);
 
             if (!product.sold) {
                 product.sold = 0;
@@ -108,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 product.purchaseList = [];
             }
             product.purchaseList.push(
-                { username: username, 
+                { username: userUrl, 
                 purchaseDateTime: purchaseDateTime ,
                 totalCost: totalCost });
 
@@ -117,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Save the updated product to local storage
             localStorage.setItem('products', JSON.stringify(products));
 
-            let purchaseHistory = JSON.parse(localStorage.getItem(username)) || [];
+            let purchaseHistory = JSON.parse(localStorage.getItem(userUrl)) || [];
             const purchaseRecord = {
                 productTitle: product.title,
                 item: product.title,
@@ -135,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
             
             purchaseHistory.unshift(purchaseRecord);
-            localStorage.setItem(username, JSON.stringify(purchaseHistory)); 
+            localStorage.setItem(userUrl, JSON.stringify(purchaseHistory)); 
 
             alert(`Purchase have been recorded successfully. Your balance is $${userBalance.toFixed(2)}.`);
            

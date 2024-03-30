@@ -1,14 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
-    const username =urlParams.get('username');
-    const productTitle=urlParams.get('productTitle')
-    const type=urlParams.get('type')
-    const brand=urlParams.get('brand')
+    const pageUrl = window.location.href.split("?");
+    console.log(pageUrl);
+    const username = decodeURIComponent(pageUrl[1].split("=")[1]);//3
+    const balance = decodeURIComponent(pageUrl[3].split("=")[1]);
+    const shipping_address = decodeURIComponent(pageUrl[3].split("=")[1]);//
+
+
+    // const username =urlParams.get('username');
+    // const productTitle=urlParams.get('productTitle')
+    // const shipping_address=urlParams.get('shippingAddress');
+
     renderPurchaseHistory();
     const img =document.querySelector(".logo-img")
     img.addEventListener('click',goToMain)
     function goToMain(){
-      window.location.href=`/html/main.html?productTitle=${productTitle}&type=customer&username=${username}`
+      window.location.href=`/html/main.html?type=customer?username=${username}?shippingAddress${shipping_address}?balance=${balance}`
     }
     function renderPurchaseHistory() {
         const purchaseHistoryData = JSON.parse(localStorage.getItem(username)) || [];
