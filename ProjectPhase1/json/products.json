@@ -107,7 +107,7 @@
     "rating": "4.7/5",
     "description": "Start your day right with CosRx Low pH Good Morning Gel Cleanser. Gently removes impurities while maintaining skin's natural pH balance.",
     "brand": "CosRx",
-    "stock": 0
+    "stock": 3
   },
   {
     "id": "CRX002",
@@ -163,11 +163,11 @@
     "id": "CRX007",
     "title": "CosRx Advanced Snail Peptide Eye Cream",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx45107/v/12.jpg",
-    "price": "145.99 QAR",
+    "price": "100.99 QAR",
     "rating": "5/5",
     "description": "Revitalize tired eyes with CosRx Advanced Snail Peptide Eye Cream. Hydrates, firms, and reduces the appearance of fine lines and wrinkles.",
     "brand": "CosRx",
-    "stock": 0
+    "stock": 1
   },
   {
     "id": "CRX008",
@@ -269,7 +269,7 @@
       "rating": "4.4/5",
       "description": "Rejuvenate your skin while you sleep with this firming night cream. Formulated with bakuchiol, it helps to reduce the appearance of fine lines and wrinkles.",
       "brand": "I Dew Care",
-      "stock": 0
+      "stock": 40
     },
     {
       "id": "IDC008",
@@ -634,6 +634,5 @@
     "brand": "SOME BY MI",
     "stock": 56
   }
-
 
 ]
