@@ -132,7 +132,7 @@ function displayProducts(products) {
                 
 
                 <div class="productButton">
-                <a href="#" ><input type="button" class ="detailButton" onClick= "showDetails(${product.id})" value="Show Details">  </a>
+                <a href="#" ><input type="button" class ="detailButton" onClick= "showDetails('${product.id}')" value="Show Details">  </a>
                 <button class="updateButton" onclick="updateProduct('${product.id}')">Update</button>
                 </div>
             </div>
@@ -168,27 +168,24 @@ function switchForm(){
     
 
 }
-function addProductForm(e){
-    e.preventDefault()//prevent the default local storage behaviour.
-    const product = formToObject(e.target)
-    product.brand=brandName
-    const index = products.findIndex(p=>p.id===product.id)
-    if(index==-1){
-        product.id=Date.now()
-        products.unshift(product)
-
+function addProductForm(e) {
+    e.preventDefault();
+    const product = formToObject(e.target);
+    product.brand = brandName;
+    const index = products.findIndex(p => p.title === product.title);
+    if (index == -1) {
+        // product.id = Date.now();
+        products.unshift(product);
+    } else {
+        product.id = products[index].id; 
+        products[index] = product;
     }
-    else{
-       product.id=product[index]
-       console.log( product.brand);
-        products[index]=product
-    }
-    localStorage.products = JSON.stringify(products)   
-    switchForm()
-    showProducts()
-    productForm.reset()
-
+    localStorage.products = JSON.stringify(products);
+    switchForm();
+    showProducts();
+    productForm.reset();
 }
+
 
 
 //update product
