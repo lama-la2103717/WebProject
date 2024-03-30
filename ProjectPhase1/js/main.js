@@ -212,6 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
             filtered = products.filter(p =>
                 p.title.toLowerCase().match(val.toLowerCase()) ||
                 p.brand.toString().toLowerCase().match(val.toLowerCase())
+                
             );
             hdr.classList.add("hiddenHdr");
 
@@ -225,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 main.innerHTML = productsHTML;
                 searchBTN()
+                
             }
         } else if (!val || val == " "){
             hidden.classList.remove("hidden");
@@ -232,6 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
             main.classList.remove("newDiv");
             ulNav.innerHTML=defaultUl
             main.innerHTML = defaultHTML;
+            location.reload();
         }
         imgC.addEventListener("click",() =>{
             hidden.classList.remove("hidden");
@@ -239,7 +242,9 @@ document.addEventListener('DOMContentLoaded', function () {
             main.classList.remove("newDiv");
             ulNav.innerHTML=defaultUl
             main.innerHTML = defaultHTML;
+           
         })
+       
     }
 
     function searchBTN(){
