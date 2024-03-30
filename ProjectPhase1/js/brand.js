@@ -1,11 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const brandName = urlParams.get('brand');
-  const username = urlParams.get('username');
-  const balance = urlParams.get('balance');
-  const type = urlParams.get('type');
-  const shipping_address= urlParams.get('shippingAddress');
-
 
   //attrib from url
   const pageUrl = window.location.href.split("?");
@@ -27,13 +20,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const img =document.querySelector(".logo-img")
   img.addEventListener('click',goToMain)
   function goToMain(){
-    window.location.href=`/html/main.html?type=${typeUrl}?username=${userUrl}?brand=${brandUrl}`
+    window.location.href=`/html/main.html?type=${typeUrl}?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`
+
   }
- 
+ let products=[]
   async function loadProducts() {
       try {
+        if(!localStorage.products){
           const response = await fetch('/json/products.json');
-          const products = await response.json();
+           products = await response.json();}
+          else
+            products=JSON.parse(localStorage.products)
           const filteredProducts = products.filter(product => product.brand === brandUrl);
           displayProducts(filteredProducts);
       } catch (error) {

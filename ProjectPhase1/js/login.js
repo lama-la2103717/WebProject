@@ -45,10 +45,7 @@ function goToMain(e) {
             });
 
             const deturl =params.toString().split("&").join('?');
-            // console.log(deturl);
-
             window.location.href = `main.html?${deturl}`;
-            // window.location.href = `main.html?type=${encodeURIComponent(user.type)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance.toFixed(2))}`;
         } else if (user.type == "seller") {
             window.location.href = `main.html?type=${encodeURIComponent(user.type)}?brand=${encodeURIComponent(user.company_name)}`;
         }

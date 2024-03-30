@@ -2,20 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let product;
     let products = JSON.parse(localStorage.getItem('products')) || [];
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const productTitle = urlParams.get('productTitle');
-    const username = urlParams.get('username');
-    const balance = parseFloat(urlParams.get('balance')) || 0; 
 
-    const shipping_address=urlParams.get('shippingAddress');
-    const type=urlParams.get('type');
-    const brand=urlParams.get('brand');
-
-
-    //username=dlee&balance=90.96
-    //&shippingAddress=567%20Pine%20St,%20Al%20Rayyan,%20Qatar
-
-    //attrib from url
+   //attrib from url
 
 
   const pageUrl = window.location.href.split("?");

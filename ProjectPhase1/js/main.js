@@ -39,10 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const purchaseButtons = document.querySelectorAll('.topRated .purchase');
         purchaseButtons.forEach(button => {
             button.addEventListener('click', function () {
-                console.log('Purchase button clicked');
                 if (userType) {
                     const uType=userType.split('?')[0]
-                    console.log(pageUrl[5]);
 
                     if (uType=='customer') {
                         const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
@@ -50,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         const addressUrl = decodeURIComponent(pageUrl[4].split("=")[1]);//
                         const productTitle = this.parentNode.querySelector('.product-title').textContent;
                         const purchaseUrl = `purchase.html?brand=${brandUrl}?productTitle=${productTitle}?type=customer?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`;
-                        console.log('Username:', username);
 
                    window.location.href = purchaseUrl;}
                    else {
@@ -91,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             if (uType == "customer") {
-                console.log("Customer");
                 loginA.innerHTML = "View History";
                 loginA.addEventListener('click', function (event) {
                     const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
@@ -128,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
                 const brandName = this.parentNode.querySelector('p').textContent;
                 if(pageUrl.length>3){
-                        console.log(pageUrl);
                         const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
                         const balanceUrl = decodeURIComponent(pageUrl[3].split("=")[1]);
                         const addressUrl = decodeURIComponent(pageUrl[4].split("=")[1]);//
@@ -218,7 +213,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             ulNav.innerHTML=''
             if (filtered.length == 0) {
-                console.log("no");
                 main.innerHTML = `<h1> No Product Found</h1>`;
             } else {
                 const productsHTML = filtered.map(product => productToHTML(product)).join('');

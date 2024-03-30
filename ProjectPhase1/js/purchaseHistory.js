@@ -1,15 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
     const pageUrl = window.location.href.split("?");
-    console.log(pageUrl);
     const username = decodeURIComponent(pageUrl[1].split("=")[1]);//3
     const balance = decodeURIComponent(pageUrl[2].split("=")[1]);
     const shipping_address = decodeURIComponent(pageUrl[3].split("=")[1]);//
 
 
-    // const username =urlParams.get('username');
-    // const productTitle=urlParams.get('productTitle')
-    // const shipping_address=urlParams.get('shippingAddress');
+
 
     renderPurchaseHistory();
     const img =document.querySelector(".logo-img")
@@ -21,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const purchaseHistoryData = JSON.parse(localStorage.getItem(username)) || [];
         const purchaseHistoryElement = document.querySelector('.purchaseHistory');
-        console.log(username);
         if (purchaseHistoryData.length === 0) {
             purchaseHistoryElement.innerHTML = '<p>No purchase history found.</p>';
         } else {
