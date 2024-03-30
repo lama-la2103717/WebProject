@@ -40,7 +40,8 @@ const addB=document.querySelector('.addButton')
 const productForm=document.querySelector('.ProductForm')
 
 
-const saleHistory=document.querySelector('.record')
+const saleSummary=document.querySelector('.record')
+const saleHistory=document.querySelector('.history')
 
 
 
@@ -96,10 +97,15 @@ async function showProducts() {
 });
     const soldProducts = filteredProducts.find(p=>p.sold) 
     if(soldProducts){
+    const summaryList = displaySummary(filteredProducts)
+    saleSummary.innerHTML=summaryList
+
     const historyList = displayHistory(filteredProducts)
-    saleHistory.innerHTML=historyList}
+    saleHistory.innerHTML=historyList
+}
     else{
-        saleHistory.innerHTML=`<p class='noSold'>No Products Sold Yet...</p>`
+        saleSummary.innerHTML=`<p class='noSold'>No Products Sold Yet...</p>`
+        saleSummary.innerHTML=`<p class='noSold'>No History Recorded...</p>`
     }
     const productList= displayProducts(filteredProducts)
     productContainer.innerHTML =productList
@@ -241,7 +247,7 @@ function displayDetail(product){
                     `<label class='red'><b>Total Revenue: </b> None</label>`
                 }                
                 ${product.buyerList?
-                    `<div><p class ='productBuyer'><b>Buyers:</b> ${product.buyerList.join(", ")}</p> </div>` :
+                    `<div><p class ='productBuyer'><b>Buyers:</b> ${[...new Set(product.buyerList.join(",").split(","))].join(" - ")}</p> </div>` :
                     `<label class='red'><b>Buyers: </b> No Buyers Yet</label>`
                 }                
                 
@@ -257,9 +263,9 @@ function switchView(){
 }
 
 
-function displayHistory(product){
+function displaySummary(product){
     const purchased= product.filter(p=>p.buyerList)
-    console.log(purchased);
+    // console.log(purchased);
 
     //buyers
 
@@ -269,32 +275,32 @@ function displayHistory(product){
         
     )
     const unqBuyers=[...new Set(buyers.join(",").split(","))]
-    console.log(`un ${unqBuyers}`);
+    // console.log(`un ${unqBuyers}`);
 
 
     //total sold
     const intSold = purchased.map(p=>p.sold)
     const sold = intSold.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    console.log(`sol ${sold}`);
+    // console.log(`sol ${sold}`);
 
 
 
     //total revnue
     const intRev = purchased.map(p=>p.sold*parseInt(p.price.split(" ")[0]))
     const revenue = intRev.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    console.log(`rev ${revenue}`);
+    // console.log(`rev ${revenue}`);
 
 
     //most Sold
     const highestSold=Math.max(...intSold);
     const mostSold= purchased.find(p=>p.sold==highestSold)
-    console.log(mostSold);
+    // console.log(mostSold);
 
 
     //most rev
     const highestRev=Math.max(...intRev);
     const mostRev= purchased.find(p=>p.sold*parseInt(p.price.split(" ")[0])==highestRev)
-    console.log(mostRev);
+    // console.log(mostRev);
 
 
     const history = 
@@ -341,6 +347,33 @@ function displayHistory(product){
 
 
 
+
+
+
+}
+
+function displayHistory(product){
+    const purchased= product.filter(p=>p.buyerList)
+    console.log(purchased);
+    const historyList=purchased.map(p=>
+        `
+        <div class='historyCard'>
+            <div><img src="${p.image}" alt="${p.title}"></div>
+            <div class="hdet">
+                <p><b>Date: </b>${p.purchaseList[0].purchaseDateTime}</p>
+                <p><b>Customer: </b>${p.buyerList[0]}</p>
+                <p><b>Product Title:</b>${p.title}</p>
+                <p><b>Price: </b>${p.price}</p>
+                <p><b>Quantity: </b>${p.sold}</p>
+                <p><b>Cost: </b>${p.purchaseList[0].totalCost} QAR</p>
+            </div>    
+
+
+
+        </div>  
+        `).join(' ')
+
+        return historyList;
 
 
 
