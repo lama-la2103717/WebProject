@@ -180,7 +180,7 @@ body{
             }
            }
         
-        .saleHistory{
+        .saleSummary{
             font-size: 20pt;
             padding-top: 5rem;
             text-align: center; 
@@ -192,7 +192,11 @@ body{
 
 
                 .table ,th, td{
-                    margin: 2rem;
+                    
+
+                    margin: 2rem auto;
+                    
+                    width: 80vw;
                     border: 4px solid #660000;
                     background-color: 	#DDA0DD;
                     border-collapse: collapse;
@@ -206,11 +210,46 @@ body{
 
                 }
                 th,td{
-                    height: 5rem;
+                    height: 8rem;
 
                 }
             }
 
+
+        }
+        .saleHistory{
+            font-size: 20pt;
+            padding-top: 5rem;
+            text-align: center; 
+            margin: 2rem;
+            .history{
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 2rem;
+            .historyCard{
+                box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(246, 144, 161, 0.3);
+
+                display: grid;
+                
+                grid-template-columns: 1fr 3fr;
+                height: 20rem;
+                text-align: left;
+                padding:2rem 1rem;
+                img{
+                    
+                    height: 60%;
+                    width: 80%;
+                }
+                p{
+                    color: #900C3F;
+                    padding: 5px;
+                    b{
+                        color: #581845;
+                    }
+                }
+
+            }}
 
         }
         .footer {
@@ -220,6 +259,7 @@ body{
             background-color: rgb(247, 125, 145);
            
         }
+
 
     }
 }
