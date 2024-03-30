@@ -35,9 +35,16 @@ function goToMain(e) {
                 balance = storedBalance;
             } else {
                 balance = user.balance;
-                localStorage.setItem(`${username}_balance`, balance.toFixed(2)); // Store balance in local storage
+                localStorage.setItem(`${username}_balance`, balance.toFixed(2)); 
             }
-            window.location.href = `main.html?type=${encodeURIComponent(user.type)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance.toFixed(2))}`;
+            const params = new URLSearchParams({
+                type: user.type,
+                username: username,
+                balance: balance.toFixed(2),
+                shipping_address: user.shipping_address
+            });
+            window.location.href = `main.html?${params.toString()}`;
+            // window.location.href = `main.html?type=${encodeURIComponent(user.type)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance.toFixed(2))}`;
         } else if (user.type == "seller") {
             window.location.href = `main.html?type=${encodeURIComponent(user.type)}&brand=${encodeURIComponent(user.company_name)}`;
         }

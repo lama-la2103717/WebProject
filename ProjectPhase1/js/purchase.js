@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const productTitle = urlParams.get('productTitle');
     const username = urlParams.get('username');
-    const balance = parseFloat(urlParams.get('balance')) || 0; // Parse balance from URL parameter
+    const balance = parseFloat(urlParams.get('balance')) || 0; 
 
+    const shipping_address=urlParams.get('shippingAddress');
     const type=urlParams.get('type');
     const brand=urlParams.get('brand');
     const img =document.querySelector(".logo-img")
@@ -32,18 +33,28 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="productInfo">
                 <img src="${product.image}" alt="${product.title}" />
                 <h2>${product.title}</h2>
-                <p><b>Description:</b> ${product.description}</p>
-                <p><b>Price:</b> ${product.price}</p>
-                <p><b>Stock:</b> ${product.stock}</p>
+                <p>${product.description}</p>
+                <h3>${product.price}</h3>
+
             </div>
         `;
-        document.querySelector('main').appendChild(productDetails);
-
+        document.querySelector('.product-info-container').appendChild(productDetails);
+    }
+    
         let userBalance = parseFloat(localStorage.getItem(`${username}_balance`)) || 0;
         // Display user balance
         const userBalanceElement = document.createElement('p');
-        userBalanceElement.textContent = `Your balance: $${userBalance.toFixed(2)}`; // Use balance from URL parameter
-        document.querySelector('main').appendChild(userBalanceElement);
+        userBalanceElement.textContent = `Your balance: ${userBalance.toFixed(2)}QAR`; // Use balance from URL parameter
+        document.querySelector('.Purchase-Details').appendChild(userBalanceElement);
+
+        const addressInput = document.querySelector('#address');
+        if (shipping_address) {
+            addressInput.value = shipping_address;
+        }
+        const purchaseHistoryNav = document.querySelector('.Purchase-History')
+        purchaseHistoryNav.addEventListener('click', function () {
+            window.location.href = `purchaseHistory.html?brand=${brand}&productTitle=${productTitle}&type=${type}&username=${encodeURIComponent(username)}`;
+        })
 
         const purchaseForm = document.querySelector('#purchaseForm');
         purchaseForm.addEventListener('submit', function (event) {
@@ -52,8 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const address = document.querySelector('#address').value;
 
 
-           
-
             if (!product) {
                 console.error("Product not loaded yet.");
                 return;
@@ -61,11 +70,10 @@ document.addEventListener('DOMContentLoaded', function () {
             // Inside the purchaseForm event listener
             const productPrice = parseFloat(product.price.replace(/[^\d.]/g, '')); 
             const totalCost = quantity * productPrice; 
-           
-
+          
             if (userBalance < totalCost) {
                 // Show alert if user doesn't have enough balance
-                alert(`You don't have enough balance. Your available balance is $${userBalance.toFixed(2)}.`);
+                alert(`You don't have enough balance. Your available balance is ${userBalance.toFixed(2)} QAR.`);
                 return;
             }
 
@@ -126,13 +134,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 purchaseList: product.purchaseList.map(entry => `${entry.username} - ${entry.purchaseDateTime} - ${entry.totalCost}`) // Concatenate strings properly
             };
             
-            purchaseHistory.push(purchaseRecord);
+            purchaseHistory.unshift(purchaseRecord);
             localStorage.setItem(username, JSON.stringify(purchaseHistory)); 
 
-            window.location.href = `purchaseHistory.html?brand=${brand}&productTitle=${productTitle}&type=${type}&username=${encodeURIComponent(username)}`;
+            alert(`Purchase have been recorded successfully. Your balance is $${userBalance.toFixed(2)}.`);
+           
+           
         });
-    }
-
-        });
+    })
         
 

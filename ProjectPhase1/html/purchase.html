@@ -8,17 +8,26 @@
 </head>
 <body>
     <header>
+
         <div>
-          
-                <img src="/images/logo.png" class="logo-img" alt="Logo"></div>
-        <div>
+           <img src="/images/logo.png" class="logo-img" alt="Logo"></div>
+        <div class="Purchase-History">
+            <h3>>>Purchase History<<</h3>
+        </div>
+
+        <div class="Purchase-Details">
             <h3>Purchase Details</h3>
         </div>
+        
     </header>
     <main>
-        <div class="details">
-            <form id="purchaseForm">
+        <main class="main-container">
+            <div class="product-info-container">
+               
+            </div>
 
+        <div class="purchase-form-container">
+            <form id="purchaseForm">
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity" min="1" required>
                 <label for="address">Shipping Address:</label>
@@ -26,10 +35,10 @@
                 <button type="submit">Complete Purchase</button>
             </form>
         </div>
-
-        
-        
     </main>
+    <footer class="footer">&copy;Copyright 2024 Get Glammed, LLC. All rights reserved. GetGlammed® is a registered trademark of GetGlammed, Trusted Brands. Healthy Rewards. Logo are trademarks of GetGlammed 
+
+    </footer>
     <script src="/js/purchase.js"></script>
 </body>
 </html>

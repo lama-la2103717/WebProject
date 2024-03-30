@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const username = urlParams.get('username');
   const balance = urlParams.get('balance');
   const type = urlParams.get('type');
+  const shipping_address= urlParams.get('shippingAddress');
 
 
   const headerBrandName = document.createElement('h2');
@@ -16,9 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.location.href=`/html/main.html?type=${type}&username=${username}`
   }
  
-
-  
-
   async function loadProducts() {
       try {
           const response = await fetch('/json/products.json');
@@ -67,16 +65,18 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       // Add event listener to Purchase buttons
-      const purchaseButtons = document.querySelectorAll('.purchaseButton');
-      purchaseButtons.forEach(button => {
-          button.addEventListener('click', function () {
-              const productTitle = this.getAttribute('data-title');
-
-
-              const purchaseUrl = `purchase.html?brand=${brandName}&productTitle=${encodeURIComponent(productTitle)}&type=${type}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
-
-              window.location.href = purchaseUrl;
-          });
-      });
+    const purchaseButtons = document.querySelectorAll('.purchaseButton');
+    purchaseButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        if (type === 'customer') {
+            const productTitle = this.getAttribute('data-title');
+            const purchaseUrl = `purchase.html?brand=${brandName}&productTitle=${encodeURIComponent(productTitle)}&type=${type}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}&shippingAddress=${encodeURIComponent(shipping_address)}`;
+            window.location.href = purchaseUrl;
+        } else {
+            alert('You should be logged in as a customer to make a purchase.');
+        }
+    });
+    });
+            
     }
     });

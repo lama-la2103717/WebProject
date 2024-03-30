@@ -4,7 +4,7 @@
     "title": "Beauty of Joseon Radiance Cleansing Balm",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj85166/v/23.jpg",
     "price": "55.75 QAR",
-    "rating": "4.5/5",
+    "rating": "4/5",
     "description": "Gently remove makeup and impurities with Beauty of Joseon Radiance Cleansing Balm. Enriched with natural oils for hydrated, glowing skin.",
     "brand": "Beauty of Joseon",
     "stock": 87
@@ -14,7 +14,7 @@
     "title": "Beauty of Joseon Revitalizing Sleeping Mask",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj24601/v/3.jpg",
     "price": "92.99 QAR",
-    "rating": "4.7/5",
+    "rating": "4/5",
     "description": "Wake up to refreshed, revitalized skin with Beauty of Joseon Revitalizing Sleeping Mask. Nourishing formula for overnight hydration and repair.",
     "brand": "Beauty of Joseon",
     "stock": 63
@@ -95,7 +95,7 @@
     "title": "Beauty of Joseon Sunscreen SPF 50+",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/boj/boj76688/v/16.jpg",
     "price": "58.99 QAR",
-    "rating": "4.8/5",
+    "rating": "4/5",
     "description": "Protect your skin from harmful UV rays with Beauty of Joseon Sunscreen SPF 50+. Non-greasy formula for broad-spectrum sun protection.",
     "brand": "Beauty of Joseon",
     "stock": 91
@@ -114,7 +114,7 @@
     "title": "CosRx Advanced Snail 96 Mucin Power Essence",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47000/v/19.jpg",
     "price": "120.50 QAR",
-    "rating": "4.8/5",
+    "rating": "4.4/5",
     "description": "Achieve smooth and hydrated skin with CosRx Advanced Snail 96 Mucin Power Essence. Formulated with snail secretion filtrate to nourish and repair.",
     "brand": "CosRx",
     "stock": 77
@@ -154,7 +154,7 @@
     "title": "CosRx Centella Blemish Cream",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx47036/v/21.jpg",
     "price": "105.25 QAR",
-    "rating": "4.8/5",
+    "rating": "4/5",
     "description": "Treat troubled areas with CosRx Centella Blemish Cream. Calms inflammation and speeds up the healing process of acne scars.",
     "brand": "CosRx",
     "stock": 80
@@ -164,7 +164,7 @@
     "title": "CosRx Advanced Snail Peptide Eye Cream",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crx/crx45107/v/12.jpg",
     "price": "145.99 QAR",
-    "rating": "4.6/5",
+    "rating": "5/5",
     "description": "Revitalize tired eyes with CosRx Advanced Snail Peptide Eye Cream. Hydrates, firms, and reduces the appearance of fine lines and wrinkles.",
     "brand": "CosRx",
     "stock": 0
@@ -206,7 +206,7 @@
       "title": "I Dew Care Buttery Vitamin C Lip Beauty Mask",
       "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc71810/v/44.jpg",
       "price": "66.84 QAR",
-      "rating": "4.0/5",
+      "rating": "4/5",
       "description": "Indulge your lips with this luxurious vitamin C lip mask. Formulated with rich buttery ingredients, it nourishes and hydrates while leaving your lips soft and supple.",
       "brand": "I Dew Care",
       "stock": 72
@@ -236,7 +236,7 @@
       "title": "I Dew Care Peel Lit Exfoliating Vitamin C Treatment Pads",
       "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc71961/v/30.jpg",
       "price": "74.94 QAR",
-      "rating": "4.2/5",
+      "rating": "3/5",
       "description": "Revitalize your skin with these exfoliating treatment pads. Infused with vitamin C, they help to remove dead skin cells and promote a brighter complexion.",
       "brand": "I Dew Care",
       "stock": 91
@@ -246,7 +246,7 @@
       "title": "I Dew Care Glow Easy Vitamin C Lip Oil - Pomegranate",
       "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc72857/v/20.jpg",
       "price": "47.34 QAR",
-      "rating": "4.1/5",
+      "rating": "5/5",
       "description": "Nourish and hydrate your lips with this vitamin C lip oil. Formulated with pomegranate extract, it provides antioxidant protection while adding a natural shine.",
       "brand": "I Dew Care",
       "stock": 22
@@ -256,7 +256,7 @@
       "title": "I Dew Care Glow Easy Vitamin C Lip Oil - Raspberry",
       "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/idc/idc72858/v/20.jpg",
       "price": "47.34 QAR",
-      "rating": "4.3/5",
+      "rating": "3/5",
       "description": "Treat your lips to this nourishing vitamin C lip oil. Infused with raspberry extract, it helps to soften and moisturize while enhancing your natural lip color.",
       "brand": "I Dew Care",
       "stock": 77
@@ -387,7 +387,7 @@
     "title": "ISNtree Hyaluronic Acid Water Essence",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/isn/isn56643/v/40.jpg",
     "price": "90.20 QAR",
-    "rating": "4.8/5",
+    "rating": "4.3/5",
     "description": "Quench thirsty skin with our Hyaluronic Acid Water Essence. Lightweight formula absorbs quickly to provide deep hydration.",
     "brand": "ISNtree",
     "stock": 95
@@ -519,10 +519,10 @@
      "title": "Mizon Collagen Power Lifting Cream",
     "image": "https://images-cdn.ubuy.qa/64da746dd5a1f4433c726b69-mizon-collagen-power-lifting-cream.jpg",
     "price": "112.50 QAR",
-    "rating": "4.8/5",
+    "rating": "4/5",
     "description": "Restore elasticity and firmness to your skin with our Collagen Power Lifting Cream. Formulated with marine collagen to plump and lift.",
     "brand": "Mizon",
-    "stock": 62  },
+    "stock": 62},
 
   {
     "id": "SBM001",
@@ -549,7 +549,7 @@
     "title": "SOME BY MI AHA/BHA/PHA Real Cica 92% Cool Calming Soothing Gel",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39109/v/29.jpg",
     "price": "49.45 QAR",
-    "rating": "4.5/5",
+    "rating": "4/5",
     "description": "Cool and calm irritated skin with this soothing gel enriched with 92% real Cica extract. Provides instant relief from inflammation and redness while deeply hydrating the skin.",
     "brand": "SOME BY MI",
     "stock": 27
@@ -609,7 +609,7 @@
     "title": "SOME BY MI Snail Truecica Miracle Repair Starter Kit",
     "image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/smi/smi39053/v/59.jpg",
     "price": "64.64 QAR",
-    "rating": "4.7/5",
+    "rating": "4.9/5",
     "description": "Kickstart your skincare routine with this starter kit featuring snail mucin and Truecica. Includes essential products to repair, hydrate, and rejuvenate the skin for a healthier complexion.",
     "brand": "SOME BY MI",
     "stock": 42

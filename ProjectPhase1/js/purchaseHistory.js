@@ -22,16 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const purchaseEntry = document.createElement('div');
                 purchaseEntry.classList.add('purchaseEntry');
                 purchaseEntry.innerHTML = `
-                    <p>Product Title: ${purchase.productTitle}</p>
+                    <h2><b>Product: </b>${purchase.productTitle}</h2>
                     <img src="${purchase.img}" alt="${purchase.item}" class="product-img"> 
-                    <p>Quantity: ${purchase.quantity}</p>
-                    <p>Shipping Address: ${purchase.address}</p>
-                    <p> buyerslist: ${purchase.buyerList}</p>
-                    <p> stock: ${purchase.stock}</p>
-                    <p> sold: ${purchase.sold}</p>
-                    <p> totalCost: ${purchase.totalCost}</p>
-                    <p> purchaseDateTime: ${purchase.purchaseDateTime}</p>
-                    <p> purchaseList: ${purchase.purchaseList}</p>
+
+                    <p><b>Quantity: </b>${purchase.quantity}</p>
+                    <p><b>Shipping Address: </b>${purchase.address}</p>
+                    <p> <b>Total Cost: </b>${purchase.totalCost}QAR</p>
+                    <p> <b>Purchase DateTime: </b>${purchase.purchaseDateTime}</p>
                     <hr>
                 `;
                 purchaseHistoryElement.appendChild(purchaseEntry);
@@ -39,9 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Add an event listener to listen for a purchase event
     document.addEventListener('purchase', renderPurchaseHistory);
 });
-// After the purchase is successfully completed
 document.dispatchEvent(new Event('purchase'));
 

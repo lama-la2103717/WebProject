@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const userType = urlParams.get('type');
     const username = urlParams.get('username');
     const balance = urlParams.get('balance');
-   
+    const shipping_address =urlParams.get('shipping_address');
     const brand = urlParams.get('brand');
     
     const pageUrl = window.location.href.split("?");
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Purchase button clicked');
                 if (userType === 'customer') {
                     const productTitle = this.parentNode.querySelector('.product-title').textContent;
-                    const purchaseUrl = `purchase.html?productTitle=${encodeURIComponent(productTitle)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
+                    const purchaseUrl = `purchase.html?productTitle=${encodeURIComponent(productTitle)}&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}&shippingAddress=${encodeURIComponent(shipping_address)}`;
                     console.log('Username:', username);
 
                    window.location.href = purchaseUrl;
@@ -103,12 +103,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const shopB = document.querySelectorAll('.card #button');
     shopB.forEach(button => {
         button.addEventListener('click', function () {
-            if (userType === 'customer') {
                 const brandName = this.parentNode.querySelector('p').textContent;
-                window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&type=customer&username=${encodeURIComponent(username)}&balance=${encodeURIComponent(balance)}`;
-            } else {
-                alert('You should be logged in as a customer to make a purchase.');
-            }
+                if (userType === 'customer') {
+                window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&type=customer&username=${encodeURIComponent(username)}&shippingAddress=${encodeURIComponent(shipping_address)}`;
+                }
+                else{
+                    window.location.href = `brand.html?brand=${encodeURIComponent(brandName)}&type=${userType}&username=${encodeURIComponent(username)}`
+                }
         });
     });
 
