@@ -17,7 +17,6 @@ body{
             padding: 1rem;
     
             .logoImg {
-                margin-top: 0.3rem;
                 width: 5.5rem;
                 height: 100%;
             }
@@ -184,13 +183,42 @@ body{
         .saleHistory{
             font-size: 20pt;
             padding-top: 5rem;
-            text-align: center;
+            text-align: center; 
             .record{
-                grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
-                
+                .noSold{
+                    margin: 1rem;
+                    color: #660000;
+                }
 
+
+                .table ,th, td{
+                    margin: 2rem;
+                    border: 4px solid #660000;
+                    background-color: 	#DDA0DD;
+                    border-collapse: collapse;
+
+
+                }
+
+                td{                    
+                    color:white ;
+
+
+                }
+                th,td{
+                    height: 5rem;
+
+                }
             }
 
+
+        }
+        .footer {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: rgb(247, 125, 145);
+           
         }
 
     }

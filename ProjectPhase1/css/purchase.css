@@ -16,12 +16,12 @@ header {
     align-items: center;
     height: 70px;
     background-color: rgb(247, 125, 145);
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .logo-img {
-    width: 100px;
-    height: 55px;
+    width: 5.5rem;
+    height: 100%;
 }
 
 h3 {

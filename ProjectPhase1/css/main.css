@@ -47,9 +47,8 @@ body {
             justify-content: space-between;
 
             .logoImg{
-
                 width: 6rem;
-                height: 3rem;
+                height: 100%;
             }
 
             

@@ -38,9 +38,15 @@ const addB=document.querySelector('.addButton')
 const productForm=document.querySelector('.ProductForm')
 
 
+const saleHistory=document.querySelector('.record')
+
+
 
 const detailcontainer = document.querySelector('.detailContainer')
 detailcontainer.classList.remove('detailContainer')
+
+
+
 
 img.addEventListener("click", goToMain)
 
@@ -68,12 +74,10 @@ async function showProducts() {
     }
     else
         products=JSON.parse(localStorage.products)
+    products=JSON.parse(localStorage.products)
 
-        let filteredProducts=""
-        if(!filteredProducts){
-             filteredProducts = products.filter(product => product.brand.match(brandName));
-        }
-
+    let filteredProducts= products.filter(product => product.brand.match(brandName));
+    
     
 
     // console.log(filteredProducts[0].id);
@@ -88,8 +92,13 @@ async function showProducts() {
 
     productContainer.innerHTML = displayProducts(searched);
 });
-    
-
+    const soldProducts = filteredProducts.find(p=>p.sold) 
+    if(soldProducts){
+    const historyList = displayHistory(filteredProducts)
+    saleHistory.innerHTML=historyList}
+    else{
+        saleHistory.innerHTML=`<p class='noSold'>No Products Sold Yet...</p>`
+    }
     const productList= displayProducts(filteredProducts)
     productContainer.innerHTML =productList
     localStorage.products = JSON.stringify(products)
@@ -155,6 +164,7 @@ function switchForm(){
 function addProductForm(e){
     e.preventDefault()//prevent the default local storage behaviour.
     const product = formToObject(e.target)
+    product.brand=brandName
     const index = products.findIndex(p=>p.id==product.id)
     if(index==-1){
         product.id=Date.now()
@@ -163,6 +173,7 @@ function addProductForm(e){
     }
     else{
        product.id=product[index].id
+       console.log( product.brand);
         products[index]=product
     }
     localStorage.products = JSON.stringify(products)   
@@ -179,6 +190,7 @@ function updateProduct(id){
     const index = products.findIndex(p => p.id ==id)
     switchForm()
     fillFrom(products[index])
+    console.log(products);
     localStorage.products = JSON.stringify(products)
     showProducts()
 }
@@ -239,5 +251,95 @@ function displayDetail(product){
 function switchView(){
     detailcontainer.innerHTML=""
     detailcontainer.classList.remove('detailContainer')
+}
+
+
+function displayHistory(product){
+    const purchased= product.filter(p=>p.buyerList)
+    console.log(purchased);
+
+    //buyers
+
+    const buyers = purchased.map(
+        p=>
+        p.buyerList.join(",")
+        
+    )
+    const unqBuyers=[...new Set(buyers.join(",").split(","))]
+    console.log(`un ${unqBuyers}`);
+
+
+    //total sold
+    const intSold = purchased.map(p=>p.sold)
+    const sold = intSold.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    console.log(`sol ${sold}`);
+
+
+
+    //total revnue
+    const intRev = purchased.map(p=>p.sold*parseInt(p.price.split(" ")[0]))
+    const revenue = intRev.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    console.log(`rev ${revenue}`);
+
+
+    //most Sold
+    const highestSold=Math.max(...intSold);
+    const mostSold= purchased.find(p=>p.sold==highestSold)
+    console.log(mostSold);
+
+
+    //most rev
+    const highestRev=Math.max(...intRev);
+    const mostRev= purchased.find(p=>p.sold*parseInt(p.price.split(" ")[0])==highestRev)
+    console.log(mostRev);
+
+
+    const history = 
+    `
+    <table class="table">
+
+    <tr>
+    <th> Total Items Sold</th>
+    <td>${sold}</td>
+    </tr>
+
+    
+    <tr>
+    <th>Total Revenue</th>
+    <td>${revenue} QAR</td>
+    </tr>
+
+    <tr>
+    <th> Most Sold Product</th>
+    <td>${mostSold.title}</td>
+    </tr>
+
+
+    <tr>
+    <th> Product with Most Revenue</th>
+    <td>${mostRev.title}</td>
+    </tr>
+
+
+    <tr>
+    <th> Buyers Usernames</th>
+    <td>${unqBuyers.join(" - ")}</td>
+    </tr>
+
+
+
+    </table>
+    `
+
+    
+    return history;
+
+
+
+
+
+
+
+
 }
 
