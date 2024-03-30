@@ -15,13 +15,14 @@
         </header>
         <main class="main">
             <form class="ProductForm hidden" id="ProductForm">
-                <input type="text" id="id" name="id" hidden>
+                <label for="id">Id</label>
+                <input type="text" id="id" name="id" >
         
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" required >
         
                 <label for="thumbnailUrl">Thumbnail URL</label>
-                <input type="url" id="thumbnailUrl" name="thumbnailUrl" required >
+                <input type="url" id="image" name="image" required >
         
                 <label for="price">Price</label>
                 <input type="text" id="price" name="price" required pattern="\d+(\.\d+)?\s*QAR" title="Please enter a number followed by 'QAR'">

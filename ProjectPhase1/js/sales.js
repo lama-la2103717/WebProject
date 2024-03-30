@@ -33,6 +33,8 @@ mHeader.appendChild(headerBrandName);
 //queries
 const img =document.querySelector(".logoImg")
 const productContainer = document.querySelector('.product')
+const cancelB=document.querySelector('#cancel')
+
 
 const addB=document.querySelector('.addButton')
 const productForm=document.querySelector('.ProductForm')
@@ -47,7 +49,7 @@ detailcontainer.classList.remove('detailContainer')
 
 
 
-
+cancelB.addEventListener('click',switchForm)
 img.addEventListener("click", goToMain)
 
 function goToMain(){
@@ -125,7 +127,7 @@ function displayProducts(products) {
                 
 
                 <div class="productButton">
-                <a href="#" ><input type="button" class ="detailButton" onClick= "showDetails('${product.id}')" value="Show Details">  </a>
+                <a href="#" ><input type="button" class ="detailButton" onClick= "showDetails(${product.id})" value="Show Details">  </a>
                 <button class="updateButton" onclick="updateProduct('${product.id}')">Update</button>
                 </div>
             </div>
@@ -165,14 +167,14 @@ function addProductForm(e){
     e.preventDefault()//prevent the default local storage behaviour.
     const product = formToObject(e.target)
     product.brand=brandName
-    const index = products.findIndex(p=>p.id==product.id)
+    const index = products.findIndex(p=>p.id===product.id)
     if(index==-1){
         product.id=Date.now()
         products.unshift(product)
 
     }
     else{
-       product.id=product[index].id
+       product.id=product[index]
        console.log( product.brand);
         products[index]=product
     }
@@ -187,7 +189,7 @@ function addProductForm(e){
 //update product
 function updateProduct(id){
     console.log(id);
-    const index = products.findIndex(p => p.id ==id)
+    const index = products.findIndex(p => p.id ===id)
     switchForm()
     fillFrom(products[index])
     console.log(products);
@@ -196,8 +198,9 @@ function updateProduct(id){
 }
 
 function fillFrom(product){
+    document.getElementById('id').value=product.id;
     document.getElementById('title').value=product.title;
-    document.getElementById('thumbnailUrl').value=product.image;
+    document.getElementById('image').value=product.image;
     document.getElementById('price').value=product.price;
     document.getElementById('rating').value=product.rating;
     document.getElementById('description').value=product.description;
