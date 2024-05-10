@@ -1,14 +1,19 @@
 
-import ecommRepo from "@/app/repo/ecommRepo";
+import ecomRepo from "@/app/repo/ecomRepo";
 
 export async function POST(request, { params }) {
     const userId = params.userId
     const purchaseHistory = await request.json()
-    const response = await ecommRepo.addPurchase(userId, purchaseHistory)
+    const response = await ecomRepo.addPurchase(userId, purchaseHistory)
     return Response.json(response)
 }
-export async function GET(request, { params }) {
-    const userId= params.userId
-    const purchaseHistory = await ecommRepo.getPurchases(userId)
-    return Response.json(purchaseHistory)
+// export async function GET(request, { params }) {
+//     const userId= params.userId
+//     const purchaseHistory = await ecomRepo.getPurchases(userId)
+//     return Response.json(purchaseHistory)
+// }
+
+export async function GET(request) {
+    const products = await ecomRepo.getUsers();
+    return Response.json(products, { status: 200 })
 }
