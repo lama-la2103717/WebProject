@@ -10,10 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const addressUrl = decodeURIComponent(pageUrl[4].split("shippingAddress=")[1]);//
 
 
-
-
-
-  const headerBrandName = document.createElement('h2');
+ const headerBrandName = document.createElement('h2');
   headerBrandName.textContent = brandUrl;
   document.querySelector('header').appendChild(headerBrandName);
 
@@ -26,13 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
  let products=[]
   async function loadProducts() {
       try {
-        if(!localStorage.products){
-          const response = await fetch('/json/products.json');
-           products = await response.json();}
-          else
-            products=JSON.parse(localStorage.products)
-          const filteredProducts = products.filter(product => product.brand === brandUrl);
-          displayProducts(filteredProducts);
+        const data = await fetch(`api/products/${brandUrl}`)
+        console.log(brandUrl)
+        products = await data.json();
+        // if(!localStorage.products){
+        //   const response = await fetch('/json/products.json');
+        //    products = await response.json();}
+        //   else
+        //     products=JSON.parse(localStorage.products)
+        //   const filteredProducts = products.filter(product => product.brand === brandUrl);
+           displayProducts(products);
       } catch (error) {
           console.error("Error fetching data:", error);
       }
