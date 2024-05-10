@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         // Fetch product details for each purchase
         const purchaseHistoryWithDetails = await Promise.all(purchaseHistory.map(async purchase => {
-            const productDetails = await fetch(`/api/products/${purchase.productId}`, { method: 'GET' }).then(res => res.json());
-            return { ...purchase, productTitle: productDetails.title, img: productDetails.image };
+            const productDetails = await fetch(`/api/product/${purchase.productId}`, { method: 'GET' }).then(res => res.json()); // Updated endpoint
+            return { ...purchase, productTitle: productDetails.title, image: productDetails.image }; // Updated property names
         }));
 
         renderPurchaseHistory(user, purchaseHistoryWithDetails);
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     img.addEventListener('click', goToMain);
 
     function goToMain() {
-        window.location.href = `/html/main.html?type=customer?username=${username}?balance=${balance}?shippingAddress=${shipping_address}`;
+        window.location.href = `/html/main.html?type=customer&username=${username}&balance=${balance}&shippingAddress=${shipping_address}`; // Fixed query string separator
     }
 
     function renderPurchaseHistory(user, purchaseHistory) {
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const purchaseEntry = document.createElement('div');
                 purchaseEntry.classList.add('purchaseEntry');
                 purchaseEntry.innerHTML = `
-                    <h2><b>Product: </b>${purchase.title}</h2>
-                    <img src="${purchase.image}" alt="${purchase.title}" class="product-img"> 
+                    <h2><b>Product: </b>${purchase.productTitle}</h2>
+                    <img src="${purchase.image}" alt="${purchase.productTitle}" class="product-img"> 
                     <p><b>Quantity: </b>${purchase.quantity}</p>
                     <p><b>Shipping Address: </b>${user.shipping_address}</p>
                     <p><b>Total Cost: </b>${purchase.price * purchase.quantity} QAR</p>
@@ -57,13 +57,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                 `;
                 purchaseHistoryElement.appendChild(purchaseEntry);
             });
-        
         }
     }
 
-    // You may not need this unless you're dispatching a custom 'purchase' event elsewhere
-    // document.addEventListener('purchase', renderPurchaseHistory);
-});
 
-// You may not need this unless you're dispatching a custom 'purchase' event elsewhere
-// document.dispatchEvent(new Event('purchase'));
+});
