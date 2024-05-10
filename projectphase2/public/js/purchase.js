@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
    
     let product;
     let products = JSON.parse(localStorage.getItem('products')) || [];
+    
 
-    let users =  JSON.parse(localStorage.getItem('users')) || [];
+    let users = fetch (`@/app/api/users`, {method: 'GET'});
 
 
    //attrib from url
