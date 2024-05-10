@@ -70,7 +70,10 @@ showProducts();
 
 
 async function showProducts() {
+    const datum = await fetch(`/api/products`)
+    let products=  await datum.json();
     // if(!localStorage.products){
+
 
     //     const data = await fetch('/json/products.json')
     //     products = await data.json()
@@ -229,11 +232,10 @@ function fillFrom(product){
     document.getElementById('stock').value=product.stock;
 }
 
-function showDetails(id){
-    console.log(id);
-    const prod = products.find(p=>p.id == id)
-    console.log(prod);
-
+async function showDetails(id){
+    const datum = await fetch(`/api/products/${id}`)
+    let prod=  await datum.json();
+    console.log(prod)
     detailcontainer.classList.add('detailContainer')
 
     detailcontainer.innerHTML= displayDetail(prod);   
@@ -309,19 +311,6 @@ async function displaySummary(data){
     const mostSold= data.find(p=>p.quantity==highestSold)
     console.log(`ttt ${mostSold.id}`);
 
-    //
-    const result = Object.values(data.reduce((acc, { 'ProductId': id, 'quantity': quantity, price}) => {
-        //console.log(productId)
-
-        acc[id] ??= { id, quantity: [], price: [] };
-        acc[id]
-        acc[id].quantity.push(quantity);
-        acc[id].price.push(price);
-        
-        return acc;
-    }, {}));
-  
-    console.log(result)
 
 
 

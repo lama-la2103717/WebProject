@@ -14,7 +14,7 @@ class EcomRepo{
     async getproductsbyBrand(brandName){
         try {
             return prisma.product.findMany({
-                where: {brand: {contains: brandName}}
+                where: {brand: {contains: brandName.match(/[A-Z][a-z]+|[0-9]+/g).join(" ")}}
             })
             
         } catch (error) {
@@ -120,17 +120,18 @@ class EcomRepo{
     async getProductById(id){
         try {
             return prisma.product.findUnique({
-                where: {id}
+                where: {id},
+                include: {prodPurchases:true}
             })
         } catch (error) {
             return {error: error.message}
 
         }
     }
-    async getSaleHistory(brandName){
+    async getSaleHistory(name){
         try {
             return prisma.purchaseHistory.findMany({
-                where: {brandName: {contains: brandName}},
+                where: {brandName: {contains: name.match(/[A-Z][a-z]+|[0-9]+/g).join(" ")}},
                 include:{Product: true, User : true}
                 
             })

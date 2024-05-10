@@ -35,7 +35,7 @@ function goToMain(e) {
             const deturl = params.toString().split("&").join('?');
             window.location.href = `main.html?${deturl}`;
         } else if (user.type == "seller") {
-            window.location.href = `main.html?type=${encodeURIComponent(user.type)}?brand=${encodeURIComponent(user.company_name)}`;
+            window.location.href = `main.html?type=${encodeURIComponent(user.type)}?brand=${encodeURIComponent(user.username)}`;
         }
     } else {
         alert("No such user");

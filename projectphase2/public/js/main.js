@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             else{
                 loginA.innerHTML = "View Sales";
-                // console.log(brandUrl);
+                console.log(brandUrl);
 
                 loginA.addEventListener('click', (e)=>{
                     e.preventDefault();
