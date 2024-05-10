@@ -4,8 +4,8 @@
     "surname": "Doe",
     "shipping_address": "123 Main St, Doha, Qatar",
     "username": "johndoe",
-    "password": "password123",    "image":"",
-
+    "password": "password123",   
+     "image":"",
     "balance": 1000,
     "type": "customer"
   },
@@ -14,8 +14,8 @@
     "surname": "Smith",
     "shipping_address": "456 Elm St, Al Wakrah, Qatar",
     "username": "janesmith",
-    "password": "smith2023",    "image":"",
-
+    "password": "smith2023",  
+      "image":"",
     "balance": 1000500,
     "type": "customer"
   },
@@ -84,7 +84,8 @@
     "surname": "Hernandez",
     "shipping_address": "852 Oak St, Al Shamal, Qatar",
     "username": "danh",
-    "password": "dh456",    "image":"",
+    "password": "dh456",  
+      "image":"",
 
     "balance": 1300,
     "type": "customer"

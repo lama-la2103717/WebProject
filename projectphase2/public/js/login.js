@@ -7,6 +7,7 @@ loginB.addEventListener('submit',goToMain);
 
 
 document.addEventListener('DOMContentLoaded', async () => {
+    
     if (localStorage.getItem('users')) {
         users = JSON.parse(localStorage.getItem('users'));
     } else {

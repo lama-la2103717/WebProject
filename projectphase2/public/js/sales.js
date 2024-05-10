@@ -71,6 +71,7 @@ showProducts();
 
 async function showProducts() {
     if(!localStorage.products){
+
         const data = await fetch('/json/products.json')
         products = await data.json()
     }

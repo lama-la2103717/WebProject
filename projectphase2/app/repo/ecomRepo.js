@@ -7,7 +7,7 @@ class EcomRepo{
         try {
             brandName.join()
             return prisma.product.findMany({
-                where: {brand:brandName}
+                where: {brand: {contains: brandName}}
             })
             
         } catch (error) {
