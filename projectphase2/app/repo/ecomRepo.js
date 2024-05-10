@@ -46,7 +46,7 @@ class EcomRepo{
     async getPurchases(userId) {
         try {
             return prisma.purchaseHistory.findMany(
-                { where: { userId } }
+                { where: {userId} }
             )
         } catch (error) {
             return { error: error.message }
@@ -63,28 +63,30 @@ class EcomRepo{
         }
     }
      
-     
+
     async addPurchase(userId, purchaseHistory) {
-        purchaseHistory.userId = userId;
-        purchaseHistory.price = parseFloat(purchaseHistory.price.toString());
-        purchaseHistory.quantity = parseFloat(purchaseHistory.quantity.toString());
-        
         try {
-            const user = await this.getUser(userId); // Corrected to await
-     
-            // Calculate total purchase price
+            // Ensure data consistency
+            purchaseHistory.price = parseFloat(purchaseHistory.price);
+            purchaseHistory.quantity = parseInt(purchaseHistory.quantity);
+
+            
             const totalPurchasePrice = purchaseHistory.price * purchaseHistory.quantity;
-     
-            // Check if user has sufficient balance
-            if (user.balance >= totalPurchasePrice) {
-                user.balance -= totalPurchasePrice; // Deduct total purchase price from user balance
-            } else {
+    
+           
+            const user = await this.getUser(userId);
+    
+            if (user.balance < totalPurchasePrice) {
                 return { error: "Insufficient Balance" };
             }
-     
-            await this.updateUser(userId, user); // Corrected to await
-     
+
+            user.balance -= totalPurchasePrice;
+
+            await this.updateUser(userId, user);
+    
+  
             const createdPurchase = await prisma.purchaseHistory.create({ data: purchaseHistory });
+    
             return createdPurchase;
         } catch (error) {
             return { error: error.message };

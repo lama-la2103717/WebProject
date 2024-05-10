@@ -242,8 +242,12 @@ document.addEventListener('DOMContentLoaded', function () {
             main.classList.remove("newDiv");
             ulNav.innerHTML=defaultUl
             main.innerHTML = defaultHTML;
+<<<<<<< Updated upstream
             location.reload();
 
+=======
+           
+>>>>>>> Stashed changes
         })
        
     }
