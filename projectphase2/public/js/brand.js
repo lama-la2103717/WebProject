@@ -23,16 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
  let products=[]
   async function loadProducts() {
       try {
-        const data = await fetch(`api/products/${brandUrl}`)
-        console.log(brandUrl)
+        const data = await fetch(`/api/products/${brandUrl}`)
         products = await data.json();
-        // if(!localStorage.products){
-        //   const response = await fetch('/json/products.json');
-        //    products = await response.json();}
-        //   else
-        //     products=JSON.parse(localStorage.products)
-        //   const filteredProducts = products.filter(product => product.brand === brandUrl);
-           displayProducts(products);
+        displayProducts(products);
       } catch (error) {
           console.error("Error fetching data:", error);
       }
