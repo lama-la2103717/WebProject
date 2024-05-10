@@ -102,7 +102,7 @@ async function showProducts() {
     const summaryList = await displaySummary(purch)
     saleSummary.innerHTML=summaryList
 
-    const historyList = displayHistory(filteredProducts)
+    const historyList = await displayHistory(purch)
     saleHistory.innerHTML=historyList
 }
     else{
@@ -309,6 +309,21 @@ async function displaySummary(data){
     const mostSold= data.find(p=>p.quantity==highestSold)
     console.log(`ttt ${mostSold.id}`);
 
+    //
+    const result = Object.values(data.reduce((acc, { 'ProductId': id, 'quantity': quantity, price}) => {
+        //console.log(productId)
+
+        acc[id] ??= { id, quantity: [], price: [] };
+        acc[id]
+        acc[id].quantity.push(quantity);
+        acc[id].price.push(price);
+        
+        return acc;
+    }, {}));
+  
+    console.log(result)
+
+
 
     //most rev
     const highestRev=Math.max(...intRev);
@@ -361,19 +376,22 @@ async function displaySummary(data){
 }
 
 function displayHistory(product){
-    const purchased= product.filter(p=>p.buyerList)
-    console.log(purchased);
-    const historyList=purchased.map(p=>
+
+    // const purchased= product.filter(p=>p.buyerList)
+    // console.log(purchased);
+
+
+    const historyList=product.map(p=>
         `
         <div class='historyCard'>
-            <div><img src="${p.image}" alt="${p.title}"></div>
+            <div><img src="${p.Product.image}" alt="${p.Product.title}"></div>
             <div class="hdet">
-                <p><b>Date: </b>${p.purchaseList[0].purchaseDateTime}</p>
-                <p><b>Customer: </b>${p.buyerList[0]}</p>
-                <p><b>Product Title:</b>${p.title}</p>
+                <p><b>Date: </b>${p.datePurchased}</p>
+                <p><b>Customer: </b>${p.User.userId}</p>
+                <p><b>Product Title:</b>${p.Product.title}</p>
                 <p><b>Price: </b>${p.price}</p>
-                <p><b>Quantity: </b>${p.sold}</p>
-                <p><b>Cost: </b>${p.purchaseList[0].totalCost} QAR</p>
+                <p><b>Quantity: </b>${p.quantity}</p>
+                <p><b>Cost: </b>${p.quantity * p.price} QAR</p>
             </div>    
 
 

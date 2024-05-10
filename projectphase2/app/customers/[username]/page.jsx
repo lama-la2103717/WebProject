@@ -4,18 +4,20 @@ import ecomRepo from '@/app/repo/ecomRepo';
 // import purchaseHistoryData from '@/app/data/purchasehistory.json';
 // import userData from '@/app/data/users.json';
 export default async function page({params}) {
+  console.log(params)
+
   const purchase = await ecomRepo.getCustomerHistoryByName(params.username)
-  console.log(purchase)
-  const money = purchase.map(p =>p.price)
+  const money = purchase.userPurchases.map(p =>p.price)
   const totalAmount= money.reduce((accumaltor , currentValue)=>accumaltor+currentValue,0);
   return (
     <div>
+
     <h1 className={styles.h1}>Customer Statistics</h1>
     <table className={styles.table}>
       <tbody>
         <tr>
           <td className={styles.td}>Total Orders</td>
-          <td className={styles.td}>{purchase.userPurchases}</td>
+          <td className={styles.td}>{purchase.userPurchases.length}</td>
         </tr>
 
         <tr>
