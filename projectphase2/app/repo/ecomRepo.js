@@ -23,6 +23,14 @@ class EcomRepo{
  
         }
     }
+    async getUsers(){
+        try {
+            return prisma.user.findMany()
+        } catch (error) {
+            return { error: error.message }
+ 
+        }
+    }
 
     async getUser(userId){
         try{
