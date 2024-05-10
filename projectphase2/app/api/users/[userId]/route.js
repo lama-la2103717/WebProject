@@ -1,4 +1,4 @@
-import ecommRepo from "@/app/repo/ecommRepo";
+import ecommRepo from "@/app/repo/ecomRepo";
 
 export async function GET(request, { params }) {
     const userId = params.userId;
