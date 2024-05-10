@@ -34,5 +34,39 @@ class EcommRepo{
 
         }
     }
+    async getProductByTitle(title){
+        try {
+            return prisma.product.findUnique({
+                where: { title: title }
+            })
+        } catch (error) {
+            return { error: error.message }
+        }
+
+    }
+    async getProductByUsername(name){
+        try {
+            return prisma.product.findUnique({
+                where: { brand: name }
+            })
+        } catch (error) {
+            return { error: error.message }
+        }
+    }
+
+    async addProduct(product) {
+        try {
+            return prisma.product.create({
+                data: product
+            })
+        } catch (error) {
+            return { error: error.message }
+        }
+    }
+
+
+
+
+
 }
 export default new EcommRepo()
