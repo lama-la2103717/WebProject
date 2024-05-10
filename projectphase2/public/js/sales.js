@@ -233,8 +233,10 @@ function fillFrom(product){
 }
 
 async function showDetails(id){
-    const datum = await fetch(`/api/products/${id}`)
+    const datum = await fetch(`/api/product/${id}`)
     let prod=  await datum.json();
+    
+    console.log(id)
     console.log(prod)
     detailcontainer.classList.add('detailContainer')
 
@@ -243,6 +245,18 @@ async function showDetails(id){
 }
 function displayDetail(product){
     console.log(product);
+    
+    const intSold = product.prodPurchases.map(p=>p.quantity)
+    const sold = intSold.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    console.log(`sol ${sold}`);
+
+    const intRev =  product.prodPurchases.map(p=>p.quantity*p.price)
+    const revenue = intRev.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    console.log(`rev ${revenue}`);
+
+    const ids =  product.prodPurchases.map(p=>p.userId)
+
+
 
     return `
     <div class="productDetail">
@@ -255,17 +269,17 @@ function displayDetail(product){
                     `<label class='red'><b>Total Amount Available:</b> Product is Sold Out</label>`
                 }
                 
-                ${product.sold?
-                    `<div><p><b>Total Amount Sold:</b> ${product.sold}</p></div>` :
+                ${product.prodPurchases.length !==0?
+                    `<div><p><b>Total Amount Sold:</b> ${sold}</p></div>` :
                     `<label class='red'><b>Total Amount Sold:</b> None</label>`
                 }
 
-                ${product.sold?
-                    `<div><p><b>Total Revenue:</b> ${parseInt(product.sold)*parseInt(product.price)} QAR</p></div>` :
+                ${product.prodPurchases.length !==0?
+                    `<div><p><b>Total Revenue:</b> ${revenue} QAR</p></div>` :
                     `<label class='red'><b>Total Revenue: </b> None</label>`
                 }                
-                ${product.buyerList?
-                    `<div><p class ='productBuyer'><b>Buyers:</b> ${[...new Set(product.buyerList.join(",").split(","))].join(" - ")}</p> </div>` :
+                ${product.prodPurchases.length !==0?
+                    `<div><p class ='productBuyer'><b>Buyers:</b> ${[...new Set(ids)].join(" - ")}</p> </div>` :
                     `<label class='red'><b>Buyers: </b> No Buyers Yet</label>`
                 }                
                 
