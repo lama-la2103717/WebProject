@@ -208,7 +208,7 @@
     "shipping_address": "357 Pine St, Al Wakrah, Qatar",
     "username": "beautyOfJoseon",
     "password": "xyz456",
-    "image":"/images/BeautyOfJoseon.webp",
+    "image":"https://thefaceshopny.com/cdn/shop/collections/LOGO07_1200x1200.jpg?v=1696340511",
     "balance": 60000,
     "type": "seller"
     },
@@ -218,7 +218,7 @@
     "shipping_address": "357 Pine St, Al Wakrah, Qatar",
     "username": "cosrx",
     "password": "innotech789",
-    "image":"/images/Cosrx.webp",
+    "image":"https://theskincarelibrary.com/cdn/shop/collections/Cosrx.png?v=1624603179",
     "balance": 60000,
     "type": "seller"
     },
@@ -227,7 +227,7 @@
       "surname": "Willams",
       "shipping_address": "357 Pine St, Al Wakrah, Qatar",    "username": "idewcare",
     "password": "smart1234",
-    "image":"/images/idewcare.avif",
+    "image":"https://mms.img.susercontent.com/a6c43729a4ce91e6f18de6f2f92f7b95",
     "balance": 60000,
     "type": "seller"
     },
@@ -237,17 +237,17 @@
       "shipping_address": "357 Pine St, Al Wakrah, Qatar", 
          "username": "ISNtree",
     "password": "uuyytt7788",
-    "image":"/images/isnlogo.png",
+    "image":"https://shelc.in/wp-content/uploads/2022/02/ISNTREE-LOGO-1.png",
     "balance": 60000,
     "type": "seller"
     },
    {"userId":"243few5",
-      "name": "Hamad",
-      "surname": "Majed",
-      "shipping_address": "357 Pine St, Al Wakrah, Qatar",
-          "username": "mizon",
+    "name": "Hamad",
+    "surname": "Majed",
+    "shipping_address": "357 Pine St, Al Wakrah, Qatar",
+    "username": "mizon",
     "password": "innovative456",
-    "image":"/images/mizon.png",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbyya-VBR-OlMAheDzol_3cdVabhs6w8sCvMeyYez8KQ&s",
     "balance": 60000,
     "type": "seller"
     },
@@ -257,7 +257,7 @@
     "shipping_address": "357 Pine St, Al Wakrah, Qatar",
     "username": "somibymi",
     "password": "digital789",
-    "image":"/images/someByMe.png",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSreHgm2czH6mGyXc__t-VJoZH-PwS6ysrH_P52k0HTow&s",
     "balance": 60000,
     "type": "seller"
     }
