@@ -66,22 +66,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     async function loadProducts() {
-        const response = await fetch(`api/products`,{method: 'GET'});
-        const product=await response.json()
-
-        // try {
-        //     if (!localStorage.products) {
-        //         const response = await fetch(url);
-        //         const data = await response.json();
-        //         localStorage.setItem("products", JSON.stringify(data));
-        //         console.log("Data fetched and stored in local storage:", data);
-        //         return data;
-        //     } else {
-        //         return JSON.parse(localStorage.getItem("products"));
-        //     }
-        // } catch (error) {
-        //     console.error("Error fetching data:", error);
-        // }
+        try {
+            const response = await fetch('/api/products', { method: 'GET' });
+            if (!response.ok) {
+                throw new Error('Failed to fetch products');
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching products:', error);
+            return []; 
+        }
     }
 
     function changeNav() {
