@@ -3,10 +3,18 @@ const prisma = new PrismaClient()
 
 class EcomRepo{
 
+    async getUsers(){
+        try {
+            return prisma.user.findMany()
+        } catch (error) {
+            return { error: error.message }
+ 
+        }
+    }
     async getproductsbyBrand(brandName){
         try {
             return prisma.product.findMany({
-                where: {brand: {contains: brandName}}
+                where: {brand: {contains: brandName.match(/[A-Z][a-z]+|[0-9]+/g).join(" ")}}
             })
             
         } catch (error) {
@@ -18,14 +26,6 @@ class EcomRepo{
     async getProducts(){
         try {
             return prisma.product.findMany()
-        } catch (error) {
-            return { error: error.message }
- 
-        }
-    }
-    async getUsers(){
-        try {
-            return prisma.user.findMany()
         } catch (error) {
             return { error: error.message }
  
@@ -122,17 +122,19 @@ class EcomRepo{
     async getProductById(id){
         try {
             return prisma.product.findUnique({
-                where: {id}
+                where: {id},
+                include: {prodPurchases:true}
             })
         } catch (error) {
             return {error: error.message}
 
         }
     }
-    async getSaleHistory(brandName){
+    async getSaleHistory(name){
         try {
             return prisma.purchaseHistory.findMany({
-                where: {brandName: {contains: brandName}}
+                where: {brandName: {contains: name.match(/[A-Z][a-z]+|[0-9]+/g).join(" ")}},
+                include:{Product: true, User : true}
                 
             })
         } catch (error) {
@@ -141,20 +143,29 @@ class EcomRepo{
         }
     }
     async getSaleHistoryById(id){
-        return prisma.purchaseHistory.findMany({
-            where: {productId: id}
+
+        return prisma.product.findMany({
+            where: {productId: id},
+            include:{prodPurchases:true}
         })
     } catch (error) {
         return {error: error.message}
 
     }
     async getCustomerHistoryByName(name){
-        return prisma.user.findMany({
+        return prisma.user.findFirst({
             where: {username: name},
             include:{userPurchases:true}
         })
     } catch (error) {
         return {error: error.message}
+    //     return prisma.purchaseHistory.findMany({
+    //         where: {productId: id}
+    //     })
+    // } catch (error) {
+    //     return {error: error.message}
+
+    // }
     }
     
     }

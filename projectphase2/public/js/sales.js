@@ -70,7 +70,10 @@ showProducts();
 
 
 async function showProducts() {
+    const datum = await fetch(`/api/products`)
+    let products=  await datum.json();
     // if(!localStorage.products){
+
 
     //     const data = await fetch('/json/products.json')
     //     products = await data.json()
@@ -102,7 +105,7 @@ async function showProducts() {
     const summaryList = await displaySummary(purch)
     saleSummary.innerHTML=summaryList
 
-    const historyList = displayHistory(filteredProducts)
+    const historyList = await displayHistory(purch)
     saleHistory.innerHTML=historyList
 }
     else{
@@ -229,11 +232,10 @@ function fillFrom(product){
     document.getElementById('stock').value=product.stock;
 }
 
-function showDetails(id){
-    console.log(id);
-    const prod = products.find(p=>p.id == id)
-    console.log(prod);
-
+async function showDetails(id){
+    const datum = await fetch(`/api/products/${id}`)
+    let prod=  await datum.json();
+    console.log(prod)
     detailcontainer.classList.add('detailContainer')
 
     detailcontainer.innerHTML= displayDetail(prod);   
@@ -310,6 +312,8 @@ async function displaySummary(data){
     console.log(`ttt ${mostSold.id}`);
 
 
+
+
     //most rev
     const highestRev=Math.max(...intRev);
     const mostRev= data.find(p=>p.quantity*p.price==highestRev)
@@ -361,19 +365,22 @@ async function displaySummary(data){
 }
 
 function displayHistory(product){
-    const purchased= product.filter(p=>p.buyerList)
-    console.log(purchased);
-    const historyList=purchased.map(p=>
+
+    // const purchased= product.filter(p=>p.buyerList)
+    // console.log(purchased);
+
+
+    const historyList=product.map(p=>
         `
         <div class='historyCard'>
-            <div><img src="${p.image}" alt="${p.title}"></div>
+            <div><img src="${p.Product.image}" alt="${p.Product.title}"></div>
             <div class="hdet">
-                <p><b>Date: </b>${p.purchaseList[0].purchaseDateTime}</p>
-                <p><b>Customer: </b>${p.buyerList[0]}</p>
-                <p><b>Product Title:</b>${p.title}</p>
+                <p><b>Date: </b>${p.datePurchased}</p>
+                <p><b>Customer: </b>${p.User.userId}</p>
+                <p><b>Product Title:</b>${p.Product.title}</p>
                 <p><b>Price: </b>${p.price}</p>
-                <p><b>Quantity: </b>${p.sold}</p>
-                <p><b>Cost: </b>${p.purchaseList[0].totalCost} QAR</p>
+                <p><b>Quantity: </b>${p.quantity}</p>
+                <p><b>Cost: </b>${p.quantity * p.price} QAR</p>
             </div>    
 
 

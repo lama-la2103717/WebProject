@@ -90,13 +90,14 @@ document.addEventListener('DOMContentLoaded', function () {
             newLi.addEventListener("click", logOut);
             const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
 
-            const statLi = ulNav.appendChild(document.createElement("li").appendChild(document.createElement("a")));
-            statLi.innerHTML = "View Statistics";
-            statLi.addEventListener("click", function(e){window.location=`/customers/${userUrl}`});
-
-
+           
 
             if (uType == "customer") {
+                const statLi = ulNav.appendChild(document.createElement("li").appendChild(document.createElement("a")));
+                statLi.innerHTML = "View Statistics";
+                statLi.addEventListener("click", function(e){window.location=`/customers/${userUrl}`});
+    
+    
                 loginA.innerHTML = "View History";
                 loginA.addEventListener('click', function (event) {
                     const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
@@ -113,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             else{
                 loginA.innerHTML = "View Sales";
-                // console.log(brandUrl);
+                console.log(brandUrl);
 
                 loginA.addEventListener('click', (e)=>{
                     e.preventDefault();
