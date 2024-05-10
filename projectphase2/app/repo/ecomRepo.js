@@ -146,6 +146,15 @@ class EcomRepo{
         return {error: error.message}
 
     }
+    async getCustomerHistoryByName(name){
+        return prisma.user.findMany({
+            where: {username: name},
+            include:{userPurchases:true}
+        })
+    } catch (error) {
+        return {error: error.message}
     }
-
+    
+    }
+    
 export default new EcomRepo()
