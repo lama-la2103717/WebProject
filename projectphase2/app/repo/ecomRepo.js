@@ -5,7 +5,6 @@ class EcomRepo{
 
     async getproductsbyBrand(brandName){
         try {
-            brandName.join()
             return prisma.product.findMany({
                 where: {brand: {contains: brandName}}
             })
@@ -91,5 +90,71 @@ class EcomRepo{
             return { error: error.message };
         }
     }
-}
+
+    async updateProduct(id, product){
+        try {
+            return prisma.product.update(
+                {
+                    where: {id},
+                    data: product
+                }
+            )
+        } catch (error) {
+            return {error: error.message}
+  
+        }
+       
+    }
+    async addProduct(product){
+        try {
+            return prisma.product.create({
+                data: product
+            })
+            
+        } catch (error) {
+            return {error: error.message}
+
+        }
+        
+    }
+    async getProductById(id){
+        try {
+            return prisma.product.findUnique({
+                where: {id}
+            })
+        } catch (error) {
+            return {error: error.message}
+
+        }
+    }
+    async getSaleHistory(brandName){
+        try {
+            return prisma.purchaseHistory.findMany({
+                where: {brandName: {contains: brandName}}
+                
+            })
+        } catch (error) {
+            return {error: error.message}
+
+        }
+    }
+    async getSaleHistoryById(id){
+        return prisma.purchaseHistory.findMany({
+            where: {productId: id}
+        })
+    } catch (error) {
+        return {error: error.message}
+
+    }
+    async getCustomerHistoryByName(name){
+        return prisma.user.findMany({
+            where: {username: name},
+            include:{userPurchases:true}
+        })
+    } catch (error) {
+        return {error: error.message}
+    }
+    
+    }
+    
 export default new EcomRepo()

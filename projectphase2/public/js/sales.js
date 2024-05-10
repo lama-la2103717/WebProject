@@ -70,20 +70,23 @@ showProducts();
 
 
 async function showProducts() {
-    if(!localStorage.products){
+    // if(!localStorage.products){
 
-        const data = await fetch('/json/products.json')
-        products = await data.json()
-    }
-    else
-        products=JSON.parse(localStorage.products)
-    products=JSON.parse(localStorage.products)
+    //     const data = await fetch('/json/products.json')
+    //     products = await data.json()
+    // }
+    // else
+    //     products=JSON.parse(localStorage.products)
+    // products=JSON.parse(localStorage.products)
+    const data = await fetch(`/api/products/${brandName}`)
+    let filteredProducts=  await data.json();
+    console.log(filteredProducts);
+    brandName
 
-    let filteredProducts= products.filter(product => product.brand.match(brandName));
-    
-    
+    const purchases = await fetch(`/api/products/${brandName}/history`)
+    let purch = await purchases.json();
+    console.log(purch);
 
-    // console.log(filteredProducts[0].id);
 
     //search for a specific product by title 
     const searchB = document.querySelector('#search');
@@ -95,9 +98,8 @@ async function showProducts() {
 
     productContainer.innerHTML = displayProducts(searched);
 });
-    const soldProducts = filteredProducts.find(p=>p.sold) 
-    if(soldProducts){
-    const summaryList = displaySummary(filteredProducts)
+    if(purch){
+    const summaryList = await displaySummary(purch)
     saleSummary.innerHTML=summaryList
 
     const historyList = displayHistory(filteredProducts)
@@ -109,7 +111,6 @@ async function showProducts() {
     }
     const productList= displayProducts(filteredProducts)
     productContainer.innerHTML =productList
-    localStorage.products = JSON.stringify(products)
 }
 
 
@@ -169,19 +170,37 @@ function switchForm(){
     
 
 }
-function addProductForm(e) {
+async function addProductForm(e) {
     e.preventDefault();
     const product = formToObject(e.target);
     product.brand = brandName;
     const index = products.findIndex(p => p.title === product.title);
     if (index == -1) {
-        // product.id = Date.now();
-        products.unshift(product);
-    } else {
+        console.log("thuWDhqoa"+product);
+
+        const response = await fetch('/api/products',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        }
+    )
+    } else {            
         product.id = products[index].id; 
-        products[index] = product;
+
+        const response = await fetch(`/api/product/${product.id}`,
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(product)
+                }
+            )
     }
-    localStorage.products = JSON.stringify(products);
+    //update products.
     switchForm();
     showProducts();
     productForm.reset();
@@ -190,13 +209,13 @@ function addProductForm(e) {
 
 
 //update product
-function updateProduct(id){
+async function updateProduct(id){
     console.log(id);
-    const index = products.findIndex(p => p.id ===id)
+    const data = await fetch(`/api/product/${id}`)
+    let prod=  await data.json();
+    console.log(prod);
     switchForm()
-    fillFrom(products[index])
-    console.log(products);
-    localStorage.products = JSON.stringify(products)
+    fillFrom(prod)
     showProducts()
 }
 
@@ -260,44 +279,42 @@ function switchView(){
 }
 
 
-function displaySummary(product){
-    const purchased= product.filter(p=>p.buyerList)
-    // console.log(purchased);
+async function displaySummary(data){    
+
 
     //buyers
+    const buyers = data.map(d =>d.userId)
+    console.log(buyers);
 
-    const buyers = purchased.map(
-        p=>
-        p.buyerList.join(",")
-        
-    )
-    const unqBuyers=[...new Set(buyers.join(",").split(","))]
-    // console.log(`un ${unqBuyers}`);
+    const unqBuyers=[...new Set(buyers)]
+    console.log(`un ${unqBuyers}`);
 
 
     //total sold
-    const intSold = purchased.map(p=>p.sold)
+
+    const intSold = data.map(p=>p.quantity)
     const sold = intSold.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    // console.log(`sol ${sold}`);
+    console.log(`sol ${sold}`);
 
 
 
     //total revnue
-    const intRev = purchased.map(p=>p.sold*parseInt(p.price.split(" ")[0]))
+    const intRev = data.map(p=>p.quantity*p.price)
     const revenue = intRev.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    // console.log(`rev ${revenue}`);
+    console.log(`rev ${revenue}`);
 
 
     //most Sold
     const highestSold=Math.max(...intSold);
-    const mostSold= purchased.find(p=>p.sold==highestSold)
-    // console.log(mostSold);
+    const mostSold= data.find(p=>p.quantity==highestSold)
+    console.log(`ttt ${mostSold.id}`);
 
 
     //most rev
     const highestRev=Math.max(...intRev);
-    const mostRev= purchased.find(p=>p.sold*parseInt(p.price.split(" ")[0])==highestRev)
-    // console.log(mostRev);
+    const mostRev= data.find(p=>p.quantity*p.price==highestRev)
+    console.log(`ttt ${mostRev}`);
+
 
 
     const history = 
@@ -317,13 +334,13 @@ function displaySummary(product){
 
     <tr>
     <th> Most Sold Product</th>
-    <td>${mostSold.title}</td>
+    <td>${mostSold.productId}</td>
     </tr>
 
 
     <tr>
     <th> Product with Most Revenue</th>
-    <td>${mostRev.title}</td>
+    <td>${mostRev.productId}</td>
     </tr>
 
 
@@ -339,12 +356,6 @@ function displaySummary(product){
 
     
     return history;
-
-
-
-
-
-
 
 
 }
