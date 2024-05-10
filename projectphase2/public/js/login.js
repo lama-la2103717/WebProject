@@ -8,7 +8,7 @@ loginB.addEventListener('submit',goToMain);
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('/api/users');
+        const response = await fetch('/api/users',{ method: 'GET' });
         if (!response.ok) {
             throw new Error('Failed to fetch users');
         }
@@ -17,26 +17,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Failed to load users:", error);
     }
 });
-
-
-    // if (localStorage.getItem('users')) {
-    //     users = JSON.parse(localStorage.getItem('users'));
-    // } else {
-    //     try {
-    //         if(!localStorage.users){
-    //         const response = await fetch(userFile);
-    //         users = await response.json();
-    //         localStorage.setItem('users', JSON.stringify(users));
-
-    //     }
-    //         else
-    //             users=JSON.parse(localStorage.users)
-    //     } catch (error) {
-    //         console.error("Failed to load users:", error);
-    //     }
-    // }
-
-
 function goToMain(e) {
     e.preventDefault();
     const username = document.querySelector('#username').value;
