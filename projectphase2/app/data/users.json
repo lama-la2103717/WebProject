@@ -4,7 +4,8 @@
     "surname": "Doe",
     "shipping_address": "123 Main St, Doha, Qatar",
     "username": "johndoe",
-    "password": "password123",
+    "password": "password123",    "image":"",
+
     "balance": 1000,
     "type": "customer"
   },
@@ -13,7 +14,8 @@
     "surname": "Smith",
     "shipping_address": "456 Elm St, Al Wakrah, Qatar",
     "username": "janesmith",
-    "password": "smith2023",
+    "password": "smith2023",    "image":"",
+
     "balance": 1000500,
     "type": "customer"
   },
@@ -22,7 +24,8 @@
     "surname": "Johnson",
     "shipping_address": "789 Oak St, Dukhan, Qatar",
     "username": "mikej",
-    "password": "mike123",
+    "password": "mike123",    "image":"",
+
     "balance": 750,
     "type": "customer"
   },
@@ -31,7 +34,8 @@
     "surname": "Brown",
     "shipping_address": "321 Cedar St, Mesaieed, Qatar",
     "username": "embrown",
-    "password": "emilyb",
+    "password": "emilyb",    "image":"",
+
     "balance": 2000,
     "type": "customer"
   },
@@ -40,7 +44,8 @@
     "surname": "Lee",
     "shipping_address": "567 Pine St, Al Rayyan, Qatar",
     "username": "dlee",
-    "password": "david123",
+    "password": "david123",    "image":"",
+
     "balance": 300,
     "type": "customer"
   },
@@ -49,7 +54,8 @@
     "surname": "Garcia",
     "shipping_address": "987 Maple St, Al Khor, Qatar",
     "username": "sarahg",
-    "password": "sarah567",
+    "password": "sarah567",    "image":"",
+
     "balance": 2200,
     "type": "customer"
   },
@@ -58,7 +64,8 @@
     "surname": "Martinez",
     "shipping_address": "753 Birch St, Umm Salal, Qatar",
     "username": "chrism",
-    "password": "cm1234",
+    "password": "cm1234",    "image":"",
+
     "balance": 1800,
     "type": "customer"
   },
@@ -67,7 +74,8 @@
     "surname": "Lopez",
     "shipping_address": "159 Spruce St, Al Daayen, Qatar",
     "username": "jessiel",
-    "password": "jlo123",
+    "password": "jlo123",    "image":"",
+
     "balance": 900,
     "type": "customer"
   },
@@ -76,7 +84,8 @@
     "surname": "Hernandez",
     "shipping_address": "852 Oak St, Al Shamal, Qatar",
     "username": "danh",
-    "password": "dh456",
+    "password": "dh456",    "image":"",
+
     "balance": 1300,
     "type": "customer"
   },
@@ -85,7 +94,8 @@
     "surname": "Perez",
     "shipping_address": "753 Elm St, Al Sheehaniya, Qatar",
     "username": "amandap",
-    "password": "amanda789",
+    "password": "amanda789",    "image":"",
+
     "balance": 1700,
     "type": "customer"
   },
@@ -94,7 +104,8 @@
     "surname": "Gonzalez",
     "shipping_address": "258 Walnut St, Al Ghuwariyah, Qatar",
     "username": "mattg",
-    "password": "mg12345",
+    "password": "mg12345",    "image":"",
+
     "balance": 2500,
     "type": "customer"
   },
@@ -103,7 +114,8 @@
     "surname": "Wilson",
     "shipping_address": "963 Cedar St, Al Kharrara, Qatar",
     "username": "ashleyw",
-    "password": "wilson678",
+    "password": "wilson678",    "image":"",
+
     "balance": 350,
     "type": "customer"
   },
@@ -112,7 +124,8 @@
     "surname": "Anderson",
     "shipping_address": "357 Maple St, Al Wakrah, Qatar",
     "username": "andrewa",
-    "password": "andya123",
+    "password": "andya123",    "image":"",
+
     "balance": 2800,
     "type": "customer"
   },
@@ -121,7 +134,8 @@
     "surname": "Taylor",
     "shipping_address": "654 Pine St, Doha, Qatar",
     "username": "megant",
-    "password": "mtaylor",
+    "password": "mtaylor",    "image":"",
+
     "balance": 1100,
     "type": "customer"
   },
@@ -130,7 +144,8 @@
     "surname": "Thomas",
     "shipping_address": "852 Birch St, Dukhan, Qatar",
     "username": "justint",
-    "password": "jt6789",
+    "password": "jt6789",    "image":"",
+
     "balance": 600,
     "type": "customer"
   },
@@ -139,7 +154,8 @@
     "surname": "Moore",
     "shipping_address": "753 Elm St, Al Rayyan, Qatar",
     "username": "rachelm",
-    "password": "rachmo",
+    "password": "rachmo",    "image":"",
+
     "balance": 1900,
     "type": "customer"
   },
@@ -148,7 +164,8 @@
     "surname": "Jackson",
     "shipping_address": "357 Pine St, Al Wakrah, Qatar",
     "username": "brandonj",
-    "password": "bjack",
+    "password": "bjack",    "image":"",
+
     "balance": 800,
     "type": "customer"
   },
@@ -158,6 +175,8 @@
     "shipping_address": "456 Oak St, Doha, Qatar",
     "username": "laurenw",
     "password": "white321",
+        "image":"",
+
     "balance": 1400,
     "type": "customer"
   },
@@ -167,8 +186,11 @@
     "shipping_address": "654 Elm St, Dukhan, Qatar",
     "username": "kevinh",
     "password": "kevin567",
+    "image":"",
+
     "balance": 200,
     "type": "customer"
+    
   },
   {"userId":"2g40",
     "name": "Stephanie",
@@ -176,6 +198,7 @@
     "shipping_address": "789 Pine St, Al Rayyan, Qatar",
     "username": "stephy",
     "password": "steph456",
+    "image":"",
     "balance": 1600,
     "type": "customer"
   },
@@ -185,6 +208,7 @@
     "shipping_address": "357 Pine St, Al Wakrah, Qatar",
     "username": "beautyOfJoseon",
     "password": "xyz456",
+    "image":"/images/BeautyOfJoseon.webp",
     "balance": 60000,
     "type": "seller"
     },
@@ -194,6 +218,7 @@
     "shipping_address": "357 Pine St, Al Wakrah, Qatar",
     "username": "cosrx",
     "password": "innotech789",
+    "image":"/images/Cosrx.webp",
     "balance": 60000,
     "type": "seller"
     },
@@ -202,6 +227,7 @@
       "surname": "Willams",
       "shipping_address": "357 Pine St, Al Wakrah, Qatar",    "username": "idewcare",
     "password": "smart1234",
+    "image":"/images/idewcare.avif",
     "balance": 60000,
     "type": "seller"
     },
@@ -211,6 +237,7 @@
       "shipping_address": "357 Pine St, Al Wakrah, Qatar", 
          "username": "ISNtree",
     "password": "uuyytt7788",
+    "image":"/images/isnlogo.png",
     "balance": 60000,
     "type": "seller"
     },
@@ -220,6 +247,7 @@
       "shipping_address": "357 Pine St, Al Wakrah, Qatar",
           "username": "mizon",
     "password": "innovative456",
+    "image":"/images/mizon.png",
     "balance": 60000,
     "type": "seller"
     },
@@ -229,6 +257,7 @@
     "shipping_address": "357 Pine St, Al Wakrah, Qatar",
     "username": "somibymi",
     "password": "digital789",
+    "image":"/images/someByMe.png",
     "balance": 60000,
     "type": "seller"
     }
