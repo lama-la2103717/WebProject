@@ -1,3 +1,4 @@
+
 import ecomRepo from "@/app/repo/ecomRepo";
 
 export async function GET(request, { params }) {
@@ -12,3 +13,4 @@ export async function PUT(request, { params }) {
     const updatedUser = await ecomRepo.updateUser(userId,user)
     return Response.json(updatedUser)
 }
+

@@ -1,10 +1,18 @@
-document.addEventListener('DOMContentLoaded', function () {
-   
+document.addEventListener('DOMContentLoaded', async function () {
+    let products;
     let product;
-    let products = JSON.parse(localStorage.getItem('products')) || [];
-    
+    let users
+    try {
+        let productResponse = await fetch(`/api/products`, { method: 'GET' });
+         products= await productResponse.json();
 
-    let users = fetch (`@/app/api/users`, {method: 'GET'});
+        let userResponse = await fetch(`/api/users`, { method: 'GET' });
+         users= await userResponse.json();
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+    // 
 
 
    //attrib from url
@@ -32,14 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Find the product by title from the products array
     product = products.find(product => product.title === titleUrl);
 
-
-    // console.log(user);
-
     if (product) {
         displayProduct(product);
     } else {
         console.error("Product not found:", titleUrl);
-        // Handle product not found error (e.g., display an error message)
     }
 
     function displayProduct(product) {
@@ -58,8 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
         let userBalance = parseFloat(balanceUrl) || 0;
-        // let userBalance = parseFloat(localStorage.getItem(`${userUrl}_balance`)) || 0;
-        // Display user balance
+
         const userBalanceElement = document.createElement('p');
         userBalanceElement.textContent = `Your balance: ${userBalance.toFixed(2)}QAR`; // Use balance from URL parameter
         document.querySelector('.Purchase-Details').appendChild(userBalanceElement);
@@ -74,98 +77,73 @@ document.addEventListener('DOMContentLoaded', function () {
         })
 
         const purchaseForm = document.querySelector('#purchaseForm');
-        purchaseForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const quantity = parseInt(document.querySelector('#quantity').value);
-            const address = document.querySelector('#address').value;
+purchaseForm.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const quantity = parseInt(document.querySelector('#quantity').value);
+    const address = document.querySelector('#address').value;
 
-
-            if (!product) {
-                console.error("Product not loaded yet.");
-                return;
-            }
-            // Inside the purchaseForm event listener
-            const productPrice = parseFloat(product.price.replace(/[^\d.]/g, '')); 
-            const totalCost = quantity * productPrice; 
-          
-            if (userBalance < totalCost) {
-                // Show alert if user doesn't have enough balance
-                alert(`You don't have enough balance. Your available balance is ${userBalance.toFixed(2)} QAR.`);
-                return;
-            }
-
-            // Check if there's enough stock
-            if (quantity > product.stock) {
-                alert(`Sorry, there's not enough stock available. Available stock: ${product.stock}`);
-                return;
-            }
-
-           userBalance -= totalCost;
-           users[user].balance=userBalance;
-
+    if (!product) {
+        console.error("Product not loaded yet.");
+        return;
+    }
     
-            // localStorage.setItem(`${userUrl}_balance`, userBalance.toFixed(2));
+    const productPrice = product.price;
+    const totalCost = quantity * productPrice;
 
-            product.buyerList = product.buyerList || [];
+    if (userBalance < totalCost) {
+        alert(`You don't have enough balance. Your available balance is ${userBalance.toFixed(2)} QAR.`);
+        return;
+    }
 
+    if (quantity > product.stock) {
+        alert(`Sorry, there's not enough stock available. Available stock: ${product.stock}`);
+        return;
+    }
+    userBalance -= totalCost;
 
-            product.buyerList.push(userUrl);
-
-            if (!product.sold) {
-                product.sold = 0;
+        try {
+            // Add purchase
+            const addPurchaseResponse = await fetch(`/api/users/${users[user].userId}/purchases`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    productId: product.id,
+                    userId: users[user].userId, // Fix accessing user's userId
+                    brandName: product.brand,
+                    quantity: quantity,
+                    price: product.price,
+                    datePurchased: new Date().toISOString() 
+                })
+            });
+            if (!addPurchaseResponse.ok) {
+                throw new Error('Failed to add purchase');
             }
-            product.sold += quantity;
-
-            if (!product.stock) {
-                product.stock = 0;
-            }
-            product.stock -= quantity;
-
-            // Attach purchase date and time to the product
-            const purchaseDateTime = new Date().toLocaleString();
-            if (!product.purchaseList) {
-                product.purchaseList = [];
-            }
-            product.purchaseList.push(
-                { username: userUrl, 
-                purchaseDateTime: purchaseDateTime ,
-                totalCost: totalCost });
-
-
-
-            // Save the updated product to local storage
-            localStorage.setItem('products', JSON.stringify(products));
-
-            let purchased = users[user].purchaseHistory || [];
-
-            // let purchaseHistory = JSON.parse(localStorage.getItem(userUrl)) || [];
-            const purchaseRecord = {
-                productTitle: product.title,
-                item: product.title,
-                img: product.image,
-                quantity: quantity,
-                address: address,
-                brand: product.brand,
-                price: product.price,
-                buyerList: product.buyerList, 
-                stock: product.stock,
-                sold: product.sold,
-                totalCost: totalCost,
-                purchaseDateTime: purchaseDateTime,
-                purchaseList: product.purchaseList.map(entry => `${entry.username} - ${entry.purchaseDateTime} - ${entry.totalCost}`) // Concatenate strings properly
-            };
-            
-            purchased.unshift(purchaseRecord);
-
-            // localStorage.setItem(userUrl, JSON.stringify(purchased)); 
-            users[user].purchaseHistory=purchased
-            localStorage.users=JSON.stringify(users);
-            userBalanceElement.textContent = `Your balance: ${userBalance.toFixed(2)}QAR`; // Use balance from URL parameter
-
-            alert(`Purchase have been recorded successfully. Your balance is ${userBalance.toFixed(2)} QAR.`);
-           
-           
-        });
-    })
         
-
+            // Update user balance
+            const updateUserResponse = await fetch(`/api/users/${users[user].userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    balance: userBalance
+                })
+            });
+            if (!updateUserResponse.ok) {
+                throw new Error('Failed to update user balance');
+            }
+        
+            // Update UI elements
+            product.stock -= quantity;
+            product.sold += quantity;
+            userBalanceElement.textContent = `Your balance: ${userBalance.toFixed(2)} QAR`;
+            alert(`Purchase has been recorded successfully. Your balance is ${userBalance.toFixed(2)} QAR.`);
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred while processing your purchase.');
+        }
+        
+});
+});

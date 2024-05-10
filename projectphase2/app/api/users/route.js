@@ -7,11 +7,7 @@ export async function POST(request, { params }) {
     const response = await ecomRepo.addPurchase(userId, purchaseHistory)
     return Response.json(response)
 }
-// export async function GET(request, { params }) {
-//     const userId= params.userId
-//     const purchaseHistory = await ecomRepo.getPurchases(userId)
-//     return Response.json(purchaseHistory)
-// }
+
 
 export async function GET(request) {
     const products = await ecomRepo.getUsers();
