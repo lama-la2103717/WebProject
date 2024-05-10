@@ -30,7 +30,7 @@ model User {
   username         String
   password         String
   type             String
-   image            String
+  image            String
   balance          Float
   userPurchases    PurchaseHistory[]
 }
