@@ -25,7 +25,7 @@ export default async function page({ params }) {
 
   return (
     <div>
-      <Link href={'/html/main.html'}>back</Link>
+      <Link href={'/html/main.html'} className={styles.back}>back</Link>
       <h1 className={styles.h1}>Customer Statistics</h1>
       <table className={styles.table}>
         <tbody>
