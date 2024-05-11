@@ -7,9 +7,17 @@
 "datePurchased":"2023-08-10T00:00:00.000Z"},
 {"id":"hhhh",
 "productId":"BOJ001",
-"userId":"1eyh2q",
+"userId":"2rwwvw3",
+"brandName":"Beauty Of Joseon",
+"quantity":2,
+"price":55.75,
+"datePurchased":"2023-08-10T00:00:00.000Z"},
+
+{"id":"tdgj",
+"productId":"BOJ004",
+"userId":"43w34v22",
 "brandName":"Beauty Of Joseon",
 "quantity":3,
-"price":55.75,
-"datePurchased":"2023-08-10T00:00:00.000Z"}
+"price":105.0,
+"datePurchased":"2023-03-10T00:00:00.000Z"}
 ]

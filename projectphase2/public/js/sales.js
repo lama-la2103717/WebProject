@@ -175,7 +175,11 @@ function switchForm(){
 }
 async function addProductForm(e) {
     e.preventDefault();
-    const product = formToObject(e.target);
+    const formData = new FormData(e.target)
+    const product = Object.fromEntries(formData)
+    
+
+    // const product = formToObject(e.target);
     product.brand = brandName;
     const index = products.findIndex(p => p.title === product.title);
     if (index == -1) {
@@ -300,18 +304,45 @@ async function displaySummary(data){
 
     //buyers
     const buyers = data.map(d =>d.userId)
-    console.log(buyers);
+    console.log(data);
 
     const unqBuyers=[...new Set(buyers)]
     console.log(`un ${unqBuyers}`);
 
 
     //total sold
+    const prodCount = data.reduce((counts, purchase) => {
+        counts[purchase.productId] = (counts[purchase.productId] || 0) + 1;
+        return counts;
+      }, {});
+     
+      let mostOrderedBrand = "";
+      let maxOrders = 0;
+      for (const brand in prodCount) {
+        if (prodCount[brand] > maxOrders) {
+          mostOrderedBrand = brand;
+          maxOrders = prodCount[brand];
+        }
+      }
 
     const intSold = data.map(p=>p.quantity)
     const sold = intSold.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    console.log(`sol ${sold}`);
+    console.log(`sol ${mostOrderedBrand}`);
 
+    //
+    const prodRev = data.reduce((rev, purchase) => {
+        rev[purchase.productId] = (rev[purchase.productId] || 0) + purchase.price*purchase.quantity;
+        return rev;
+      }, {});
+     
+      let mostRevBrand = "";
+      let maxRev = 0;
+      for (const revs in prodRev) {
+        if (prodRev[revs] > maxRev) {
+            mostRevBrand = revs;
+            maxRev = prodRev[revs];
+        }
+      }
 
 
     //total revnue
@@ -352,13 +383,13 @@ async function displaySummary(data){
 
     <tr>
     <th> Most Sold Product</th>
-    <td>${mostSold.productId}</td>
+    <td>${mostOrderedBrand}</td>
     </tr>
 
 
     <tr>
     <th> Product with Most Revenue</th>
-    <td>${mostRev.productId}</td>
+    <td>${mostRevBrand}</td>
     </tr>
 
 
