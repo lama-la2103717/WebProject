@@ -12,6 +12,10 @@
   justify-content: center;
   font-size: 7rem;
 }
+.back{
+  display: flex;
+  font-size: 3rem;
+}
 .td{
   font-size: 5rem;
   background:rgb(255, 240, 242) ;
