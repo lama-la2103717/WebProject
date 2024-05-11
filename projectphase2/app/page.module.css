@@ -1,4 +1,9 @@
+.div {
+  background-color: white;
+  height: 100%;
+}
 .table{
+
   background:rgb(255, 240, 242) ;
   margin: 2rem auto;
   width: 80vw;
@@ -11,12 +16,17 @@
   display: flex;
   justify-content: center;
   font-size: 7rem;
+  color: gray;
+
 }
 .back{
   display: flex;
   font-size: 3rem;
+  color: gray;
+
 }
 .td{
+  color: gray;
   font-size: 5rem;
   background:rgb(255, 240, 242) ;
   margin: 2rem auto;
@@ -25,6 +35,7 @@
   border-collapse: collapse;
   box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(246, 144, 161, 0.3);
 }
+
 .main {
   display: flex;
   flex-direction: column;
