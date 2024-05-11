@@ -72,18 +72,9 @@ showProducts();
 async function showProducts() {
     const datum = await fetch(`/api/products`)
     let products=  await datum.json();
-    // if(!localStorage.products){
-
-
-    //     const data = await fetch('/json/products.json')
-    //     products = await data.json()
-    // }
-    // else
-    //     products=JSON.parse(localStorage.products)
-    // products=JSON.parse(localStorage.products)
+    
     const data = await fetch(`/api/products/${brandName}`)
     let filteredProducts=  await data.json();
-    brandName
 
     const purchases = await fetch(`/api/products/${brandName}/history`)
     let purch = await purchases.json();
@@ -99,7 +90,7 @@ async function showProducts() {
 
     productContainer.innerHTML = displayProducts(searched);
 });
-    if(purch){
+    if(purch.length!==0){
     const summaryList = await displaySummary(purch)
     saleSummary.innerHTML=summaryList
 
@@ -134,7 +125,10 @@ function displayProducts(products) {
                     `<p class="productSold"><b>Sold:</b> ${(product.prodPurchases.map(p=>p.quantity)).reduce((accumulator, currentValue) => accumulator + currentValue, 0)}</p>` :
                     `<label class='red'><b>Sold:</b> None</label>`
                 }
-
+                ${product.prodPurchases!==0?
+                    `<p class="productSold"><b>Revnue:</b> ${(product.prodPurchases.map(p=>p.quantity*p.price)).reduce((accumulator, currentValue) => accumulator + currentValue, 0)}</p>` :
+                    `<label class='red'><b>Sold:</b> None</label>`
+                }
                 
 
                 <div class="productButton">
@@ -202,12 +196,6 @@ async function addProductForm(e) {
 
 
     if (prod1==null) {
-
-
-        console.log("kkkkkkk"+prod1)
-
-
-
         const response = await fetch('/api/products',
         {
             method: 'POST',
@@ -218,7 +206,8 @@ async function addProductForm(e) {
         }
     )
     }
-    else {            
+    else {
+
         const response = await fetch(`/api/product/${prod1.id}`,
                 {
                     method: 'PUT',

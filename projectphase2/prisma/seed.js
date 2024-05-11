@@ -11,14 +11,14 @@ const productPath = path.join(process.cwd(), 'app/data/products.json')
 
 async function intializeDB() {
     try {
-        //const users = await fs.readJSON(userPath)
-        //const products = await fs.readJSON(productPath)
+        const users = await fs.readJSON(userPath)
+        const products = await fs.readJSON(productPath)
         const purchases = await fs.readJSON(purchasePath)
 
         
         // // createMany is not supported for SQLite. Use create instead
-        //for (const user of users) await prisma.user.create({ data: user })
-        //for (const product of products) await prisma.product.create({ data: product })
+        for (const user of users) await prisma.user.create({ data: user })
+        for (const product of products) await prisma.product.create({ data: product })
         for (const purchase of purchases) await prisma.purchaseHistory.create({ data: purchase })
 
         return true

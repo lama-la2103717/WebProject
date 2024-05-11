@@ -14,7 +14,7 @@ class EcomRepo{
     async getproductsbyBrand(brandName){
         try {
             return prisma.product.findMany({
-                where: {brand: {contains: brandName.match(/[A-Z][a-z]+|[0-9]+/g).join(" ")}}
+                where: {brand: {contains: brandName}}
                 ,include:{prodPurchases:true}
             })
             
@@ -134,7 +134,7 @@ class EcomRepo{
     async getSaleHistory(name){
         try {
             return prisma.purchaseHistory.findMany({
-                where: {brandName: {contains: name.match(/[A-Z][a-z]+|[0-9]+/g).join(" ")}},
+                where: {brandName: {contains: name.split("_").join(" ")}},
                 include:{Product: true, User : true}
                 
             })
