@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     img.addEventListener('click', goToMain);
 
     function goToMain() {
-        window.location.href = `/html/main.html?type=customer&username=${username}&balance=${balance}&shippingAddress=${shipping_address}`; // Fixed query string separator
+        window.location.href = `/html/main.html?type=customer?username=${username}&balance=${balance}&shippingAddress=${shipping_address}`; // Fixed query string separator
     }
 
     function renderPurchaseHistory(user, purchaseHistory) {

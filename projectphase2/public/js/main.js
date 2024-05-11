@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function changeNav() {
         if (userType) {
             const uType=userType.split('?')[0]
-
+           
             const newLi = ulNav.appendChild(document.createElement("li").appendChild(document.createElement("a")));
             newLi.innerHTML = "Log Out";
             newLi.classList.add("logOut");
@@ -91,13 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
 
            
-
             if (uType == "customer") {
-                const statLi = ulNav.appendChild(document.createElement("li").appendChild(document.createElement("a")));
-                statLi.innerHTML = "View Statistics";
-                statLi.addEventListener("click", function(e){window.location=`/customers/${userUrl}`});
-    
-    
+                
+            console.log("ghsdgbfh");
                 loginA.innerHTML = "View History";
                 loginA.addEventListener('click', function (event) {
                     const userUrl = decodeURIComponent(pageUrl[2].split("=")[1]);//3
@@ -106,6 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     event.preventDefault();
                     window.location.href = `purchaseHistory.html?username=${userUrl}?balance=${balanceUrl}?shippingAddress=${addressUrl}`;
                 });
+                const statLi = ulNav.appendChild(document.createElement("li").appendChild(document.createElement("a")));
+                statLi.innerHTML = "View Statistics";
+                statLi.addEventListener("click", function(e){window.location=`/customers/${userUrl}`});
             } 
             else if (uType=='null') {
                 const logout = document.querySelector(".logOut");
