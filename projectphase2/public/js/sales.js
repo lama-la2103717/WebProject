@@ -189,10 +189,7 @@ async function addProductForm(e) {
         'brand':product['brand']
       });
       console.log(jsondata)
-    // // const index = products.findIndex(p => p.title === product.title);
-    // // jsonProd.price=parseFloat(jsonProd['price'])
-    // // jsonProd.stock=parseInt(jsonProd['stock'])
-    // console.log(jsonProd.split('"')[15])
+
 
 
     if (prod1==null) {
@@ -318,9 +315,9 @@ async function displaySummary(data){
     const intSold = data.map(p=>p.quantity)
     const sold = intSold.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
-        //total revnue
-        const intRev = data.map(p=>p.quantity*p.price)
-        const revenue = intRev.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    //total revnue
+    const intRev = data.map(p=>p.quantity*p.price)
+    const revenue = intRev.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
     //most sales
 
