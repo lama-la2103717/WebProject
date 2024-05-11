@@ -15,6 +15,7 @@ class EcomRepo{
         try {
             return prisma.product.findMany({
                 where: {brand: {contains: brandName.match(/[A-Z][a-z]+|[0-9]+/g).join(" ")}}
+                ,include:{prodPurchases:true}
             })
             
         } catch (error) {

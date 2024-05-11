@@ -83,12 +83,10 @@ async function showProducts() {
     // products=JSON.parse(localStorage.products)
     const data = await fetch(`/api/products/${brandName}`)
     let filteredProducts=  await data.json();
-    console.log(filteredProducts);
     brandName
 
     const purchases = await fetch(`/api/products/${brandName}/history`)
     let purch = await purchases.json();
-    console.log(purch);
 
 
     //search for a specific product by title 
@@ -118,7 +116,8 @@ async function showProducts() {
 
 
 function displayProducts(products) {
-    const prodList = products.map(product => `
+    const prodList = products.map(product =>
+         `
             <div class="productInfo">
                 <img src="${product.image}" alt="${product.title}" >
                 <h4 class="productTitle">${product.title}</h4>
@@ -128,9 +127,11 @@ function displayProducts(products) {
                     `<p class="productStock"><b>Stock:</b> ${product.stock}</p>` :
                     `<label class='red'><b>Stock:</b> Out of Stock</label>`
                 }
+               
                 
-                ${product.sold?
-                    `<p class="productSold"><b>Sold:</b> ${product.sold}</p>` :
+                
+                ${product.prodPurchases!==0?
+                    `<p class="productSold"><b>Sold:</b> ${(product.prodPurchases.map(p=>p.quantity)).reduce((accumulator, currentValue) => accumulator + currentValue, 0)}</p>` :
                     `<label class='red'><b>Sold:</b> None</label>`
                 }
 
@@ -177,13 +178,35 @@ async function addProductForm(e) {
     e.preventDefault();
     const formData = new FormData(e.target)
     const product = Object.fromEntries(formData)
-    
+    //console.log(product)
+    const prodData = await fetch(`/api/product/${product.id}`)
+    let prod1 = await prodData.json();
+      //prod1.key.map(p=>`"${p}"`)
+    product['brand'] = brandName;
 
-    // const product = formToObject(e.target);
-    product.brand = brandName;
-    const index = products.findIndex(p => p.title === product.title);
-    if (index == -1) {
-        console.log("thuWDhqoa"+product);
+      let jsondata = JSON.stringify({
+        
+        'title':product['title'],
+        'image':product['image'],
+        "price": parseFloat(product['price']),
+        'stock':parseInt(product['stock']),
+        'rating':product['rating'],
+        'description':product['description'],
+        'brand':product['brand']
+      });
+      console.log(jsondata)
+    // // const index = products.findIndex(p => p.title === product.title);
+    // // jsonProd.price=parseFloat(jsonProd['price'])
+    // // jsonProd.stock=parseInt(jsonProd['stock'])
+    // console.log(jsonProd.split('"')[15])
+
+
+    if (prod1==null) {
+
+
+        console.log("kkkkkkk"+prod1)
+
+
 
         const response = await fetch('/api/products',
         {
@@ -191,19 +214,18 @@ async function addProductForm(e) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(product)
+            body: jsondata
         }
     )
-    } else {            
-        product.id = products[index].id; 
-
-        const response = await fetch(`/api/product/${product.id}`,
+    }
+    else {            
+        const response = await fetch(`/api/product/${prod1.id}`,
                 {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(product)
+                    body: jsondata
                 }
             )
     }
@@ -217,10 +239,8 @@ async function addProductForm(e) {
 
 //update product
 async function updateProduct(id){
-    console.log(id);
     const data = await fetch(`/api/product/${id}`)
     let prod=  await data.json();
-    console.log(prod);
     switchForm()
     fillFrom(prod)
     showProducts()
@@ -240,25 +260,22 @@ async function showDetails(id){
     const datum = await fetch(`/api/product/${id}`)
     let prod=  await datum.json();
     
-    console.log(id)
-    console.log(prod)
+
     detailcontainer.classList.add('detailContainer')
 
     detailcontainer.innerHTML= displayDetail(prod);   
     
 }
 function displayDetail(product){
-    console.log(product);
     
     const intSold = product.prodPurchases.map(p=>p.quantity)
     const sold = intSold.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    console.log(`sol ${sold}`);
 
     const intRev =  product.prodPurchases.map(p=>p.quantity*p.price)
     const revenue = intRev.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    console.log(`rev ${revenue}`);
 
     const ids =  product.prodPurchases.map(p=>p.userId)
+    console.log( product.prodPurchases)
 
 
 
@@ -304,13 +321,20 @@ async function displaySummary(data){
 
     //buyers
     const buyers = data.map(d =>d.userId)
-    console.log(data);
 
     const unqBuyers=[...new Set(buyers)]
-    console.log(`un ${unqBuyers}`);
 
 
     //total sold
+    const intSold = data.map(p=>p.quantity)
+    const sold = intSold.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+        //total revnue
+        const intRev = data.map(p=>p.quantity*p.price)
+        const revenue = intRev.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+    //most sales
+
     const prodCount = data.reduce((counts, purchase) => {
         counts[purchase.productId] = (counts[purchase.productId] || 0) + 1;
         return counts;
@@ -325,11 +349,9 @@ async function displaySummary(data){
         }
       }
 
-    const intSold = data.map(p=>p.quantity)
-    const sold = intSold.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    console.log(`sol ${mostOrderedBrand}`);
+    
 
-    //
+    //most rev
     const prodRev = data.reduce((rev, purchase) => {
         rev[purchase.productId] = (rev[purchase.productId] || 0) + purchase.price*purchase.quantity;
         return rev;
@@ -345,24 +367,12 @@ async function displaySummary(data){
       }
 
 
-    //total revnue
-    const intRev = data.map(p=>p.quantity*p.price)
-    const revenue = intRev.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    console.log(`rev ${revenue}`);
 
 
-    //most Sold
-    const highestSold=Math.max(...intSold);
-    const mostSold= data.find(p=>p.quantity==highestSold)
-    console.log(`ttt ${mostSold.id}`);
+    
 
 
-
-
-    //most rev
-    const highestRev=Math.max(...intRev);
-    const mostRev= data.find(p=>p.quantity*p.price==highestRev)
-    console.log(`ttt ${mostRev}`);
+    
 
 
 
@@ -410,10 +420,6 @@ async function displaySummary(data){
 }
 
 function displayHistory(product){
-
-    // const purchased= product.filter(p=>p.buyerList)
-    // console.log(purchased);
-
 
     const historyList=product.map(p=>
         `
