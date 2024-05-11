@@ -125,10 +125,7 @@ function displayProducts(products) {
                     `<p class="productSold"><b>Sold:</b> ${(product.prodPurchases.map(p=>p.quantity)).reduce((accumulator, currentValue) => accumulator + currentValue, 0)}</p>` :
                     `<label class='red'><b>Sold:</b> None</label>`
                 }
-                ${product.prodPurchases!==0?
-                    `<p class="productSold"><b>Revnue:</b> ${(product.prodPurchases.map(p=>p.quantity*p.price)).reduce((accumulator, currentValue) => accumulator + currentValue, 0)}</p>` :
-                    `<label class='red'><b>Sold:</b> None</label>`
-                }
+                
                 
 
                 <div class="productButton">
