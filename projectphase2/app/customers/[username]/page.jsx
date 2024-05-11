@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "@/app/page.module.css";
 import ecomRepo from '@/app/repo/ecomRepo';
+import Link from 'next/link';
 
 export default async function page({ params }) {
   console.log(params);
@@ -24,6 +25,7 @@ export default async function page({ params }) {
 
   return (
     <div>
+      <Link href={'/html/main.html'}>back</Link>
       <h1 className={styles.h1}>Customer Statistics</h1>
       <table className={styles.table}>
         <tbody>
